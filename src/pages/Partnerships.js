@@ -35,7 +35,7 @@ function Partnerships() {
         <div style={styles.titleContainer}>
           <h2 style={styles.sectionTitle}>Who we Partner with</h2>
         </div>
-        <div style={styles.textContainer}>
+        <div style={styles.fixedHeightTextContainer}> {/* Nuevo contenedor con altura fija */}
           <ul style={styles.list}>
             <li style={styles.listItem}>
               <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
@@ -55,6 +55,28 @@ function Partnerships() {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div style={styles.divider}></div>
+      <div style={styles.section}>
+        <div style={styles.titleContainer}>
+          <h2 style={styles.sectionTitle}>Our Partners so far</h2>
+        </div>
+        <div style={styles.imageContainer}>
+          <img src={require('../images/fhnw.png')} alt="FHNW Partner" style={styles.partnerImageLarge} />
+          <img src={require('../images/innosuisse.png')} alt="Innosuisse Partner" style={styles.partnerImageSmall} />
+        </div>
+      </div>
+
+      <div style={styles.divider}></div>
+      <div style={styles.sectionCentered}>
+        <h2 style={styles.sectionTitleCentered}>Join our Journey</h2>
+        <p style={styles.sectionTextCentered}>
+          We’re always looking for great people to join our Serai team. 
+          Check out our current job listings below and get in touch if you think you could be a good match.
+        </p>
+        <button style={styles.becomePartnerButton}>General Application</button>
+        <div style={styles.extraSpacing}></div>
       </div>
 
       <Footer />
@@ -83,7 +105,7 @@ const styles = {
   },
   section: {
     display: 'flex',
-    marginTop: '2rem',
+    marginTop: '1rem',
     padding: '0 20%',
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -108,6 +130,10 @@ const styles = {
     flex: '1',
     padding: '0 20px',
   },
+  fixedHeightTextContainer: { 
+    flex: '1',
+    padding: '0 190px',
+  },
   sectionTitleCentered: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
@@ -131,10 +157,13 @@ const styles = {
     borderRadius: '25px',
     cursor: 'pointer',
   },
+  extraSpacing: {
+    height: '100px',  
+  },
   list: {
     listStyleType: 'none',
     padding: 0,
-    marginBottom: '6rem',
+    marginBottom: '0rem',
   },
   listItem: {
     display: 'flex',
@@ -145,6 +174,22 @@ const styles = {
     width: '30px', 
     height: '30px',
     marginRight: '10px',
+  },
+  imageContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    flex: '1',
+    padding: '0 70px',
+  },
+  partnerImageLarge: {
+    width: '500px', 
+    marginBottom: '4rem',
+  },
+  partnerImageSmall: {
+    width: '200px', 
+    marginBottom: '0rem',
   },
 };
 
