@@ -226,8 +226,8 @@ const styles = {
     padding: '10px', 
   },
   muteIcon: {
-    width: '70px',
-    height: '70px',
+    width: '48px',
+    height: '48px',
     fill: '#000', 
   },
   promoSection: {
@@ -256,14 +256,14 @@ const styles = {
     fontWeight: '400',
   },
   learnMoreButton: {
-    padding: '15px 100px',
+    padding: '28px 100px',
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '700',
     backgroundColor: '#3A3CE6',
     color: 'white',
     border: 'none',
-    borderRadius: '25px',
+    borderRadius: '48px',
     cursor: 'pointer',
   },
   elderlyCareSection: {
