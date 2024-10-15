@@ -205,7 +205,7 @@ const styles = {
     marginBottom: "4rem",
   },
   learnMoreButton: {
-    padding: "15px 100px",
+    padding: "28px 100px",
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '700',
@@ -228,7 +228,7 @@ const styles = {
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     fontSize: '3rem',  
-    fontWeight: '600',
+    fontWeight: '500',
     fontFamily: 'Atyp BL, sans-serif',
     marginTop: "0",
   },

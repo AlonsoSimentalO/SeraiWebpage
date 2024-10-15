@@ -295,7 +295,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     width: '100%',
     padding: '3rem',
   },
@@ -309,8 +309,8 @@ const styles = {
     fontSize: '1.5rem',
     fontWeight: '600',
     listStyleType: 'none', 
-    paddingLeft: '0', 
-    marginBottom: '0rem', 
+    paddingLeft: '0',
+    marginLeft: '5rem',
   },
   listItem: {
     display: 'flex', 
@@ -346,7 +346,8 @@ const styles = {
     textAlign: 'center',
     color: '#FFFFFF',
     width: '100%',
-    marginBottom: '4rem'
+    marginBottom: '4rem',
+    marginTop: '4rem'
   },
   whyTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -369,7 +370,6 @@ const styles = {
     backgroundColor: '#FFFFFF',
     borderRadius: '15px',
     color: '#333',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
   },
   cardImageContainer: {
     backgroundColor: '#3A3CE61A',

@@ -108,7 +108,7 @@ const styles = {
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     fontSize: '3rem',  
-    fontWeight: '600',
+    fontWeight: '500',
     fontFamily: 'Atyp BL, sans-serif',
     marginTop: '0'
   },
