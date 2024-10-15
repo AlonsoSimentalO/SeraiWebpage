@@ -51,7 +51,7 @@ function Home() {
       <Header />
 
       <div style={styles.videoContainer}>
-        <video
+       <video
           ref={videoRef}
           style={styles.video}
           onPlay={handlePlay}  

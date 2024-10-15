@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 
 function Header() {
+  const location = useLocation();
   return (
     <header style={styles.header}>
       <div style={styles.logoContainer}>
@@ -12,11 +14,30 @@ function Header() {
 
       <nav style={styles.navContainer}>
         <ul style={styles.navList}>
-          <li><Link to="/AboutSerai" style={styles.navLink}>About Serai</Link></li>
-          <li><Link to="/Research" style={styles.navLink}>Research</Link></li>
-          <li><Link to="/Insights" style={styles.navLink}>Insights</Link></li>
-          <li><Link to="/Partnerships" style={styles.navLink}>Partnerships</Link></li>
-          <li><Link to="/Contact" style={styles.navLink}>Contact</Link></li>
+          <li style={styles.listItem}>
+            <Link to="/AboutSerai" style={styles.navLink}>About Serai</Link>
+            { location.pathname === "/AboutSerai" &&
+             (<div style={styles.currentVisit}></div>)
+             }
+          </li>
+          <li style={styles.listItem}><Link to="/Research" style={styles.navLink}>Research</Link>
+          { location.pathname === "/Research" &&
+             (<div style={styles.currentVisit}></div>)
+             }
+          </li>
+          <li style={styles.listItem}><Link to="/Insights" style={styles.navLink}>Insights</Link> { location.pathname === "/Insights" &&
+             (<div style={styles.currentVisit}></div>)
+             }</li>
+          <li style={styles.listItem}><Link to="/Partnerships" style={styles.navLink}>Partnerships</Link>
+          { location.pathname === "/Partnerships" &&
+             (<div style={styles.currentVisit}></div>)
+             }
+          </li>
+          <li style={styles.listItem}><Link to="/Contact" style={styles.navLink}>Contact</Link>
+          { location.pathname === "/Contact" &&
+             (<div style={styles.currentVisit}></div>)
+             }
+          </li>
         </ul>
       </nav>
     </header>
@@ -38,6 +59,16 @@ const styles = {
     right: 0,
     zIndex: 1000,
     boxSizing: 'border-box',
+  },
+  currentVisit: {
+    width: '115%',
+    height: '2px',
+    backgroundColor: 'rgb(58, 60, 230)',
+    position: 'absolute',
+    right: '-50%',
+    left: '-50%',
+    top: '1.5rem',
+    placeSelf: 'center'
   },
   logoContainer: {
     flexShrink: 0,  
@@ -64,7 +95,9 @@ const styles = {
     color: '#000',
     fontSize: '1rem',
   },
-  
+  listItem: {
+    position: 'relative'
+  },
   '@media (max-width: 768px)': {  
     navList: {
       gap: '1rem',  
