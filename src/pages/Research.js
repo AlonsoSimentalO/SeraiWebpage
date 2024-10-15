@@ -109,6 +109,43 @@ function Research() {
         </div>
       </div>
 
+      <div style={styles.divider}></div>
+
+      <div style={styles.section}>
+        <div style={styles.titleContainer}>
+          <h2 style={styles.sectionTitle}>
+            Addressing Common Issues with Wearables
+          </h2>
+        </div>
+        <div style={styles.textContainer}>
+          <p style={styles.sectionText}>
+            One of the standout benefits of camera-based solutions is their
+            non-invasive nature. Wearable sensors can be obtrusive, causing
+            discomfort due to their weight and skin contact, and can be
+            burdensome during daily activities. (Vernon, 2020. ) Cameras, on the
+            other hand, do not require any physical contact, making them a more
+            comfortable and user-friendly option for continuous monitoring.
+          </p>
+        </div>
+      </div>
+
+      <div style={styles.divider}></div>
+
+      <div style={styles.section}>
+        <div style={styles.titleContainer}>
+          <h2 style={styles.sectionTitle}>Versatility and Adaptability</h2>
+        </div>
+        <div style={styles.textContainer}>
+          <p style={styles.sectionText}>
+            Camera-based systems, paired with contemporary activity recognition
+            algorithms, are incredibly versatile. They can accurately detect and
+            analyze a wide range of activities, from everyday tasks like cooking
+            and exercising to emergency situations. This adaptability makes them
+            ideal for providing care and ensuring safety at home.
+          </p>
+        </div>
+      </div>
+
       <Footer />
     </div>
   );
@@ -123,10 +160,10 @@ const styles = {
   },
   sectionTextContainer: {
     position: "relative",
-    margin: '0 0 2.2rem 0'
+    margin: "0 0 2.2rem 0",
   },
   sectionTextContainerLast: {
-    position: "relative"
+    position: "relative",
   },
   sectionTextIcon: {
     position: "absolute",
