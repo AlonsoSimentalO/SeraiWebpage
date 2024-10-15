@@ -20,8 +20,8 @@ function Header() {
              (<div style={styles.currentVisit}></div>)
              }
           </li>
-          <li style={styles.listItem}><Link to="/Research" style={styles.navLink}>Research</Link>
-          { location.pathname === "/Research" &&
+          <li style={styles.listItem}><Link to="/research" style={styles.navLink}>Research</Link>
+          { location.pathname === "/research" &&
              (<div style={styles.currentVisit}></div>)
              }
           </li>
@@ -33,8 +33,8 @@ function Header() {
              (<div style={styles.currentVisit}></div>)
              }
           </li>
-          <li style={styles.listItem}><Link to="/Contact" style={styles.navLink}>Contact</Link>
-          { location.pathname === "/Contact" &&
+          <li style={styles.listItem}><Link to="/contact" style={styles.navLink}>Contact</Link>
+          { location.pathname === "/contact" &&
              (<div style={styles.currentVisit}></div>)
              }
           </li>
