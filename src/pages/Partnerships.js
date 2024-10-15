@@ -113,7 +113,7 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2.8rem',
+    fontSize: '3.8rem',
     fontWeight: 'bold',
     marginBottom: '2rem',
   },
