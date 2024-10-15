@@ -6,8 +6,6 @@ function Insights() {
   return (
     <div style={styles.container}>
       <Header />
-
-      <div style={styles.divider}></div>
       <div style={styles.section}>
         <div style={styles.titleContainer}>
           <h2 style={styles.sectionTitle}>Our Scalable Solution</h2>
@@ -88,15 +86,15 @@ const styles = {
     height: '2px',
     backgroundColor: '#D3E4FF',
     width: '70%',
-    margin: '8rem auto 1rem auto',  
     display: 'block',
+    margin: '1rem auto'
   },
   section: {
     display: 'flex',
-    marginTop: '1rem',
     padding: '0 20%',
     flexDirection: 'row',
     alignItems: 'flex-start',
+    margin: '4rem auto'
   },
   titleContainer: {
     flex: '0 0 350px',
@@ -108,6 +106,7 @@ const styles = {
     WebkitTextFillColor: 'transparent',
     fontSize: '2.5rem',
     fontWeight: 'bold',
+    marginTop: '0'
   },
   textContainer: {
     flex: '1',
@@ -115,8 +114,8 @@ const styles = {
   },
   sectionText: {
     fontSize: '1.3rem',
-    textAlign: 'justify',
     lineHeight: '1.6',
+    marginTop: '0'
   },
   list: {
     listStyleType: 'none',
@@ -129,8 +128,8 @@ const styles = {
     marginBottom: '0rem',
   },
   checkIcon: {
-    width: '30x',
-    height: '30px',
+    marginLeft: '-7px',
+    height: '40px',
     marginRight: '10px',
   },
 };
