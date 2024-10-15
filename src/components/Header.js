@@ -5,7 +5,9 @@ function Header() {
   return (
     <header style={styles.header}>
       <div style={styles.logoContainer}>
-        <img src={require('../images/serai_logo.png')} alt="Serai Logo" style={styles.logo} />
+        <Link to="/">
+          <img src={require('../images/serai_logo.png')} alt="Serai Logo" style={styles.logo} />
+        </Link>
       </div>
 
       <nav style={styles.navContainer}>
@@ -28,7 +30,6 @@ const styles = {
     alignItems: 'center',
     padding: '1rem 2rem',
     backgroundColor: '#fff',
-    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
     width: '100%',
     margin: '0 auto',  
     position: 'fixed',

@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';  
 import Footer from '../components/Footer';
+import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.svg";
+import { ReactComponent as SpeakerIcon } from "../images/icons/volume-high.svg";
+import { ReactComponent as SpeakerMuteIcon } from "../images/icons/volume-mute.svg";
 
 function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -48,7 +51,7 @@ function Home() {
       <Header />
 
       <div style={styles.videoContainer}>
-       {/*  <video
+        <video
           ref={videoRef}
           style={styles.video}
           onPlay={handlePlay}  
@@ -57,7 +60,7 @@ function Home() {
           controls
         >
           <source src={require('../animations/Serai_2D_Animation_Eng4k.mp4')} type="video/mp4" />
-        </video> */}
+        </video>
 
         {!isPlaying && (
           <>
@@ -67,8 +70,9 @@ function Home() {
             </div>
           </>
         )}
+
         <button style={styles.muteButton} onClick={toggleMute}>
-          {isMuted ? 'Unmute' : 'Mute'}
+          {isMuted ? <SpeakerMuteIcon style={styles.muteIcon} /> : <SpeakerIcon style={styles.muteIcon} />}
         </button>
       </div>
 
@@ -85,28 +89,38 @@ function Home() {
 
       <div ref={elderlyCareRef} style={styles.elderlyCareSection}>
         <h2 style={styles.careTitle}>Transformative Solutions for Elderly Care</h2>
-        <p style={styles.careText}>
-          At Serai, we leverage machine learning to improve safety and provide independence for the elderly.
-        </p>
+        <p style={styles.careSubtitle}>At Serai, we leverage machine learning to improve safety and provide independence for the elderly.</p>
         <div style={styles.careDetails}>
-          <img src={require('../images/image.png')} alt="Elderly Care" style={styles.careImage}/>
+          <img src={require('../images/elderlyCare.png')} alt="Elderly Care" style={styles.careImage}/>
           <div style={styles.careList}>
             <ul>
               <li style={styles.listItem}>
-                <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon}/>
-                Real-Time Fall Detection
+                <SolutionIcon style={styles.solutionIcon}/>
+                <div style={styles.listText}>
+                  <p style={styles.listTitle}>Real-Time Fall Detection</p>
+                  <p style={styles.listDescription}>Our advanced AI technology detects falls instantly, provides immediate alerts to caregivers hence preventing serious injuries.</p>
+                </div>
               </li>
               <li style={styles.listItem}>
-                <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon}/>
-                Emergency Notifications
+                <SolutionIcon style={styles.solutionIcon}/>
+                <div style={styles.listText}>
+                  <p style={styles.listTitle}>Emergency Notifications</p>
+                  <p style={styles.listDescription}>Our system sends real-time notifications to designated caregivers enhancing the safety and security of the elderly.</p>
+                </div>
               </li>
               <li style={styles.listItem}>
-                <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon}/>
-                Medication Reminders
+                <SolutionIcon style={styles.solutionIcon}/>
+                <div style={styles.listText}>
+                  <p style={styles.listTitle}>Medication Reminders</p>
+                  <p style={styles.listDescription}>Our system provides timely reminders for medication, helping seniors adhere to their prescribed schedules.</p>
+                </div>
               </li>
               <li style={styles.listItem}>
-                <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon}/>
-                24/7 Monitoring
+                <SolutionIcon style={styles.solutionIcon}/>
+                <div style={styles.listText}>
+                  <p style={styles.listTitle}>24/7 Monitoring</p>
+                  <p style={styles.listDescription}>Our system detects any irregularities in daily activities, providing a comprehensive safety net for the elderly.</p>
+                </div>
               </li>
             </ul>
           </div>
@@ -121,21 +135,21 @@ function Home() {
         <div style={styles.cardsContainer}>
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
-              {/* <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} /> */}
+              <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Intelligent</h3>
             <p style={styles.cardText}>Serai gets to know you and provides insights to increase your quality of life.</p>
           </div>
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
-              {/* <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} /> */}
+              <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Secure</h3>
             <p style={styles.cardText}>Your data is physically stored in your home.</p>
           </div>
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
-              {/* <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} /> */}
+              <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Evolving</h3>
             <p style={styles.cardText}>Our Machine Learning algorithms will constantly improve, providing an ever-improving experience for you and your loved ones.</p>
@@ -167,6 +181,7 @@ const styles = {
     position: 'relative',  
     width: '70%', 
     margin: '2rem auto',
+    marginTop: '8rem',
   },
   video: {
     width: '100%',
@@ -203,13 +218,16 @@ const styles = {
     position: 'absolute',
     top: '5%',
     right: '5%',
-    backgroundColor: '#4CAF50',
-    color: '#fff',
-    padding: '10px 20px',
+    backgroundColor: 'transparent', 
     border: 'none',
-    borderRadius: '5px',
     cursor: 'pointer',
     zIndex: 3,
+    padding: '10px', 
+  },
+  muteIcon: {
+    width: '70px',
+    height: '70px',
+    fill: '#000', 
   },
   promoSection: {
     width: '100%',
@@ -257,9 +275,12 @@ const styles = {
     WebkitTextFillColor: 'transparent',  
     marginBottom: '1rem',
   },
-  careText: {
-    fontSize: '1.5rem',
-    marginBottom: '1.5rem',
+  careSubtitle: {
+    fontSize: '1.6rem',
+    color: '#1E293B',
+    marginBottom: '2rem',
+    textAlign: 'center',
+    lineHeight: '1.8',
   },
   careDetails: {
     display: 'flex',
@@ -270,7 +291,7 @@ const styles = {
     padding: '3rem',
   },
   careImage: {
-    width: '45%',
+    width: '40%',
     height: 'auto',
     borderRadius: '15px',
   },
@@ -278,16 +299,34 @@ const styles = {
     width: '50%',
     fontSize: '1.5rem',
     fontWeight: '600',
-    color: '#3A3CE6',
     listStyleType: 'none', 
     paddingLeft: '0', 
-    marginBottom: '2rem', 
+    marginBottom: '0rem', 
   },
-  
   listItem: {
-    marginBottom: '1.5rem', 
     display: 'flex', 
-    alignItems: 'center', 
+    alignItems: 'flex-start',
+    marginBottom: '1rem', 
+  },
+  solutionIcon: {
+    width: '80px',
+    height: '80px',
+    fill: '#1A0046',
+    marginRight: '10px',
+    marginTop: '2px', 
+  },
+  listText: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  listTitle: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    color: '#1A0046',
+  },
+  listDescription: {
+    fontSize: '1.2rem',
+    color: '#333',
   },
   checkIcon: {
     width: '34px', 
@@ -303,6 +342,9 @@ const styles = {
     marginBottom: '4rem'
   },
   whyTitle: {
+    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
     fontSize: '2.5rem',
     marginBottom: '3rem'
   },
@@ -313,8 +355,8 @@ const styles = {
     marginBottom: '2.5rem',
   },
   card: {
-    width: '25%',
-    height: '560px',
+    width: '30%',
+    height: '600px',
     backgroundColor: '#FFFFFF',
     borderRadius: '15px',
     color: '#333',

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Footer() {
   return (
@@ -15,11 +17,10 @@ function Footer() {
           <p style={styles.companyInfo}>info@seraispaces.com</p>
         </div>
         <div style={styles.linksSection}>
-          <p>About Serai</p>
-          <p>Insights</p>
-          <p>Careers</p>
-          <p>Contact</p>
-          <p>LinkedIn</p>
+          <Link to="/AboutSerai" style={styles.link}>About Serai</Link>
+          <Link to="/Insights" style={styles.link}>Insights</Link>
+          <Link to="/Careers" style={styles.link}>Careers</Link>
+          <Link to="/Contact" style={styles.link}>Contact</Link>
         </div>
       </div>
       <div style={styles.legalSection}>
@@ -39,7 +40,7 @@ function Footer() {
 
 const styles = {
   footer: {
-    backgroundColor: '#333',
+    backgroundColor: '#0F172A',
     color: '#fff',
     padding: '20px 50px',
     display: 'flex',
@@ -52,11 +53,12 @@ const styles = {
   },
   footerContent: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'flex-start',
     width: '100%',
     paddingBottom: '20px',
     borderBottom: '1px solid #444',
+    gap: '500px',
   },
   logoSection: {
     display: 'flex',
@@ -70,6 +72,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start', 
+    marginLeft: '40px',
   },
   companyInfo: {
     margin: '5px 0',
@@ -78,6 +81,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start', 
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#fff',
+    marginBottom: '50px',
   },
   legalSection: {
     paddingTop: '20px',
