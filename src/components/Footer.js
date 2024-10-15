@@ -19,7 +19,7 @@ function Footer() {
         <div style={styles.linksSection}>
           <Link to="/AboutSerai" style={styles.link}>About Serai</Link>
           <Link to="/Insights" style={styles.link}>Insights</Link>
-          <Link to="/Careers" style={styles.link}>Careers</Link>
+          <Link to="/Partnerships" style={styles.link}>Partnerships</Link>
           <Link to="/Contact" style={styles.link}>Contact</Link>
         </div>
       </div>
@@ -28,7 +28,7 @@ function Footer() {
           <p style={styles.legalText}>Serai © 2024. All rights reserved.</p>
         </div>
         <div style={styles.legalRight}>
-          <p style={styles.legalText}>Contact</p>
+          <Link to="/Contact" style={styles.legalLink}>Contact</Link>
         </div>
       </div>
     </div>
@@ -104,7 +104,12 @@ const styles = {
   },
   legalText: {
     margin: '0 10px', 
-  }
+  },
+  legalLink: {
+    textDecoration: 'none',
+    margin: '0 10px', 
+    color: '#E2E8F0', 
+  },
 };
 
 export default Footer;

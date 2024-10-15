@@ -238,7 +238,7 @@ const styles = {
   },
   promoTitle: {
     fontSize: '3.5rem',  
-    fontWeight: '700',
+    fontWeight: '600',
     fontFamily: 'Atyp BL, sans-serif',
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)', 
     WebkitBackgroundClip: 'text',  
@@ -275,7 +275,7 @@ const styles = {
   },
   careTitle: {
     fontSize: '3rem',  
-    fontWeight: '700',
+    fontWeight: '600',
     fontFamily: 'Atyp BL, sans-serif',
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)', 
     WebkitBackgroundClip: 'text',  
@@ -353,7 +353,7 @@ const styles = {
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     fontSize: '3rem',  
-    fontWeight: '700',
+    fontWeight: '600',
     fontFamily: 'Atyp BL, sans-serif',
     marginBottom: '3rem'
   },
@@ -414,7 +414,7 @@ const styles = {
   },
   joinUsTitle: {
     fontSize: '3rem',  
-    fontWeight: '700',
+    fontWeight: '600',
     fontFamily: 'Atyp BL, sans-serif',
     background: 'linear-gradient(to right, #1A0046 30%, #3A3CE6 70%)',
     WebkitBackgroundClip: 'text',
