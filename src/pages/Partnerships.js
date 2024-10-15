@@ -133,7 +133,6 @@ const styles = {
   },
   fixedHeightTextContainer: { 
     flex: '1',
-    padding: '0 190px',
   },
   sectionTitleCentered: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
