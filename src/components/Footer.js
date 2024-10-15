@@ -18,20 +18,15 @@ function Footer() {
         </div>
         <div style={styles.linksSection}>
           <Link to="/AboutSerai" style={styles.link}>About Serai</Link>
+          <Link to="/research" style={styles.link}>Research</Link>
           <Link to="/Insights" style={styles.link}>Insights</Link>
-          <Link to="/Careers" style={styles.link}>Careers</Link>
-          <Link to="/Contact" style={styles.link}>Contact</Link>
+          <Link to="/Partnerships" style={styles.link}>Partnerships</Link>
+          <Link to="/contact" style={styles.link}>Contact</Link>
         </div>
       </div>
       <div style={styles.legalSection}>
         <div style={styles.legalLeft}>
           <p style={styles.legalText}>Serai © 2024. All rights reserved.</p>
-        </div>
-        <div style={styles.legalRight}>
-          <p style={styles.legalText}>Terms</p>
-          <p style={styles.legalText}>Privacy</p>
-          <p style={styles.legalText}>Contact</p>
-          <p style={styles.legalText}>EN</p>
         </div>
       </div>
     </div>
@@ -53,7 +48,7 @@ const styles = {
   },
   footerContent: {
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'flex-start',
     width: '100%',
     paddingBottom: '20px',
@@ -85,13 +80,14 @@ const styles = {
   link: {
     textDecoration: 'none',
     color: '#fff',
-    marginBottom: '50px',
+    marginBottom: '20px',
   },
   legalSection: {
     paddingTop: '20px',
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    fontSize: '0.8rem',
     width: '100%',
   },
   legalLeft: {
