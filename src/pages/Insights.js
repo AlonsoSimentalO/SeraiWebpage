@@ -94,7 +94,8 @@ const styles = {
     padding: '0 20%',
     flexDirection: 'row',
     alignItems: 'flex-start',
-    margin: '4rem auto'
+    margin: '4rem auto',
+    width: '60%'
   },
   titleContainer: {
     flex: '0 0 350px',
@@ -131,6 +132,7 @@ const styles = {
     marginLeft: '-7px',
     height: '40px',
     marginRight: '10px',
+    marginTop: '-20px'
   },
 };
 

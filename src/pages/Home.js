@@ -121,21 +121,21 @@ function Home() {
         <div style={styles.cardsContainer}>
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
-              {/* <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} /> */}
+              <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Intelligent</h3>
             <p style={styles.cardText}>Serai gets to know you and provides insights to increase your quality of life.</p>
           </div>
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
-              {/* <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} /> */}
+              <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Secure</h3>
             <p style={styles.cardText}>Your data is physically stored in your home.</p>
           </div>
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
-              {/* <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} /> */}
+              <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Evolving</h3>
             <p style={styles.cardText}>Our Machine Learning algorithms will constantly improve, providing an ever-improving experience for you and your loved ones.</p>
@@ -167,6 +167,7 @@ const styles = {
     position: 'relative',  
     width: '70%', 
     margin: '2rem auto',
+
   },
   video: {
     width: '100%',
@@ -323,7 +324,7 @@ const styles = {
   cardImageContainer: {
     backgroundColor: '#3A3CE61A',
     padding: '1rem',
-    borderRadius: '10px',
+    borderRadius: '25px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

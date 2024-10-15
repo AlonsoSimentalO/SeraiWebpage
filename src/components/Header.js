@@ -5,7 +5,9 @@ function Header() {
   return (
     <header style={styles.header}>
       <div style={styles.logoContainer}>
+        <Link to="/">
         <img src={require('../images/serai_logo.png')} alt="Serai Logo" style={styles.logo} />
+        </Link>
       </div>
 
       <nav style={styles.navContainer}>

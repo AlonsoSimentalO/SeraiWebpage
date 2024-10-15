@@ -5,6 +5,7 @@ import AboutSerai from './pages/AboutSerai';
 import Insights from './pages/Insights';
 import Partnerships from './pages/Partnerships';
 import Research from './pages/Research';
+import Contact from './pages/Contact';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/AboutSerai" element={<AboutSerai />} />
         <Route path="/Insights" element={<Insights />} />
         <Route path="/Partnerships" element={<Partnerships />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
