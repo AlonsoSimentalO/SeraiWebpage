@@ -162,7 +162,7 @@ function Home() {
           <h2 style={styles.joinUsTitle}>Join Us</h2>
           <p>Join us in making solitary living safer and enhancing the quality of life for the elderly. Together, we can create a safer, more independent future for our ageing population.</p>
         </div>
-        <img src={require('../images/ambulance.png')} alt="Ambulance Service" style={styles.joinUsImage} />
+        <img src={require('../images/nurse.jpeg')} alt="Ambulance Service" style={styles.joinUsImage} />
       </div>
 
       <Footer />
@@ -410,7 +410,7 @@ const styles = {
     padding: '2rem 10%', 
     backgroundColor: '#ffffff', 
     color: '#333', 
-    marginBottom: '2rem', 
+    marginBottom: '4rem', 
   },
   joinUsTitle: {
     fontSize: '3rem',  

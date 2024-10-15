@@ -37,7 +37,7 @@ function Partnerships() {
         <div style={styles.titleContainer}>
           <h2 style={styles.sectionTitle}>Who we Partner with</h2>
         </div>
-        <div style={styles.fixedHeightTextContainer}> {/* Nuevo contenedor con altura fija */}
+        <div style={styles.fixedHeightTextContainer}> 
           <ul style={styles.list}>
             <li style={styles.listItem}>
               <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
@@ -65,8 +65,8 @@ function Partnerships() {
           <h2 style={styles.sectionTitle}>Our Partners so far</h2>
         </div>
         <div style={styles.imageContainer}>
-          <img src={require('../images/fhnw.png')} alt="FHNW Partner" style={styles.partnerImageLarge} />
-          <img src={require('../images/innosuisse.png')} alt="Innosuisse Partner" style={styles.partnerImageSmall} />
+          <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={styles.partnerImageLarge} />
+          <img src={require('../images/iNNO LOGO.png')} alt="Innosuisse Partner" style={styles.partnerImageSmall} />
         </div>
       </div>
 
@@ -161,7 +161,7 @@ const styles = {
     marginBottom: '2.5rem',
   },
   becomePartnerButton: {
-    padding: '15px 100px',
+    padding: '28px 100px',
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '700',
@@ -211,7 +211,7 @@ const styles = {
     marginBottom: '4rem',
   },
   partnerImageSmall: {
-    width: '200px', 
+    width: '400px', 
     marginBottom: '0rem',
   },
 };

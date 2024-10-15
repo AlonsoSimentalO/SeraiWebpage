@@ -57,15 +57,15 @@ function Insights() {
         <div style={styles.textContainer}>
           <ul style={styles.list}>
             <li style={styles.listItem}>
-              <img src={require('../images/check2.png')} alt="Check" style={styles.checkIcon} />
+              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
               <p style={styles.sectionText}>We have raised CHF 1.1 million in private investment.</p>
             </li>
             <li style={styles.listItem}>
-              <img src={require('../images/check2.png')} alt="Check" style={styles.checkIcon} />
+              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
               <p style={styles.sectionText}>Secured Innosuisse funding through a research partnership with FHNW.</p>
             </li>
             <li style={styles.listItem}>
-              <img src={require('../images/check2.png')} alt="Check" style={styles.checkIcon} />
+            <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
               <p style={styles.sectionText}>Developed a fall detection and behavioral anomaly solution for the senior care market.</p>
             </li>
           </ul>
@@ -135,7 +135,7 @@ const styles = {
   },
   checkIcon: {
     marginLeft: '-7px',
-    height: '40px',
+    height: '35px',
     marginRight: '10px',
     marginTop: '-20px'
   },
