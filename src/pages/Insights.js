@@ -6,6 +6,8 @@ function Insights() {
   return (
     <div style={styles.container}>
       <Header />
+
+      <div style={styles.divider}></div>
       <div style={styles.section}>
         <div style={styles.titleContainer}>
           <h2 style={styles.sectionTitle}>Our Scalable Solution</h2>
@@ -87,7 +89,7 @@ const styles = {
     backgroundColor: '#D3E4FF',
     width: '70%',
     display: 'block',
-    margin: '1rem auto'
+    margin: '2rem auto'
   },
   section: {
     display: 'flex',
@@ -98,15 +100,16 @@ const styles = {
     width: '60%'
   },
   titleContainer: {
-    flex: '0 0 350px',
+    flex: '0 0 450px',
     marginRight: '100px',
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     marginTop: '0'
   },
   textContainer: {
@@ -115,6 +118,8 @@ const styles = {
   },
   sectionText: {
     fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     lineHeight: '1.6',
     marginTop: '0'
   },

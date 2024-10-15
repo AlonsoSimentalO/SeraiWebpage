@@ -92,8 +92,10 @@ const styles = {
   },
   navLink: {
     textDecoration: 'none',
-    color: '#000',
+    color: '#1E293B',
     fontSize: '1rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '500',
   },
   listItem: {
     position: 'relative'

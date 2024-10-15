@@ -36,7 +36,7 @@ function Footer() {
 const styles = {
   footer: {
     backgroundColor: '#0F172A',
-    color: '#fff',
+    color: '#E2E8F0',
     padding: '20px 50px',
     display: 'flex',
     flexDirection: 'column',
@@ -45,6 +45,8 @@ const styles = {
     width: '100%', 
     margin: '0 auto',
     boxSizing: 'border-box',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
   },
   footerContent: {
     display: 'flex',
@@ -101,7 +103,12 @@ const styles = {
   },
   legalText: {
     margin: '0 10px', 
-  }
+  },
+  legalLink: {
+    textDecoration: 'none',
+    margin: '0 10px', 
+    color: '#E2E8F0', 
+  },
 };
 
 export default Footer;

@@ -80,12 +80,15 @@ const styles = {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    fontSize: "2.5rem",
-    fontWeight: "bold",
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     marginTop: "0",
   },
   sectionText: {
-    fontSize: "1.3rem",
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     lineHeight: "1.6",
     marginTop: "0",
   },
@@ -100,7 +103,9 @@ const styles = {
   },
   addressP: {
     marginTop: '0',
-    fontWeight: "bold"
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '700',
   }
 };
 

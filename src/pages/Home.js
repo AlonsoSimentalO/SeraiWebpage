@@ -207,7 +207,8 @@ const styles = {
     transform: 'translate(-50%, -50%)',
     color: '#fff',
     fontSize: '4rem',
-    fontWeight: 'bold',
+    fontWeight: '700',
+    fontFamily: 'Atyp BL, sans-serif',
     textAlign: 'center',
     zIndex: 2,
     pointerEvents: 'none',
@@ -237,7 +238,8 @@ const styles = {
   },
   promoTitle: {
     fontSize: '3.5rem',  
-    fontWeight: 'bold',
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)', 
     WebkitBackgroundClip: 'text',  
     WebkitTextFillColor: 'transparent',  
@@ -250,10 +252,14 @@ const styles = {
   promoText: {
     fontSize: '1.5rem',
     marginBottom: '4rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
   },
   learnMoreButton: {
     padding: '15px 100px',
     fontSize: '1rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '700',
     backgroundColor: '#3A3CE6',
     color: 'white',
     border: 'none',
@@ -269,7 +275,8 @@ const styles = {
   },
   careTitle: {
     fontSize: '3rem',  
-    fontWeight: 'bold',
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)', 
     WebkitBackgroundClip: 'text',  
     WebkitTextFillColor: 'transparent',  
@@ -278,6 +285,8 @@ const styles = {
   careSubtitle: {
     fontSize: '1.6rem',
     color: '#1E293B',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     marginBottom: '2rem',
     textAlign: 'center',
     lineHeight: '1.8',
@@ -309,8 +318,8 @@ const styles = {
     marginBottom: '1rem', 
   },
   solutionIcon: {
-    width: '80px',
-    height: '80px',
+    width: '75px',
+    height: '75px',
     fill: '#1A0046',
     marginRight: '10px',
     marginTop: '2px', 
@@ -320,18 +329,16 @@ const styles = {
     flexDirection: 'column',
   },
   listTitle: {
-    fontSize: '1.5rem',
+    fontSize: '1.4rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: 'bold',
     color: '#1A0046',
   },
   listDescription: {
     fontSize: '1.2rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     color: '#333',
-  },
-  checkIcon: {
-    width: '34px', 
-    height: '34px', 
-    marginRight: '10px', 
   },
   whySection: {
     backgroundColor: '#F6F6F6',
@@ -345,7 +352,9 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2.5rem',
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     marginBottom: '3rem'
   },
   cardsContainer: {
@@ -380,12 +389,17 @@ const styles = {
   },
   cardTitle: {
     fontSize: '1.9rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: 'bold',
     marginTop: '1rem',
     textAlign: 'left',
     padding: '0 1rem',
+    color: '#1A0046',
   },
   cardText: {
     fontSize: '1.5rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     textAlign: 'left',
     padding: '0 1rem',
   },
@@ -399,8 +413,9 @@ const styles = {
     marginBottom: '2rem', 
   },
   joinUsTitle: {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     background: 'linear-gradient(to right, #1A0046 30%, #3A3CE6 70%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
@@ -411,6 +426,8 @@ const styles = {
     width: '50%',
     padding: '0 2rem', 
     fontSize: '1.5rem', 
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     textAlign: 'left', 
   },
   

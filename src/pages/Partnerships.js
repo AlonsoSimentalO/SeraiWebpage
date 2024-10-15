@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 function Partnerships() {
+  const mailToLink = "mailto:info@seraispaces.com";
+
   return (
     <div style={styles.container}>
       <Header />
@@ -12,7 +14,9 @@ function Partnerships() {
           At Serai AG, we are dedicated to enhancing the safety, independence, and quality of life for older adults through innovative AI-driven solutions. 
           Our commitment to privacy and non-intrusive technology ensures that seniors can live comfortably and securely in their own homes.
         </p>
-        <button style={styles.becomePartnerButton}>Become a Partner</button>
+        <a href={mailToLink} target="_blank" rel="noopener noreferrer">
+          <button style={styles.becomePartnerButton}>Become a Partner</button>
+        </a>
       </div>
 
       <div style={styles.divider}></div>
@@ -73,7 +77,9 @@ function Partnerships() {
           We’re always looking for great people to join our Serai team. 
           Check out our current job listings below and get in touch if you think you could be a good match.
         </p>
-        <button style={styles.becomePartnerButton}>General Application</button>
+        <a href={mailToLink} target="_blank" rel="noopener noreferrer">
+          <button style={styles.becomePartnerButton}>General Application</button>
+        </a>
         <div style={styles.extraSpacing}></div>
       </div>
 
@@ -117,12 +123,15 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2.5rem', 
-    fontWeight: 'bold',
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     marginTop: '0'
   },
   sectionText: {
-    fontSize: '1.3rem', 
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     textAlign: 'justify',
     lineHeight: '1.6',
     marginTop: '0'
@@ -138,19 +147,24 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '3.5rem',
-    fontWeight: 'bold',
-    marginBottom: '2rem',
+    fontSize: '3.5rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
+    marginBottom: '2.5rem',
   },
   sectionTextCentered: {
-    fontSize: '1.5rem',
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     textAlign: 'center',
     lineHeight: '1.6',
-    marginBottom: '2rem',
+    marginBottom: '2.5rem',
   },
   becomePartnerButton: {
     padding: '15px 100px',
     fontSize: '1rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '700',
     backgroundColor: '#3A3CE6',
     color: 'white',
     border: 'none',
@@ -172,7 +186,9 @@ const styles = {
     
   },
   listText: {
-    fontSize: '1.3rem', 
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     textAlign: 'justify',
     lineHeight: '1.6',
     margin: '0'

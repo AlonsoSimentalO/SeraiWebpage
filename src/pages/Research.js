@@ -13,9 +13,9 @@ function Research() {
           Promoting Independence and <br /> Well-being for Seniors
         </h2>
         <p style={styles.promoText}>
-          At Serai, we build innovative software and research advanced
-          algorithms to <br />
-          detect irregularities in the everyday lives of the elderly.
+        We are leaders in Research through our partnerships with top research  institutions like FHNW in Aargau to develop our patented technology.
+        We are committed <br /> to research that enhances the safety, independence, and well-being of  older adults. We believe in our product and believe 
+         it is the future of home <br /> monitoring with camera-based solutions
         </p>
         <button
           style={styles.learnMoreButton}
@@ -184,8 +184,9 @@ const styles = {
     padding: "2rem 0",
   },
   promoTitle: {
-    fontSize: "3.5rem",
-    fontWeight: "bold",
+    fontSize: '3.5rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
@@ -196,12 +197,18 @@ const styles = {
     marginBottom: "3rem",
   },
   promoText: {
-    fontSize: "1.5rem",
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
+    lineHeight: '1.6',
+    marginTop: '0',
     marginBottom: "4rem",
   },
   learnMoreButton: {
     padding: "15px 100px",
-    fontSize: "1rem",
+    fontSize: '1rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '700',
     backgroundColor: "#3A3CE6",
     color: "white",
     border: "none",
@@ -214,18 +221,21 @@ const styles = {
     flexDirection: "row",
     alignItems: "flex-start",
     margin: "4rem auto",
-    width: "60%",
+    width: "70%",
   },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    fontSize: "2.5rem",
-    fontWeight: "bold",
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     marginTop: "0",
   },
   sectionText: {
-    fontSize: "1.3rem",
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     lineHeight: "1.6",
     marginTop: "0",
   },
@@ -239,7 +249,9 @@ const styles = {
     position: "relative",
   },
   sectionSubtitle: {
-    fontSize: "1.2rem",
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '600',
     color: "#1A0046",
     marginTop: "0",
     marginBottom: "0.5rem",
