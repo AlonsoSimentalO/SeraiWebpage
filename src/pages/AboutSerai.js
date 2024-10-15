@@ -25,20 +25,20 @@ function AboutSerai() {
   ];
 
   const teamMembers = [
-    { name: 'Emre Tuna', role: 'Investor and Executive Board Member', image: emreImage, linkedin: '' },
-    { name: 'Alen Selim Kimer', role: 'Executive Board Member', image: alenImage, linkedin: '' },
-    { name: 'Frank Theelen', role: 'Advisory Board Member and Head of Strategic Partnerships', image: frankImage, linkedin: '' },
-    { name: 'Pinar Yaktiyol', role: 'Advisory Board Member', image: pinarImage, linkedin: '' },
-    { name: 'Evrim Firatli', role: 'ML Intern', image: evrimImage, linkedin: '' },
-    { name: 'Eduardo Castello Ferrer', role: 'Advisory Board Member', image: eduardoImage, linkedin: '' },
-    { name: 'Robert Hasson', role: 'Advisory Board Member', image: robertImage, linkedin: '' },
-    { name: 'Kevin Schawinsk', role: 'Advisory Board Member', image: kevinImage, linkedin: '' },
-    { name: 'Burak Yetiskin', role: 'Founder, Ex-CEO, Advisory Board Member', image: burakImage, linkedin: '' },
+    { name: 'Emre Tuna', role: 'Investor and Executive Board Member', image: emreImage, linkedin: 'https://www.linkedin.com/in/emre-tuna-09b7b280/' },
+    { name: 'Alen Selim Kimer', role: 'Executive Board Member', image: alenImage, linkedin: 'https://www.linkedin.com/in/selimkimer/' },
+    { name: 'Frank Theelen', role: 'Advisory Board Member and Head of Strategic Partnerships', image: frankImage, linkedin: 'https://www.linkedin.com/in/franktheelen/' },
+    { name: 'Pinar Yaktiyol', role: 'Advisory Board Member', image: pinarImage, linkedin: 'https://www.linkedin.com/in/yaktiyolpinar/' },
+    { name: 'Evrim Firatli', role: 'ML Intern', image: evrimImage, linkedin: 'https://www.linkedin.com/in/firatlievrim/' },
+    { name: 'Eduardo Castello Ferrer', role: 'Advisory Board Member', image: eduardoImage, linkedin: 'https://www.linkedin.com/in/eduardocastelloferrer/' },
+    { name: 'Robert Hasson', role: 'Advisory Board Member', image: robertImage, linkedin: 'https://www.linkedin.com/in/robert-hasson/' },
+    { name: 'Kevin Schawinsk', role: 'Advisory Board Member', image: kevinImage, linkedin: 'https://www.linkedin.com/in/kevin-schawinski-517b2a74/' },
+    { name: 'Burak Yetiskin', role: 'Founder, Ex-CEO, Advisory Board Member', image: burakImage, linkedin: 'https://www.linkedin.com/in/burakyetiskin/' },
   ];
 
   const researchPartners = [
-    { name: 'Prof. Dr. Arzu Coltekin', role: 'Advisory Board Member', image: arzuImage, linkedin: '' },
-    { name: 'Prof. Dr. Anton Fedosov', role: 'Advisory Board Member', image: antonImage, linkedin: '' }
+    { name: 'Prof. Dr. Arzu Coltekin', role: 'Advisory Board Member', image: arzuImage, linkedin: 'https://www.linkedin.com/in/arzucoltekin/' },
+    { name: 'Prof. Dr. Anton Fedosov', role: 'Advisory Board Member', image: antonImage, linkedin: 'https://www.linkedin.com/in/antonfedosov/' }
   ];
 
   const TeamMember = ({ name, role, image, linkedin }) => (
@@ -183,14 +183,17 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     marginLeft: '20%',
   },
   goals: {
     marginTop: '2rem',
     padding: '0 20%',
-    fontSize: '1.2rem',
+    fontSize: '1.4rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     lineHeight: '1.8',
     display: 'flex',
     flexDirection: 'column',
@@ -232,8 +235,9 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
+    fontSize: '3rem',  
+    fontWeight: '600',
+    fontFamily: 'Atyp BL, sans-serif',
     marginTop: '0'
   },
   textContainer: {
@@ -242,6 +246,8 @@ const styles = {
   },
   sectionText: {
     fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     marginTop: '0',
     lineHeight: '1.6',
   },
@@ -254,14 +260,17 @@ const styles = {
     textAlign: 'center', 
   },
   teamTitle: {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
+    fontSize: '3.2rem',  
+    fontWeight: '700',
+    fontFamily: 'Atyp BL, sans-serif',
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
   },
   teamDescription: {
-    fontSize: '1.2rem',
+    fontSize: '1.3rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     marginTop: '1rem', 
   },
   teamMembers: {
@@ -272,16 +281,17 @@ const styles = {
   },
   researchTitle: {
     fontSize: '2rem',
-    fontWeight: 'bold',
-    color: '#1A0046',  // Color morado especificado
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
+    color: '#1A0046',  
     textAlign: 'center',
     marginTop: '5rem',
-    marginBottom: '2rem',
+    marginBottom: '1rem',
   },
   researchPartners: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)', // Para que sean dos columnas
-    gap: '50px', // Añadir espacio entre los dos miembros
+    gridTemplateColumns: 'repeat(2, 1fr)', 
+    gap: '50px',
     justifyItems: 'center',
   },
   memberContainer: {
@@ -300,20 +310,23 @@ const styles = {
     boxSizing: 'border-box' 
   },
   memberName: {
-    fontWeight: 'bold',
-    fontSize: '1.2rem',
+    fontSize: '1.3rem',
+    fontWeight: '700',
+    fontFamily: 'Atyp BL, sans-serif',
     marginTop: '10px',
     marginBottom: '0px',
   },
   memberRole: {
     fontSize: '1rem',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
     color: '#666',
     marginBottom: '10px',
     flex: '1', 
   },
   linkedinIcon: {
-    width: '24px',
-    height: '24px',
+    width: '36px',
+    height: '36px',
     marginBottom: '10px', 
   },
 };

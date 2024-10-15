@@ -28,10 +28,7 @@ function Footer() {
           <p style={styles.legalText}>Serai © 2024. All rights reserved.</p>
         </div>
         <div style={styles.legalRight}>
-          <p style={styles.legalText}>Terms</p>
-          <p style={styles.legalText}>Privacy</p>
           <p style={styles.legalText}>Contact</p>
-          <p style={styles.legalText}>EN</p>
         </div>
       </div>
     </div>
@@ -41,7 +38,7 @@ function Footer() {
 const styles = {
   footer: {
     backgroundColor: '#0F172A',
-    color: '#fff',
+    color: '#E2E8F0',
     padding: '20px 50px',
     display: 'flex',
     flexDirection: 'column',
@@ -50,6 +47,8 @@ const styles = {
     width: '100%', 
     margin: '0 auto',
     boxSizing: 'border-box',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    fontWeight: '400',
   },
   footerContent: {
     display: 'flex',
