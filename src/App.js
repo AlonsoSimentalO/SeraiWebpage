@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import AboutSerai from './pages/AboutSerai';
 import Insights from './pages/Insights';
 import Partnerships from './pages/Partnerships';
+import Research from './pages/Research';
+
 
 const App = () => {
   return (
@@ -11,6 +13,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/research" element={<Research />} />
         <Route path="/AboutSerai" element={<AboutSerai />} />
         <Route path="/Insights" element={<Insights />} />
         <Route path="/Partnerships" element={<Partnerships />} />

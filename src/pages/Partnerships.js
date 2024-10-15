@@ -6,8 +6,6 @@ function Partnerships() {
   return (
     <div style={styles.container}>
       <Header />
-
-      <div style={styles.divider}></div>
       <div style={styles.sectionCentered}>
         <h2 style={styles.sectionTitleCentered}>Join as a B2B partner</h2>
         <p style={styles.sectionTextCentered}>
@@ -39,19 +37,19 @@ function Partnerships() {
           <ul style={styles.list}>
             <li style={styles.listItem}>
               <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
-              <p style={styles.sectionText}>Healthcare Providers</p>
+              <p style={styles.listText}>Healthcare Providers</p>
             </li>
             <li style={styles.listItem}>
               <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
-              <p style={styles.sectionText}>Insurance Companies</p>
+              <p style={styles.listText}>Insurance Companies</p>
             </li>
             <li style={styles.listItem}>
               <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
-              <p style={styles.sectionText}>Senior Care Facilities</p>
+              <p style={styles.listText}>Senior Care Facilities</p>
             </li>
             <li style={styles.listItem}>
               <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
-              <p style={styles.sectionText}>Government Institutions</p>
+              <p style={styles.listText}>Government Institutions</p>
             </li>
           </ul>
         </div>
@@ -109,6 +107,7 @@ const styles = {
     padding: '0 20%',
     flexDirection: 'row',
     alignItems: 'flex-start',
+    width: '60%'
   },
   titleContainer: {
     flex: '0 0 350px',
@@ -120,11 +119,13 @@ const styles = {
     WebkitTextFillColor: 'transparent',
     fontSize: '2.5rem', 
     fontWeight: 'bold',
+    marginTop: '0'
   },
   sectionText: {
     fontSize: '1.3rem', 
     textAlign: 'justify',
     lineHeight: '1.6',
+    marginTop: '0'
   },
   textContainer: {
     flex: '1',
@@ -138,7 +139,7 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2.8rem',
+    fontSize: '3.8rem',
     fontWeight: 'bold',
     marginBottom: '2rem',
   },
@@ -168,7 +169,14 @@ const styles = {
   listItem: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '0rem',
+    margin: '1rem 0',
+    
+  },
+  listText: {
+    fontSize: '1.3rem', 
+    textAlign: 'justify',
+    lineHeight: '1.6',
+    margin: '0'
   },
   checkIcon: {
     width: '30px', 

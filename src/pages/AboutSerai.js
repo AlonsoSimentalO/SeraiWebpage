@@ -62,7 +62,7 @@ function AboutSerai() {
         <div style={styles.goals}>
           {["Improving the safety, independence, and well-being of older adults.",
             "Developing advanced software and algorithms to detect irregularities in the lives of older adults.",
-            "Invest in ongoing research and development to continuously improve the evolving needs of the elderly population."
+            "Invest in ongoing research and development to continuously improve the evolving needs of the elderly population.",
           ].map((goal, index) => (
             <p style={{ 
               ...styles.goal, 
@@ -171,7 +171,8 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '100vh',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   content: {
     flex: 1,
@@ -185,7 +186,6 @@ const styles = {
     WebkitTextFillColor: 'transparent',
     fontSize: '2.5rem',
     fontWeight: 'bold',
-    marginTop: '7rem',
     marginLeft: '20%',
   },
   goals: {
@@ -196,6 +196,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'stretch',
+    marginBottom: '4rem'
   },
   goal: {
     textAlign: 'left',
@@ -212,36 +213,38 @@ const styles = {
     height: '2px',
     backgroundColor: '#D3E4FF',
     width: '70%', 
-    margin: '5rem auto',
-    marginTop: '7rem',
+    margin: '1rem auto',
     display: 'block'
   },
   section: {
     display: 'flex',
-    marginTop: '2rem',
+    margin: '4rem auto',
     padding: '0 20%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start'
+    
   },
   titleContainer: {
-    flex: '0 0 250px',
+    flex: '0 0 350px',
     marginRight: '100px'
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    fontSize: '2rem',
+    fontSize: '2.5rem',
     fontWeight: 'bold',
+    marginTop: '0'
   },
   textContainer: {
     flex: '1',
     padding: '0 20px'
   },
   sectionText: {
-    fontSize: '1.2rem',
-    textAlign: 'justify'
+    fontSize: '1.3rem',
+    marginTop: '0',
+    lineHeight: '1.6',
   },
   highlight: {
     fontWeight: 'bold',
