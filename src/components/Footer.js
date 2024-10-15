@@ -7,7 +7,7 @@ function Footer() {
     <div style={styles.footer}>
       <div style={styles.footerContent}>
         <div style={styles.logoSection}>
-          <img src={require('../images/serai_logo.png')} alt="Serai Logo" style={styles.logo} />
+          <img src={require('../images/serai_logo_negative.png')} alt="Serai Logo" style={styles.logo} />
         </div>
         <div style={styles.infoSection}>
           <p style={styles.companyInfo}>Serai AG</p>
@@ -80,7 +80,7 @@ const styles = {
   linksSection: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start', 
+    alignItems: 'flex-start',
   },
   link: {
     textDecoration: 'none',
@@ -107,7 +107,5 @@ const styles = {
     margin: '0 10px', 
   }
 };
-
-
 
 export default Footer;

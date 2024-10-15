@@ -15,7 +15,7 @@ import arzuImage from '../images/linkedin/arzu.jpg';
 import antonImage from '../images/linkedin/anton.jpg';
 import linkedinIcon from '../images/linkedin/linkedin_icon.png';
 
-function AboutSerai() {
+function AboutSerai() { 
   const [hoverIndex, setHoverIndex] = useState(-1);
 
   const goalStyles = [
@@ -177,7 +177,6 @@ const styles = {
   content: {
     flex: 1,
     padding: '2rem',
-    backgroundColor: '#f9f9f9',
   },
   title: {
     textAlign: 'left',

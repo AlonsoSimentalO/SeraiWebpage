@@ -136,7 +136,6 @@ function Home() {
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
               <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} />
-              <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Intelligent</h3>
             <p style={styles.cardText}>Serai gets to know you and provides insights to increase your quality of life.</p>
@@ -144,14 +143,12 @@ function Home() {
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
               <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} />
-              <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Secure</h3>
             <p style={styles.cardText}>Your data is physically stored in your home.</p>
           </div>
           <div style={styles.card}>
             <div style={styles.cardImageContainer}>
-              <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} />
               <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} />
             </div>
             <h3 style={styles.cardTitle}>Evolving</h3>
