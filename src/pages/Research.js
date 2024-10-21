@@ -13,9 +13,9 @@ function Research() {
           Promoting Independence and <br /> Well-being for Seniors
         </h2>
         <p style={styles.promoText}>
-        We are leaders in Research through our partnerships with top research  institutions like FHNW in Aargau to develop our patented technology.
-        We are committed <br /> to research that enhances the safety, independence, and well-being of  older adults. We believe in our product and believe 
-         it is the future of home <br /> monitoring with camera-based solutions
+        We are leaders in Research through our partnerships with top research  institutions like FHNW in Aargau to develop our <br />patented technology.
+        We are committed to research that enhances the safety, independence, and well-being of  older adults.<br /> We believe in our product and believe 
+         it is the future of home monitoring with camera-based solutions
         </p>
         <button
           style={styles.learnMoreButton}
@@ -212,7 +212,7 @@ const styles = {
     backgroundColor: "#3A3CE6",
     color: "white",
     border: "none",
-    borderRadius: "25px",
+    borderRadius: "48px",
     cursor: "pointer",
   },
   section: {

@@ -95,7 +95,7 @@ const styles = {
     color: '#1E293B',
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '500',
+    fontWeight: '600',
   },
   listItem: {
     position: 'relative'

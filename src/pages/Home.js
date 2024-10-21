@@ -179,9 +179,9 @@ const styles = {
   },
   videoContainer: {
     position: 'relative',  
-    width: '70%', 
+    width: '75%', 
     margin: '2rem auto',
-    marginTop: '8rem',
+    marginTop: '2rem',
   },
   video: {
     width: '100%',
@@ -270,7 +270,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '80%',
+    width: '90%',
     margin: '2rem auto',
   },
   careTitle: {
@@ -297,7 +297,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'flex-start',
     width: '100%',
-    padding: '3rem',
+    padding: '1rem',
   },
   careImage: {
     width: '40%',
@@ -310,7 +310,7 @@ const styles = {
     fontWeight: '600',
     listStyleType: 'none', 
     paddingLeft: '0',
-    marginLeft: '5rem',
+    marginLeft: '2.5rem',
   },
   listItem: {
     display: 'flex', 
@@ -424,7 +424,7 @@ const styles = {
   },  
   joinUsText: {
     width: '50%',
-    padding: '0 2rem', 
+    padding: '0 3rem', 
     fontSize: '1.5rem', 
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',

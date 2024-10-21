@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';  
 import Footer from '../components/Footer';
+import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.svg";
 
 function Partnerships() {
   const mailToLink = "mailto:info@seraispaces.com";
@@ -40,19 +41,27 @@ function Partnerships() {
         <div style={styles.fixedHeightTextContainer}> 
           <ul style={styles.list}>
             <li style={styles.listItem}>
-              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
+            <div style={styles.sectionTextIcon}>
+              <SolutionIcon />
+            </div>
               <p style={styles.listText}>Healthcare Providers</p>
             </li>
             <li style={styles.listItem}>
-              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
+              <div style={styles.sectionTextIcon}>
+                <SolutionIcon />
+              </div>
               <p style={styles.listText}>Insurance Companies</p>
             </li>
             <li style={styles.listItem}>
-              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
+              <div style={styles.sectionTextIcon}>
+                <SolutionIcon />
+              </div>
               <p style={styles.listText}>Senior Care Facilities</p>
             </li>
             <li style={styles.listItem}>
-              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
+              <div style={styles.sectionTextIcon}>
+                <SolutionIcon />
+              </div>
               <p style={styles.listText}>Government Institutions</p>
             </li>
           </ul>
@@ -132,9 +141,8 @@ const styles = {
     fontSize: '1.3rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    textAlign: 'justify',
-    lineHeight: '1.6',
-    marginTop: '0'
+    lineHeight: "1.6",
+    marginTop: "0",
   },
   textContainer: {
     flex: '1',
@@ -168,7 +176,7 @@ const styles = {
     backgroundColor: '#3A3CE6',
     color: 'white',
     border: 'none',
-    borderRadius: '25px',
+    borderRadius: '48px',
     cursor: 'pointer',
   },
   extraSpacing: {
@@ -198,13 +206,16 @@ const styles = {
     height: '30px',
     marginRight: '10px',
   },
+  sectionTextIcon: {
+    marginRight: "10px",
+  },
   imageContainer: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'center',
     flex: '1',
-    padding: '0 70px',
+    padding: '0 0',
   },
   partnerImageLarge: {
     width: '500px', 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';  
 import Footer from '../components/Footer';
+import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.svg";
 
 function Insights() {
   return (
@@ -57,15 +58,21 @@ function Insights() {
         <div style={styles.textContainer}>
           <ul style={styles.list}>
             <li style={styles.listItem}>
-              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
+              <div style={styles.sectionTextIcon}>
+                <SolutionIcon />
+              </div>
               <p style={styles.sectionText}>We have raised CHF 1.1 million in private investment.</p>
             </li>
             <li style={styles.listItem}>
-              <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
+              <div style={styles.sectionTextIcon}>
+                <SolutionIcon />
+              </div>
               <p style={styles.sectionText}>Secured Innosuisse funding through a research partnership with FHNW.</p>
             </li>
             <li style={styles.listItem}>
-            <img src={require('../images/check.png')} alt="Check" style={styles.checkIcon} />
+              <div style={styles.sectionTextIcon}>
+                <SolutionIcon />
+              </div>
               <p style={styles.sectionText}>Developed a fall detection and behavioral anomaly solution for the senior care market.</p>
             </li>
           </ul>
@@ -120,8 +127,8 @@ const styles = {
     fontSize: '1.3rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    lineHeight: '1.6',
-    marginTop: '0'
+    lineHeight: "1.6",
+    marginTop: "0",
   },
   list: {
     listStyleType: 'none',
@@ -132,6 +139,9 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     marginBottom: '0rem',
+  },
+  sectionTextIcon: {
+    marginRight: "10px",
   },
   checkIcon: {
     marginLeft: '-7px',
