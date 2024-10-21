@@ -222,7 +222,7 @@ const styles = {
     marginBottom: '4rem',
   },
   partnerImageSmall: {
-    width: '400px', 
+    width: '500px', 
     marginBottom: '0rem',
   },
 };

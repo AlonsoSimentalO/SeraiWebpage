@@ -17,6 +17,7 @@ function Insights() {
           <p style={styles.sectionText}>
             We leverage advanced machine learning and IoT technology to provide real-time monitoring, fall detection, and emergency notifications.
           </p>
+
           <p style={styles.sectionText}>
             We offer an accessible, affordable, and home-integrated no-touch solution designed to improve the quality of life for the elderly.
           </p>
@@ -104,7 +105,7 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'flex-start',
     margin: '4rem auto',
-    width: '60%'
+    width: '65%'
   },
   titleContainer: {
     flex: '0 0 450px',
@@ -122,6 +123,7 @@ const styles = {
   textContainer: {
     flex: '1',
     padding: '0 20px',
+    position: "relative",
   },
   sectionText: {
     fontSize: '1.3rem',

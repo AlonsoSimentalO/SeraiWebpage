@@ -298,19 +298,21 @@ const styles = {
     justifyContent: 'flex-start',
     width: '100%',
     padding: '1rem',
+    marginBottom: '2rem'
   },
   careImage: {
-    width: '40%',
+    width: '30%',
     height: 'auto',
     borderRadius: '15px',
+    marginLeft: '16rem'
   },
   careList: {
-    width: '50%',
+    width: '35%',
     fontSize: '1.5rem',
     fontWeight: '600',
     listStyleType: 'none', 
     paddingLeft: '0',
-    marginLeft: '2.5rem',
+    marginLeft: '.7rem',
   },
   listItem: {
     display: 'flex', 
@@ -333,12 +335,15 @@ const styles = {
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: 'bold',
     color: '#1A0046',
+    marginBottom: "0.5rem",
   },
   listDescription: {
     fontSize: '1.2rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
     color: '#333',
+    marginTop: '0',
+    marginBottom: '0'
   },
   whySection: {
     backgroundColor: '#F6F6F6',

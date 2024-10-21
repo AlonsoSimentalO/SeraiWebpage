@@ -224,7 +224,8 @@ const styles = {
     padding: '0 20%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    width: "65%",
     
   },
   titleContainer: {

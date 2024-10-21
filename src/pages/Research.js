@@ -221,7 +221,7 @@ const styles = {
     flexDirection: "row",
     alignItems: "flex-start",
     margin: "4rem auto",
-    width: "70%",
+    width: "65%",
   },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",

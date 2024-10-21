@@ -75,7 +75,7 @@ const styles = {
     marginRight: 'auto',  
   },
   logo: {
-    height: '50px',
+    height: '70px',
     maxWidth: '100%',
   },
   navContainer: {
