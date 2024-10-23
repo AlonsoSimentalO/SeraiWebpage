@@ -65,7 +65,7 @@ function Header() {
           {menuOpen && (
             <nav style={styles.navContainerMobile}>
               <ul style={navListStyles}>
-                {['About Serai', 'research', 'Insights', 'Partnerships', 'contact'].map((path) => (
+                {['AboutSerai', 'research', 'Insights', 'Partnerships', 'contact'].map((path) => (
                   <li style={styles.listItem} key={path}>
                     <Link
                       to={`/${path}`}
@@ -86,7 +86,7 @@ function Header() {
       ) : (
         <nav style={styles.navContainer}>
           <ul style={navListStyles}>
-            {['About Serai', 'research', 'Insights', 'Partnerships', 'contact'].map((path) => (
+            {['AboutSerai', 'research', 'Insights', 'Partnerships', 'contact'].map((path) => (
               <li style={styles.listItem} key={path}>
                 <Link to={`/${path}`} style={navLinkStyles}>
                   {path.charAt(0).toUpperCase() + path.slice(1)}

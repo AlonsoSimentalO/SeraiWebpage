@@ -11,7 +11,17 @@ function Home() {
   const videoRef = useRef(null);
   const elderlyCareRef = useRef(null); 
   const whySectionRef = useRef(null);
-  
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isMobile = windowWidth <= 768;
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (videoRef.current) {
@@ -46,12 +56,117 @@ function Home() {
     window.scrollTo({top: y, behavior: 'smooth'});
   };
 
+  const containerStyles = {
+    ...styles.container,
+    ...(isMobile && styles.containerMobile),
+  };
+
+  const videoContainerStyles = {
+    ...styles.videoContainer,
+    ...(isMobile && styles.videoContainerMobile),
+  };
+
+  const overlayTextStyles = {
+    ...styles.overlayText,
+    ...(isMobile && styles.overlayTextMobile),
+  };
+
+  const promoTitleStyles = {
+    ...styles.promoTitle,
+    ...(isMobile && styles.promoTitleMobile),
+  };
+
+  const promoTextStyles = {
+    ...styles.promoText,
+    ...(isMobile && styles.promoTextMobile),
+  };
+
+  const learnMoreButtonStyles = {
+    ...styles.learnMoreButton,
+    ...(isMobile && styles.learnMoreButtonMobile),
+  };
+
+  const careTitleStyles = {
+    ...styles.careTitle,
+    ...(isMobile && styles.careTitleMobile),
+  };
+
+  const careSubtitleStyles = {
+    ...styles.careSubtitle,
+    ...(isMobile && styles.careSubtitleMobile),
+  };
+
+  const careDetailsStyles = {
+    ...styles.careDetails,
+    ...(isMobile && styles.careDetailsMobile),
+  };
+
+  const careImageStyles = {
+    ...styles.careImage,
+    ...(isMobile && styles.careImageMobile),
+  };
+
+  const careListStyles = {
+    ...styles.careList,
+    ...(isMobile && styles.careListMobile),
+  };
+
+  const listTitleStyles = {
+    ...styles.listTitle,
+    ...(isMobile && styles.listTitleMobile),
+  };
+
+  const listDescriptionStyles = {
+    ...styles.listDescription,
+    ...(isMobile && styles.listDescriptionMobile),
+  };
+
+  const whyTitleStyles = {
+    ...styles.whyTitle,
+    ...(isMobile && styles.whyTitleMobile),
+  };
+
+  const cardsContainerStyles = {
+    ...styles.cardsContainer,
+    ...(isMobile && styles.cardsContainerMobile),
+  };
+
+  const cardStyles = {
+    ...styles.card,
+    ...(isMobile && styles.cardMobile),
+  };
+
+  const cardTitleStyles = {
+    ...styles.cardTitle,
+    ...(isMobile && styles.cardTitleMobile),
+  };
+
+  const cardTextStyles = {
+    ...styles.cardText,
+    ...(isMobile && styles.cardTextMobile),
+  };
+
+  const joinUsSectionStyles = {
+    ...styles.joinUsSection,
+    ...(isMobile && styles.joinUsSectionMobile),
+  };
+
+  const joinUsTextStyles = {
+    ...styles.joinUsText,
+    ...(isMobile && styles.joinUsTextMobile),
+  };
+
+  const joinUsImageStyles = {
+    ...styles.joinUsImage,
+    ...(isMobile && styles.joinUsImageMobile),
+  };
+
   return (
-    <div style={styles.container}>
+    <div style={containerStyles}>
       <Header />
 
-      <div style={styles.videoContainer}>
-       <video
+      <div style={videoContainerStyles}>
+        <video
           ref={videoRef}
           style={styles.video}
           onPlay={handlePlay}  
@@ -65,7 +180,7 @@ function Home() {
         {!isPlaying && (
           <>
             <div style={styles.overlay}></div> 
-            <div style={styles.overlayText}>
+            <div style={overlayTextStyles}>
               Enhancing Safety and Quality of Life for Seniors
             </div>
           </>
@@ -77,92 +192,92 @@ function Home() {
       </div>
 
       <div style={styles.promoSection}>
-        <h2 style={styles.promoTitle}>Promoting Independence and <br/> Well-being for Seniors</h2>
-        <p style={styles.promoText}>
+        <h2 style={promoTitleStyles}>Promoting Independence and <br/> Well-being for Seniors</h2>
+        <p style={promoTextStyles}>
           At Serai, we build innovative software and research advanced algorithms to <br/>
           detect irregularities in the everyday lives of the elderly.
         </p>
-        <button style={styles.learnMoreButton} onClick={() => scrollToSection(elderlyCareRef)}>
+        <button style={learnMoreButtonStyles} onClick={() => scrollToSection(elderlyCareRef)}>
           Learn More
         </button>
       </div>
 
       <div ref={elderlyCareRef} style={styles.elderlyCareSection}>
-        <h2 style={styles.careTitle}>Transformative Solutions for Elderly Care</h2>
-        <p style={styles.careSubtitle}>At Serai, we leverage machine learning to improve safety and provide independence for the elderly.</p>
-        <div style={styles.careDetails}>
-          <img src={require('../images/elderlyCare.png')} alt="Elderly Care" style={styles.careImage}/>
-          <div style={styles.careList}>
+        <h2 style={careTitleStyles}>Transformative Solutions for Elderly Care</h2>
+        <p style={careSubtitleStyles}>At Serai, we leverage machine learning to improve safety and provide independence for the elderly.</p>
+        <div style={careDetailsStyles}>
+          <img src={require('../images/elderlyCare.png')} alt="Elderly Care" style={careImageStyles}/>
+          <div style={careListStyles}>
             <ul>
               <li style={styles.listItem}>
                 <SolutionIcon style={styles.solutionIcon}/>
                 <div style={styles.listText}>
-                  <p style={styles.listTitle}>Real-Time Fall Detection</p>
-                  <p style={styles.listDescription}>Our advanced AI technology detects falls instantly, provides immediate alerts to caregivers hence preventing serious injuries.</p>
+                  <p style={listTitleStyles}>Real-Time Fall Detection</p>
+                  <p style={listDescriptionStyles}>Our advanced AI technology detects falls instantly, provides immediate alerts to caregivers hence preventing serious injuries.</p>
                 </div>
               </li>
               <li style={styles.listItem}>
                 <SolutionIcon style={styles.solutionIcon}/>
                 <div style={styles.listText}>
-                  <p style={styles.listTitle}>Emergency Notifications</p>
-                  <p style={styles.listDescription}>Our system sends real-time notifications to designated caregivers enhancing the safety and security of the elderly.</p>
+                  <p style={listTitleStyles}>Emergency Notifications</p>
+                  <p style={listDescriptionStyles}>Our system sends real-time notifications to designated caregivers enhancing the safety and security of the elderly.</p>
                 </div>
               </li>
               <li style={styles.listItem}>
                 <SolutionIcon style={styles.solutionIcon}/>
                 <div style={styles.listText}>
-                  <p style={styles.listTitle}>Medication Reminders</p>
-                  <p style={styles.listDescription}>Our system provides timely reminders for medication, helping seniors adhere to their prescribed schedules.</p>
+                  <p style={listTitleStyles}>Medication Reminders</p>
+                  <p style={listDescriptionStyles}>Our system provides timely reminders for medication, helping seniors adhere to their prescribed schedules.</p>
                 </div>
               </li>
               <li style={styles.listItem}>
                 <SolutionIcon style={styles.solutionIcon}/>
                 <div style={styles.listText}>
-                  <p style={styles.listTitle}>24/7 Monitoring</p>
-                  <p style={styles.listDescription}>Our system detects any irregularities in daily activities, providing a comprehensive safety net for the elderly.</p>
+                  <p style={listTitleStyles}>24/7 Monitoring</p>
+                  <p style={listDescriptionStyles}>Our system detects any irregularities in daily activities, providing a comprehensive safety net for the elderly.</p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-        <button style={styles.learnMoreButton} onClick={() => scrollToSection(whySectionRef)}>
+        <button style={learnMoreButtonStyles} onClick={() => scrollToSection(whySectionRef)}>
           Learn More
         </button>
       </div>
 
       <div ref={whySectionRef} style={styles.whySection}>
-        <h2 style={styles.whyTitle}>Why use our systems?</h2>
-        <div style={styles.cardsContainer}>
-          <div style={styles.card}>
+        <h2 style={whyTitleStyles}>Why use our systems?</h2>
+        <div style={cardsContainerStyles}>
+          <div style={cardStyles}>
             <div style={styles.cardImageContainer}>
               <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} />
             </div>
-            <h3 style={styles.cardTitle}>Intelligent</h3>
-            <p style={styles.cardText}>Serai gets to know you and provides insights to increase your quality of life.</p>
+            <h3 style={cardTitleStyles}>Intelligent</h3>
+            <p style={cardTextStyles}>Serai gets to know you and provides insights to increase your quality of life.</p>
           </div>
-          <div style={styles.card}>
+          <div style={cardStyles}>
             <div style={styles.cardImageContainer}>
-              <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} />
+              <img src={require('../images/secure.png')} alt="Intelligent" style={styles.cardImage} />
             </div>
-            <h3 style={styles.cardTitle}>Secure</h3>
-            <p style={styles.cardText}>Your data is physically stored in your home.</p>
+            <h3 style={cardTitleStyles}>Secure</h3>
+            <p style={cardTextStyles}>Your data is physically stored in your home.</p>
           </div>
-          <div style={styles.card}>
+          <div style={cardStyles}>
             <div style={styles.cardImageContainer}>
-              <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} />
+              <img src={require('../images/evolving.png')} alt="Intelligent" style={styles.cardImage} />
             </div>
-            <h3 style={styles.cardTitle}>Evolving</h3>
-            <p style={styles.cardText}>Our Machine Learning algorithms will constantly improve, providing an ever-improving experience for you and your loved ones.</p>
+            <h3 style={cardTitleStyles}>Evolving</h3>
+            <p style={cardTextStyles}>Our Machine Learning algorithms will constantly improve, providing an ever-improving experience for you and your loved ones.</p>
           </div>
         </div>
       </div>
 
-      <div style={styles.joinUsSection}>
-        <div style={styles.joinUsText}>
+      <div style={joinUsSectionStyles}>
+        <div style={joinUsTextStyles}>
           <h2 style={styles.joinUsTitle}>Join Us</h2>
           <p>Join us in making solitary living safer and enhancing the quality of life for the elderly. Together, we can create a safer, more independent future for our ageing population.</p>
         </div>
-        <img src={require('../images/nurse.jpeg')} alt="Ambulance Service" style={styles.joinUsImage} />
+        <img src={require('../images/nurse.jpeg')} alt="Ambulance Service" style={joinUsImageStyles} />
       </div>
 
       <Footer />
@@ -177,11 +292,18 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
+  containerMobile: {
+    width: '100%',
+  },
   videoContainer: {
     position: 'relative',  
     width: '75%', 
     margin: '2rem auto',
     marginTop: '2rem',
+  },
+  videoContainerMobile: {
+    width: '100%',
+    margin: '1rem auto',
   },
   video: {
     width: '100%',
@@ -214,6 +336,9 @@ const styles = {
     pointerEvents: 'none',
     width: '90%',
     lineHeight:'1.2',  
+  },
+  overlayTextMobile: {
+    fontSize: '2rem',
   },
   muteButton: {
     position: 'absolute',
@@ -249,11 +374,20 @@ const styles = {
     margin: '0 auto', 
     marginBottom: '3rem',
   },
+  promoTitleMobile: {
+    fontSize: '2.5rem',
+    width: '90%',
+    marginBottom: '2rem',
+  },
   promoText: {
     fontSize: '1.5rem',
     marginBottom: '4rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
+  },
+  promoTextMobile: {
+    fontSize: '1.2rem',
+    marginBottom: '2rem',
   },
   learnMoreButton: {
     padding: '28px 100px',
@@ -265,6 +399,9 @@ const styles = {
     border: 'none',
     borderRadius: '48px',
     cursor: 'pointer',
+  },
+  learnMoreButtonMobile: {
+    padding: '14px 50px',
   },
   elderlyCareSection: {
     display: 'flex',
@@ -282,6 +419,10 @@ const styles = {
     WebkitTextFillColor: 'transparent',  
     marginBottom: '1rem',
   },
+  careTitleMobile: {
+    fontSize: '2.5rem',
+    textAlign: 'center',
+  },
   careSubtitle: {
     fontSize: '1.6rem',
     color: '#1E293B',
@@ -291,6 +432,9 @@ const styles = {
     textAlign: 'center',
     lineHeight: '1.8',
   },
+  careSubtitleMobile: {
+    fontSize: '1.3rem',
+  },
   careDetails: {
     display: 'flex',
     flexDirection: 'row',
@@ -298,13 +442,23 @@ const styles = {
     justifyContent: 'flex-start',
     width: '100%',
     padding: '1rem',
-    marginBottom: '2rem'
+    marginBottom: '2rem',
+  },
+  careDetailsMobile: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '0',
   },
   careImage: {
     width: '30%',
     height: 'auto',
     borderRadius: '15px',
-    marginLeft: '16rem'
+    marginLeft: '16rem',
+  },
+  careImageMobile: {
+    width: '80%',
+    marginLeft: '0',
+    marginBottom: '1rem',
   },
   careList: {
     width: '35%',
@@ -313,6 +467,10 @@ const styles = {
     listStyleType: 'none', 
     paddingLeft: '0',
     marginLeft: '.7rem',
+  },
+  careListMobile: {
+    width: '90%',
+    marginLeft: '0',
   },
   listItem: {
     display: 'flex', 
@@ -337,13 +495,19 @@ const styles = {
     color: '#1A0046',
     marginBottom: "0.5rem",
   },
+  listTitleMobile: {
+    fontSize: '1.2rem',
+  },
   listDescription: {
     fontSize: '1.2rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
     color: '#333',
     marginTop: '0',
-    marginBottom: '0'
+    marginBottom: '0',
+  },
+  listDescriptionMobile: {
+    fontSize: '1rem',
   },
   whySection: {
     backgroundColor: '#F6F6F6',
@@ -352,7 +516,7 @@ const styles = {
     color: '#FFFFFF',
     width: '100%',
     marginBottom: '4rem',
-    marginTop: '4rem'
+    marginTop: '4rem',
   },
   whyTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -361,7 +525,11 @@ const styles = {
     fontSize: '3rem',  
     fontWeight: '600',
     fontFamily: 'Atyp BL, sans-serif',
-    marginBottom: '3rem'
+    marginBottom: '3rem',
+  },
+  whyTitleMobile: {
+    fontSize: '2.5rem',
+    marginBottom: '2rem',
   },
   cardsContainer: {
     display: 'flex',
@@ -369,12 +537,23 @@ const styles = {
     padding: '0 10%',
     marginBottom: '2.5rem',
   },
+  cardsContainerMobile: {
+    flexDirection: 'column',
+    padding: '0',
+    alignItems: 'center',
+  },
   card: {
     width: '30%',
     height: '600px',
     backgroundColor: '#FFFFFF',
     borderRadius: '15px',
     color: '#333',
+    marginBottom: '1rem',
+  },
+  cardMobile: {
+    width: '80%',
+    height: 'auto',
+    marginBottom: '2rem',
   },
   cardImageContainer: {
     backgroundColor: '#3A3CE61A',
@@ -401,12 +580,20 @@ const styles = {
     padding: '0 1rem',
     color: '#1A0046',
   },
+  cardTitleMobile: {
+    fontSize: '1.6rem',
+    textAlign: 'center',
+  },
   cardText: {
     fontSize: '1.5rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
     textAlign: 'left',
     padding: '0 1rem',
+  },
+  cardTextMobile: {
+    fontSize: '1.2rem',
+    textAlign: 'center',
   },
   joinUsSection: {
     display: 'flex',
@@ -416,6 +603,11 @@ const styles = {
     backgroundColor: '#ffffff', 
     color: '#333', 
     marginBottom: '4rem', 
+  },
+  joinUsSectionMobile: {
+    flexDirection: 'column',
+    padding: '1rem',
+    marginBottom: '2rem',
   },
   joinUsTitle: {
     fontSize: '3rem',  
@@ -435,12 +627,21 @@ const styles = {
     fontWeight: '400',
     textAlign: 'left', 
   },
-  
+  joinUsTextMobile: {
+    width: '100%',
+    padding: '0',
+    textAlign: 'center',
+    fontSize: '1.2rem',
+  },
   joinUsImage: {
     width: '50%', 
     height: 'auto', 
     borderRadius: '10px', 
-  }
+  },
+  joinUsImageMobile: {
+    width: '100%',
+    marginTop: '1rem',
+  },
 };
 
 export default Home;
