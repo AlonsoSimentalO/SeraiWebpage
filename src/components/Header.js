@@ -42,6 +42,14 @@ function Header() {
     ...(isMobile && styles.navLinkMobile),
   };
 
+  const navLinks = [
+    { path: 'AboutSerai', label: 'About Serai' },
+    { path: 'research', label: 'Research' },
+    { path: 'Insights', label: 'Insights' },
+    { path: 'Partnerships', label: 'Partnerships' },
+    { path: 'contact', label: 'Contact' },
+  ];
+
   return (
     <header style={headerStyles}>
       <div style={styles.logoContainer}>
@@ -65,14 +73,14 @@ function Header() {
           {menuOpen && (
             <nav style={styles.navContainerMobile}>
               <ul style={navListStyles}>
-                {['AboutSerai', 'research', 'Insights', 'Partnerships', 'contact'].map((path) => (
+                {navLinks.map(({ path, label }) => (
                   <li style={styles.listItem} key={path}>
                     <Link
                       to={`/${path}`}
                       style={navLinkStyles}
                       onClick={() => setMenuOpen(false)}
                     >
-                      {path.charAt(0).toUpperCase() + path.slice(1)}
+                      {label}
                     </Link>
                     {location.pathname === `/${path}` && (
                       <div style={styles.currentVisit}></div>
@@ -86,10 +94,10 @@ function Header() {
       ) : (
         <nav style={styles.navContainer}>
           <ul style={navListStyles}>
-            {['AboutSerai', 'research', 'Insights', 'Partnerships', 'contact'].map((path) => (
+            {navLinks.map(({ path, label }) => (
               <li style={styles.listItem} key={path}>
                 <Link to={`/${path}`} style={navLinkStyles}>
-                  {path.charAt(0).toUpperCase() + path.slice(1)}
+                  {label}
                 </Link>
                 {location.pathname === `/${path}` && (
                   <div style={styles.currentVisit}></div>

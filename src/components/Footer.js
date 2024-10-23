@@ -1,22 +1,62 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+function useMediaQuery(query) {
+  const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
+
+  React.useEffect(() => {
+    const mediaQueryList = window.matchMedia(query);
+    const listener = (event) => setMatches(event.matches);
+
+    mediaQueryList.addEventListener('change', listener);
+    return () => mediaQueryList.removeEventListener('change', listener); 
+  }, [query]);
+
+  return matches;
+}
 
 function Footer() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const footerContentStyles = {
+    ...styles.footerContent,
+    ...(isMobile && styles.footerContentMobile),
+  };
+
+  const infoSectionStyles = {
+    ...styles.infoSection,
+    ...(isMobile && styles.infoSectionMobile),
+  };
+
+  const linksSectionStyles = {
+    ...styles.linksSection,
+    ...(isMobile && styles.linksSectionMobile),
+  };
+
+  const legalSectionStyles = {
+    ...styles.legalSection,
+    ...(isMobile && styles.legalSectionMobile),
+  };
+
+  const legalLeftStyles = {
+    ...styles.legalLeft,
+    ...(isMobile && styles.legalLeftMobile),
+  };
+
   return (
     <div style={styles.footer}>
-      <div style={styles.footerContent}>
+      <div style={footerContentStyles}>
         <div style={styles.logoSection}>
           <img src={require('../images/serai_logo_negative.png')} alt="Serai Logo" style={styles.logo} />
         </div>
-        <div style={styles.infoSection}>
+        <div style={infoSectionStyles}>
           <p style={styles.companyInfo}>Serai AG</p>
           <p style={styles.companyInfo}>Horneggstrasse 9</p>
           <p style={styles.companyInfo}>8008 Zurich, Switzerland</p>
           <p style={styles.companyInfo}>+41-44-8806188</p>
           <p style={styles.companyInfo}>info@seraispaces.com</p>
         </div>
-        <div style={styles.linksSection}>
+        <div style={linksSectionStyles}>
           <Link to="/AboutSerai" style={styles.link}>About Serai</Link>
           <Link to="/research" style={styles.link}>Research</Link>
           <Link to="/Insights" style={styles.link}>Insights</Link>
@@ -24,8 +64,8 @@ function Footer() {
           <Link to="/contact" style={styles.link}>Contact</Link>
         </div>
       </div>
-      <div style={styles.legalSection}>
-        <div style={styles.legalLeft}>
+      <div style={legalSectionStyles}>
+        <div style={legalLeftStyles}>
           <p style={styles.legalText}>Serai © 2024. All rights reserved.</p>
         </div>
       </div>
@@ -96,11 +136,6 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-start',
   },
-  legalRight: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
   legalText: {
     margin: '0 10px', 
   },
@@ -108,6 +143,27 @@ const styles = {
     textDecoration: 'none',
     margin: '0 10px', 
     color: '#E2E8F0', 
+  },
+  footerContentMobile: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '20px',
+    paddingBottom: '10px',
+  },
+  infoSectionMobile: {
+    alignItems: 'center',
+    marginLeft: '0',
+    textAlign: 'center',
+  },
+  linksSectionMobile: {
+    alignItems: 'center',
+  },
+  legalSectionMobile: {
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  legalLeftMobile: {
+    justifyContent: 'center',
   },
 };
 
