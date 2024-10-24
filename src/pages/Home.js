@@ -299,7 +299,7 @@ const styles = {
     position: 'relative',  
     width: '75%', 
     margin: '2rem auto',
-    marginTop: '5rem',
+    marginTop: '2rem',
   },
   videoContainerMobile: {
     width: '100%',

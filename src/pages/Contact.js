@@ -1,16 +1,73 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
+
+  React.useEffect(() => {
+    const mediaQueryList = window.matchMedia(query);
+    const listener = (event) => setMatches(event.matches);
+
+    mediaQueryList.addEventListener('change', listener);
+    return () => mediaQueryList.removeEventListener('change', listener); 
+  }, [query]);
+
+  return matches;
+}
 
 function Contact() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const sectionGetTouchStyles = {
+    ...styles.sectionGetTouch,
+    ...(isMobile && styles.sectionGetTouchMobile),
+  };
+
+  const sectionStyles = {
+    ...styles.section,
+    ...(isMobile && styles.sectionMobile),
+  };
+
+  const titleContainerStyles = {
+    ...styles.titleContainer,
+    ...(isMobile && styles.titleContainerMobile),
+  };
+
+  const sectionTitleStyles = {
+    ...styles.sectionTitle,
+    ...(isMobile && styles.sectionTitleMobile),
+  };
+
+  const textContainerStyles = {
+    ...styles.textContainer,
+    ...(isMobile && styles.textContainerMobile),
+  };
+
+  const sectionTextStyles = {
+    ...styles.sectionText,
+    ...(isMobile && styles.sectionTextMobile),
+  };
+
+  const addressPStyles = {
+    ...styles.addressP,
+    ...(isMobile && styles.addressPMobile),
+  };
+
+  const dividerStyles = {
+    ...styles.divider,
+    ...(isMobile && styles.dividerMobile),
+  };
+
   return (
     <div style={styles.container}>
       <Header />
-      <div style={styles.sectionGetTouch}>
-        <div style={styles.titleContainer}>
-          <h2 style={styles.sectionTitle}>Get in Touch</h2>
+      <div style={sectionGetTouchStyles}>
+        <div style={titleContainerStyles}>
+          <h2 style={sectionTitleStyles}>Get in Touch</h2>
         </div>
-        <div style={styles.textContainer}>
-          <p style={styles.sectionText}>
+        <div style={textContainerStyles}>
+          <p style={sectionTextStyles}>
             We'd love to hear from you! Whether you have questions about our
             products, need support, or want to learn more about how Serai can
             enhance the quality of life for seniors, our team is here to help.
@@ -18,15 +75,15 @@ function Contact() {
         </div>
       </div>
 
-      <div style={styles.divider}></div>
+      <div style={dividerStyles}></div>
 
-      <div style={styles.section}>
-        <div style={styles.titleContainer}>
-          <h2 style={styles.sectionTitle}>Contact US</h2>
+      <div style={sectionStyles}>
+        <div style={titleContainerStyles}>
+          <h2 style={sectionTitleStyles}>Contact US</h2>
         </div>
-        <div style={styles.textContainer}>
-          <div style={styles.sectionText}>
-            <p style={styles.addressP}> Serai AG </p>
+        <div style={textContainerStyles}>
+          <div style={sectionTextStyles}>
+            <p style={addressPStyles}> Serai AG </p>
             <p> Horneggstrasse 9 </p>
             <p> 8008 Zurich, Switzerland</p>
             <p>
@@ -59,6 +116,9 @@ const styles = {
     margin: "1rem auto",
     display: "block",
   },
+  dividerMobile: {
+    width: "90%",
+  },
   section: {
     display: "flex",
     padding: "0 20%",
@@ -67,6 +127,12 @@ const styles = {
     margin: "4rem auto",
     width: "60%",
   },
+  sectionMobile: {
+    flexDirection: "column",
+    padding: "0 5%",
+    width: "90%",
+    margin: "2rem auto",
+  },
   sectionGetTouch: {
     display: "flex",
     padding: "0 20%",
@@ -74,39 +140,66 @@ const styles = {
     alignItems: "center",
     margin: "4rem 0 0 0",
     width: "60%",
-    height: '350px'
+    height: "350px",
+  },
+  sectionGetTouchMobile: {
+    flexDirection: "column",
+    padding: "0 5%",
+    width: "90%",
+    margin: "2rem auto",
+    height: "auto",
   },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    fontSize: '3rem',  
-    fontWeight: '500',
-    fontFamily: 'Atyp BL, sans-serif',
+    fontSize: "3rem",
+    fontWeight: "500",
+    fontFamily: "Atyp BL, sans-serif",
     marginTop: "0",
   },
+  sectionTitleMobile: {
+    fontSize: "2.5rem",
+    marginBottom: "1rem",
+  },
   sectionText: {
-    fontSize: '1.3rem',
-    fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '400',
+    fontSize: "1.3rem",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontWeight: "400",
     lineHeight: "1.6",
     marginTop: "0",
+  },
+  sectionTextMobile: {
+    fontSize: "1.1rem",
+    textAlign: "justify",
   },
   titleContainer: {
     flex: "0 0 350px",
     marginRight: "100px",
+  },
+  titleContainerMobile: {
+    flex: "0 0 auto",
+    marginRight: "0",
+    marginBottom: "1rem",
+    textAlign: "center",
   },
   textContainer: {
     flex: "1",
     padding: "0 20px",
     position: "relative",
   },
+  textContainerMobile: {
+    padding: "0",
+  },
   addressP: {
-    marginTop: '0',
-    fontSize: '1.3rem',
-    fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '700',
-  }
+    marginTop: "0",
+    fontSize: "1.3rem",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontWeight: "700",
+  },
+  addressPMobile: {
+    fontSize: "1.1rem",
+  },
 };
 
 export default Contact;

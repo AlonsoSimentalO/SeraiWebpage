@@ -3,78 +3,134 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.svg";
 
+function useMediaQuery(query) {
+  const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
+
+  React.useEffect(() => {
+    const mediaQueryList = window.matchMedia(query);
+    const listener = (event) => setMatches(event.matches);
+
+    mediaQueryList.addEventListener('change', listener);
+    return () => mediaQueryList.removeEventListener('change', listener); 
+  }, [query]);
+
+  return matches;
+}
+
 function Insights() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const sectionStyles = {
+    ...styles.section,
+    ...(isMobile && styles.sectionMobile),
+  };
+
+  const titleContainerStyles = {
+    ...styles.titleContainer,
+    ...(isMobile && styles.titleContainerMobile),
+  };
+
+  const sectionTitleStyles = {
+    ...styles.sectionTitle,
+    ...(isMobile && styles.sectionTitleMobile),
+  };
+
+  const textContainerStyles = {
+    ...styles.textContainer,
+    ...(isMobile && styles.textContainerMobile),
+  };
+
+  const sectionTextStyles = {
+    ...styles.sectionText,
+    ...(isMobile && styles.sectionTextMobile),
+  };
+
+  const listItemStyles = {
+    ...styles.listItem,
+    ...(isMobile && styles.listItemMobile),
+  };
+
+  const sectionTextIconStyles = {
+    ...styles.sectionTextIcon,
+    ...(isMobile && styles.sectionTextIconMobile),
+  };
+
+  const dividerStyles = {
+    ...styles.divider,
+    ...(isMobile && styles.dividerMobile),
+  };
+
   return (
     <div style={styles.container}>
       <Header />
 
-      <div style={styles.divider}></div>
-      <div style={styles.section}>
-        <div style={styles.titleContainer}>
-          <h2 style={styles.sectionTitle}>Our Scalable Solution</h2>
+      <div style={dividerStyles}></div>
+      <div style={sectionStyles}>
+        <div style={titleContainerStyles}>
+          <h2 style={sectionTitleStyles}>Our Scalable Solution</h2>
         </div>
-        <div style={styles.textContainer}>
-          <p style={styles.sectionText}>
+        <div style={textContainerStyles}>
+          <p style={sectionTextStyles}>
             We leverage advanced machine learning and IoT technology to provide real-time monitoring, fall detection, and emergency notifications.
           </p>
 
-          <p style={styles.sectionText}>
+          <p style={sectionTextStyles}>
             We offer an accessible, affordable, and home-integrated no-touch solution designed to improve the quality of life for the elderly.
           </p>
-          <p style={styles.sectionText}>
+          <p style={sectionTextStyles}>
             By automating routine tasks and enhancing caregiver efficiency, Serai's approach reduces healthcare costs and improves the quality of life for the elderly.
           </p>
         </div>
       </div>
 
-      <div style={styles.divider}></div>
-      <div style={styles.section}>
-        <div style={styles.titleContainer}>
-          <h2 style={styles.sectionTitle}>The Impact of Falls</h2>
+      <div style={dividerStyles}></div>
+      <div style={sectionStyles}>
+        <div style={titleContainerStyles}>
+          <h2 style={sectionTitleStyles}>The Impact of Falls</h2>
         </div>
-        <div style={styles.textContainer}>
-          <p style={styles.sectionText}>
+        <div style={textContainerStyles}>
+          <p style={sectionTextStyles}>
             Falls are a leading cause of injury and death among seniors, resulting in approximately 684,000 fatalities each year.
           </p>
         </div>
       </div>
 
-      <div style={styles.divider}></div>
-      <div style={styles.section}>
-        <div style={styles.titleContainer}>
-          <h2 style={styles.sectionTitle}>Privacy among Elderly Care</h2>
+      <div style={dividerStyles}></div>
+      <div style={sectionStyles}>
+        <div style={titleContainerStyles}>
+          <h2 style={sectionTitleStyles}>Privacy among Elderly Care</h2>
         </div>
-        <div style={styles.textContainer}>
-          <p style={styles.sectionText}>
+        <div style={textContainerStyles}>
+          <p style={sectionTextStyles}>
             At Serai, we prioritize privacy, ensuring our solutions are both effective and trusted by users.
           </p>
         </div>
       </div>
 
-      <div style={styles.divider}></div>
-      <div style={styles.section}>
-        <div style={styles.titleContainer}>
-          <h2 style={styles.sectionTitle}>Our Milestones and Achievements</h2>
+      <div style={dividerStyles}></div>
+      <div style={sectionStyles}>
+        <div style={titleContainerStyles}>
+          <h2 style={sectionTitleStyles}>Our Milestones and Achievements</h2>
         </div>
-        <div style={styles.textContainer}>
+        <div style={textContainerStyles}>
           <ul style={styles.list}>
-            <li style={styles.listItem}>
-              <div style={styles.sectionTextIcon}>
+            <li style={listItemStyles}>
+              <div style={sectionTextIconStyles}>
                 <SolutionIcon />
               </div>
-              <p style={styles.sectionText}>We have raised CHF 1.1 million in private investment.</p>
+              <p style={sectionTextStyles}>We have raised CHF 1.1 million in private investment.</p>
             </li>
-            <li style={styles.listItem}>
-              <div style={styles.sectionTextIcon}>
+            <li style={listItemStyles}>
+              <div style={sectionTextIconStyles}>
                 <SolutionIcon />
               </div>
-              <p style={styles.sectionText}>Secured Innosuisse funding through a research partnership with FHNW.</p>
+              <p style={sectionTextStyles}>Secured Innosuisse funding through a research partnership with FHNW.</p>
             </li>
-            <li style={styles.listItem}>
-              <div style={styles.sectionTextIcon}>
+            <li style={listItemStyles}>
+              <div style={sectionTextIconStyles}>
                 <SolutionIcon />
               </div>
-              <p style={styles.sectionText}>Developed a fall detection and behavioral anomaly solution for the senior care market.</p>
+              <p style={sectionTextStyles}>Developed a fall detection and behavioral anomaly solution for the senior care market.</p>
             </li>
           </ul>
         </div>
@@ -99,6 +155,9 @@ const styles = {
     display: 'block',
     margin: '2rem auto'
   },
+  dividerMobile: {
+    width: '90%',
+  },
   section: {
     display: 'flex',
     padding: '0 20%',
@@ -107,9 +166,21 @@ const styles = {
     margin: '4rem auto',
     width: '65%'
   },
+  sectionMobile: {
+    flexDirection: 'column',
+    padding: '0 5%',
+    width: '90%',
+    margin: '2rem auto',
+  },
   titleContainer: {
     flex: '0 0 450px',
     marginRight: '100px',
+  },
+  titleContainerMobile: {
+    flex: '0 0 auto',
+    marginRight: '0',
+    marginBottom: '1rem',
+    textAlign: 'center',
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -120,10 +191,17 @@ const styles = {
     fontFamily: 'Atyp BL, sans-serif',
     marginTop: '0'
   },
+  sectionTitleMobile: {
+    fontSize: '2.5rem',
+    marginBottom: '1rem',
+  },
   textContainer: {
     flex: '1',
     padding: '0 20px',
     position: "relative",
+  },
+  textContainerMobile: {
+    padding: '0',
   },
   sectionText: {
     fontSize: '1.3rem',
@@ -131,6 +209,10 @@ const styles = {
     fontWeight: '400',
     lineHeight: "1.6",
     marginTop: "0",
+  },
+  sectionTextMobile: {
+    fontSize: '1.1rem',
+    textAlign: 'justify',
   },
   list: {
     listStyleType: 'none',
@@ -142,8 +224,17 @@ const styles = {
     alignItems: 'center',
     marginBottom: '0rem',
   },
+  listItemMobile: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginBottom: '1rem',
+  },
   sectionTextIcon: {
     marginRight: "10px",
+  },
+  sectionTextIconMobile: {
+    marginRight: '0',
+    marginBottom: '0.5rem',
   },
   checkIcon: {
     marginLeft: '-7px',
