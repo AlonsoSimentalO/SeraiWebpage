@@ -20,7 +20,7 @@ function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 820px)');
 
   const headerStyles = {
     ...styles.header,

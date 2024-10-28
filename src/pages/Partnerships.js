@@ -19,7 +19,7 @@ function useMediaQuery(query) {
 
 function Partnerships() {
   const mailToLink = "mailto:info@seraispaces.com";
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 820px)');
 
   const sectionCenteredStyles = {
     ...styles.sectionCentered,
@@ -237,6 +237,7 @@ const styles = {
     padding: '0 5%',
     width: '90%',
     margin: '2rem auto',
+    alignItems: 'center',
   },
   titleContainer: {
     flex: '0 0 350px',
@@ -247,6 +248,7 @@ const styles = {
     marginRight: '0',
     marginBottom: '1rem',
     textAlign: 'center',
+    alignSelf: 'center',
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -258,8 +260,9 @@ const styles = {
     marginTop: '0',
   },
   sectionTitleMobile: {
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     marginBottom: '1rem',
+    textAlign: 'center',
   },
   sectionText: {
     fontSize: '1.3rem',
@@ -271,6 +274,7 @@ const styles = {
   sectionTextMobile: {
     fontSize: '1.1rem',
     textAlign: 'justify',
+    lineHeight: "1.8",
   },
   textContainer: {
     flex: '1',
@@ -292,8 +296,8 @@ const styles = {
     marginBottom: '2.5rem',
   },
   sectionTitleCenteredMobile: {
-    fontSize: '2.5rem',
-    marginBottom: '1.5rem',
+    fontSize: '2rem',
+    marginBottom: '2rem',
   },
   sectionTextCentered: {
     fontSize: '1.3rem',
@@ -338,8 +342,9 @@ const styles = {
     margin: '1rem 0',
   },
   listItemMobile: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     margin: '1rem 0',
   },
   listText: {
@@ -352,7 +357,7 @@ const styles = {
   },
   listTextMobile: {
     fontSize: '1.1rem',
-    textAlign: 'justify',
+    textAlign: 'center',
   },
   checkIcon: {
     width: '30px', 
@@ -363,8 +368,8 @@ const styles = {
     marginRight: "10px",
   },
   sectionTextIconMobile: {
-    marginRight: '0',
-    marginBottom: '0.5rem',
+    marginRight: '10px',
+    marginBottom: '0',
   },
   imageContainer: {
     display: 'flex',

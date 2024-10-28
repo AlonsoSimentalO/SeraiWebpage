@@ -5,14 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.svg";
 
 function useMediaQuery(query) {
-  const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
+  const [matches, setMatches] = React.useState(
+    () => window.matchMedia(query).matches
+  );
 
   React.useEffect(() => {
     const mediaQueryList = window.matchMedia(query);
     const listener = (event) => setMatches(event.matches);
 
-    mediaQueryList.addEventListener('change', listener);
-    return () => mediaQueryList.removeEventListener('change', listener); 
+    mediaQueryList.addEventListener("change", listener);
+    return () => mediaQueryList.removeEventListener("change", listener);
   }, [query]);
 
   return matches;
@@ -21,7 +23,7 @@ function useMediaQuery(query) {
 function Research() {
   const navigate = useNavigate();
 
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery("(max-width: 820px)");
 
   const promoTitleStyles = {
     ...styles.promoTitle,
@@ -83,6 +85,11 @@ function Research() {
     ...(isMobile && styles.sectionTextIconMobile),
   };
 
+  const iconAndSubtitleContainerStyles = {
+    ...styles.iconAndSubtitleContainer,
+    ...(isMobile && styles.iconAndSubtitleContainerMobile),
+  };
+
   const dividerStyles = {
     ...styles.divider,
     ...(isMobile && styles.dividerMobile),
@@ -96,9 +103,12 @@ function Research() {
           Promoting Independence and <br /> Well-being for Seniors
         </h2>
         <p style={promoTextStyles}>
-          We are leaders in Research through our partnerships with top research institutions like FHNW in Aargau to develop our <br />patented technology.
-          We are committed to research that enhances the safety, independence, and well-being of older adults.<br /> We believe in our product and believe
-          it is the future of home monitoring with camera-based solutions
+          We are leaders in Research through our partnerships with top research
+          institutions like FHNW in Aargau to develop our <br />
+          patented technology. We are committed to research that enhances the
+          safety, independence, and well-being of older adults.
+          <br /> We believe in our product and believe it is the future of home
+          monitoring with camera-based solutions
         </p>
         <button
           style={learnMoreButtonStyles}
@@ -131,10 +141,12 @@ function Research() {
         </div>
         <div style={textContainerStyles}>
           <div style={sectionTextContainerStyles}>
-            <div style={sectionTextIconStyles}>
-              <SolutionIcon />
+            <div style={iconAndSubtitleContainerStyles}>
+              <div style={sectionTextIconStyles}>
+                <SolutionIcon />
+              </div>
+              <h4 style={sectionSubtitleStyles}>Enhanced Detail and Insight</h4>
             </div>
-            <h4 style={sectionSubtitleStyles}>Enhanced Detail and Insight</h4>
             <p style={sectionTextStyles}>
               Camera-based systems provide unparalleled insights into
               environments and user activities. Unlike wearables, which are
@@ -145,10 +157,12 @@ function Research() {
           </div>
 
           <div style={sectionTextContainerStyles}>
-            <div style={sectionTextIconStyles}>
-              <SolutionIcon />
+            <div style={iconAndSubtitleContainerStyles}>
+              <div style={sectionTextIconStyles}>
+                <SolutionIcon />
+              </div>
+              <h4 style={sectionSubtitleStyles}>Cost-Effectiveness</h4>
             </div>
-            <h4 style={sectionSubtitleStyles}>Cost-Effectiveness</h4>
             <p style={sectionTextStyles}>
               Modern high-quality cameras are not only affordable but also
               capable of replacing multiple sensors, significantly reducing the
@@ -159,10 +173,12 @@ function Research() {
           </div>
 
           <div style={sectionTextContainerLastStyles}>
-            <div style={sectionTextIconStyles}>
-              <SolutionIcon />
+            <div style={iconAndSubtitleContainerStyles}>
+              <div style={sectionTextIconStyles}>
+                <SolutionIcon />
+              </div>
+              <h4 style={sectionSubtitleStyles}>Non-Invasive Monitoring</h4>
             </div>
-            <h4 style={sectionSubtitleStyles}>Non-Invasive Monitoring</h4>
             <p style={sectionTextStyles}>
               One of the standout benefits of camera-based solutions is their
               non-invasive nature. Wearable sensors can be obtrusive, causing
@@ -275,6 +291,7 @@ const styles = {
   promoTextMobile: {
     fontSize: "1.1rem",
     marginBottom: "2rem",
+    lineHeight: "1.8",
   },
   learnMoreButton: {
     padding: "28px 100px",
@@ -313,6 +330,7 @@ const styles = {
     padding: "0 5%",
     width: "90%",
     margin: "2rem auto",
+    alignItems: "center", 
   },
   titleContainer: {
     flex: "0 0 350px",
@@ -323,6 +341,7 @@ const styles = {
     marginRight: "0",
     marginBottom: "1rem",
     textAlign: "center",
+    alignSelf: "center", 
   },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
@@ -336,6 +355,7 @@ const styles = {
   sectionTitleMobile: {
     fontSize: "2.5rem",
     marginBottom: "1rem",
+    textAlign: "center", 
   },
   textContainer: {
     flex: "1",
@@ -355,6 +375,7 @@ const styles = {
   sectionTextMobile: {
     fontSize: "1.1rem",
     textAlign: "justify",
+    lineHeight: "1.8",
   },
   sectionSubtitle: {
     fontSize: "1.3rem",
@@ -366,6 +387,7 @@ const styles = {
   },
   sectionSubtitleMobile: {
     fontSize: "1.1rem",
+    textAlign: "center",
   },
   sectionTextContainer: {
     position: "relative",
@@ -373,12 +395,14 @@ const styles = {
   },
   sectionTextContainerMobile: {
     margin: "0 0 1.5rem 0",
+    alignItems: "center",
   },
   sectionTextContainerLast: {
     position: "relative",
   },
   sectionTextContainerLastMobile: {
     marginBottom: "0",
+    alignItems: "center",
   },
   sectionTextIcon: {
     position: "absolute",
@@ -388,8 +412,15 @@ const styles = {
   sectionTextIconMobile: {
     position: "static",
     marginBottom: "0.5rem",
-    left: "auto",
-    top: "auto",
+  },
+  iconAndSubtitleContainer: {
+    display: "block",
+  },
+  iconAndSubtitleContainerMobile: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: "0.5rem",
   },
 };
 

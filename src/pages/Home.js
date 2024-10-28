@@ -13,7 +13,7 @@ function Home() {
   const whySectionRef = useRef(null);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const isMobile = windowWidth <= 768;
+  const isMobile = windowWidth <= 820;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -161,6 +161,11 @@ function Home() {
     ...(isMobile && styles.joinUsImageMobile),
   };
 
+  const joinUsTitleStyles = {
+    ...styles.joinUsTitle,
+    ...(isMobile && styles.joinUsTitleMobile),
+  };
+
   return (
     <div style={containerStyles}>
       <Header />
@@ -274,7 +279,7 @@ function Home() {
 
       <div style={joinUsSectionStyles}>
         <div style={joinUsTextStyles}>
-          <h2 style={styles.joinUsTitle}>Join Us</h2>
+          <h2 style={joinUsTitleStyles}>Join Us</h2>
           <p>Join us in making solitary living safer and enhancing the quality of life for the elderly. Together, we can create a safer, more independent future for our ageing population.</p>
         </div>
         <img src={require('../images/nurse.jpeg')} alt="Ambulance Service" style={joinUsImageStyles} />
@@ -302,7 +307,7 @@ const styles = {
     marginTop: '2rem',
   },
   videoContainerMobile: {
-    width: '100%',
+    width: '90%',
     margin: '1rem auto',
   },
   video: {
@@ -375,7 +380,7 @@ const styles = {
     marginBottom: '3rem',
   },
   promoTitleMobile: {
-    fontSize: '2.5rem',
+    fontSize: '2.3rem',
     width: '90%',
     marginBottom: '2rem',
   },
@@ -388,6 +393,8 @@ const styles = {
   promoTextMobile: {
     fontSize: '1.2rem',
     marginBottom: '2rem',
+    textAlign: 'center',
+    lineHeight: '1.8',
   },
   learnMoreButton: {
     padding: '28px 100px',
@@ -420,7 +427,7 @@ const styles = {
     marginBottom: '1rem',
   },
   careTitleMobile: {
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     textAlign: 'center',
   },
   careSubtitle: {
@@ -433,7 +440,7 @@ const styles = {
     lineHeight: '1.8',
   },
   careSubtitleMobile: {
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
   },
   careDetails: {
     display: 'flex',
@@ -528,8 +535,8 @@ const styles = {
     marginBottom: '3rem',
   },
   whyTitleMobile: {
-    fontSize: '2.5rem',
-    marginBottom: '2rem',
+    fontSize: '2rem',
+    marginBottom: '2.5rem',
   },
   cardsContainer: {
     display: 'flex',
@@ -581,7 +588,7 @@ const styles = {
     color: '#1A0046',
   },
   cardTitleMobile: {
-    fontSize: '1.6rem',
+    fontSize: '1.5rem',
     textAlign: 'center',
   },
   cardText: {
@@ -592,7 +599,7 @@ const styles = {
     padding: '0 1rem',
   },
   cardTextMobile: {
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
     textAlign: 'center',
   },
   joinUsSection: {
@@ -619,6 +626,10 @@ const styles = {
     textAlign: 'left', 
     display: 'inline',
   },  
+  joinUsTitleMobile: {
+    fontSize: '2rem',
+    textAlign: 'center',
+  },
   joinUsText: {
     width: '50%',
     padding: '0 3rem', 
@@ -632,6 +643,7 @@ const styles = {
     padding: '0',
     textAlign: 'center',
     fontSize: '1.2rem',
+    lineHeight: '1.8',
   },
   joinUsImage: {
     width: '50%', 

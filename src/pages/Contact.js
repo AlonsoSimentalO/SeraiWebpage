@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -17,7 +17,7 @@ function useMediaQuery(query) {
 }
 
 function Contact() {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 820px)');
 
   const sectionGetTouchStyles = {
     ...styles.sectionGetTouch,
@@ -132,6 +132,7 @@ const styles = {
     padding: "0 5%",
     width: "90%",
     margin: "2rem auto",
+    alignItems: "center",
   },
   sectionGetTouch: {
     display: "flex",
@@ -148,6 +149,7 @@ const styles = {
     width: "90%",
     margin: "2rem auto",
     height: "auto",
+    alignItems: "center",
   },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
@@ -159,8 +161,9 @@ const styles = {
     marginTop: "0",
   },
   sectionTitleMobile: {
-    fontSize: "2.5rem",
+    fontSize: "2rem",
     marginBottom: "1rem",
+    textAlign: "center",
   },
   sectionText: {
     fontSize: "1.3rem",
@@ -172,6 +175,7 @@ const styles = {
   sectionTextMobile: {
     fontSize: "1.1rem",
     textAlign: "justify",
+    lineHeight: '1.8'
   },
   titleContainer: {
     flex: "0 0 350px",
@@ -182,6 +186,7 @@ const styles = {
     marginRight: "0",
     marginBottom: "1rem",
     textAlign: "center",
+    alignSelf: "center",
   },
   textContainer: {
     flex: "1",

@@ -18,7 +18,7 @@ function useMediaQuery(query) {
 }
 
 function Insights() {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 820px)');
 
   const sectionStyles = {
     ...styles.section,
@@ -171,6 +171,7 @@ const styles = {
     padding: '0 5%',
     width: '90%',
     margin: '2rem auto',
+    alignItems: 'center',
   },
   titleContainer: {
     flex: '0 0 450px',
@@ -181,6 +182,7 @@ const styles = {
     marginRight: '0',
     marginBottom: '1rem',
     textAlign: 'center',
+    alignSelf: 'center',
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -192,8 +194,9 @@ const styles = {
     marginTop: '0'
   },
   sectionTitleMobile: {
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     marginBottom: '1rem',
+    textAlign: 'center',
   },
   textContainer: {
     flex: '1',
@@ -213,6 +216,7 @@ const styles = {
   sectionTextMobile: {
     fontSize: '1.1rem',
     textAlign: 'justify',
+    lineHeight: "1.8",
   },
   list: {
     listStyleType: 'none',
@@ -225,16 +229,17 @@ const styles = {
     marginBottom: '0rem',
   },
   listItemMobile: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: '1rem',
   },
   sectionTextIcon: {
     marginRight: "10px",
   },
   sectionTextIconMobile: {
-    marginRight: '0',
-    marginBottom: '0.5rem',
+    marginRight: '10px',
+    marginBottom: '0',
   },
   checkIcon: {
     marginLeft: '-7px',
@@ -244,4 +249,4 @@ const styles = {
   },
 };
 
-export default Insights;
+export default Insights; 

@@ -32,7 +32,7 @@ function useMediaQuery(query) {
 function AboutSerai() { 
   const [hoverIndex, setHoverIndex] = useState(-1);
   
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 820px)');
   
   const goalStylesArray = [
     { width: '70%' },  
@@ -40,7 +40,7 @@ function AboutSerai() {
     { width: '100%' }  
   ].map((style) => ({
     ...style,
-    ...(isMobile && { width: '100%' }),
+    ...(isMobile && { width: '90%' }),
   }));
 
   const teamMembers = [
@@ -213,7 +213,7 @@ const styles = {
   titleMobile: {
     textAlign: 'center',
     marginLeft: '0',
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     marginBottom: '1rem',
   },
   goals: {
@@ -229,9 +229,8 @@ const styles = {
     marginBottom: '4rem'
   },
   goalsMobile: {
-    padding: '0 5%',
+    padding: '0 3%',
     marginBottom: '2rem',
-    
   },
   goal: {
     textAlign: 'left',
@@ -275,7 +274,7 @@ const styles = {
     marginRight: '100px'
   },
   titleContainerMobile: {
-    flex: '0 0 120px',
+    flex: '0 0 90px',
     width: '100%',
     marginRight: '0',
     marginBottom: '0rem',
@@ -291,7 +290,7 @@ const styles = {
   },
   sectionTitleMobile: {
     textAlign: 'center',
-    fontSize: '2.5rem',
+    fontSize: '2rem',
     marginTop: '0',
     marginBottom: '0.5rem',
   },
@@ -313,6 +312,7 @@ const styles = {
     fontSize: '1.1rem',
     textAlign: 'center',
     marginTop: '0',
+    lineHeight: '1.8',
     marginBottom: '0.5rem',
   },
   highlight: {
