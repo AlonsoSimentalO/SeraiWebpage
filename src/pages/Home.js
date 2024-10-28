@@ -122,6 +122,11 @@ function Home() {
     ...(isMobile && styles.videoContainerMobile),
   };
 
+  const videoStyles = {
+    ...styles.video,
+    ...(isMobile && styles.videoMobile),
+  };
+
   const overlayTextStyles = {
     ...styles.overlayText,
     ...(isMobile && styles.overlayTextMobile),
@@ -239,7 +244,7 @@ function Home() {
       <div style={videoContainerStyles}>
         <video
           ref={videoRef}
-          style={styles.video}
+          style={videoStyles}
           onPlay={handlePlay}  
           onPause={handlePause}  
           muted={isMuted}
@@ -382,6 +387,7 @@ const styles = {
   },
   videoContainerMobile: {
     width: '90%',
+    height: '40vh',
     margin: '1rem auto',
   },
   video: {
@@ -389,6 +395,10 @@ const styles = {
     height: 'auto', 
     maxWidth: '100%', 
     borderRadius: '15px',
+  },
+  videoMobile: {
+    height: '100%',
+    objectFit: 'cover',
   },
   overlay: {
     position: 'absolute',
@@ -469,6 +479,9 @@ const styles = {
     marginBottom: '2rem',
     textAlign: 'center',
     lineHeight: '1.8',
+    paddingLeft: '1.5rem',
+    paddingRight: '1.5rem',
+    width: '90%',
   },
   learnMoreButton: {
     padding: '28px 100px',
@@ -515,6 +528,10 @@ const styles = {
   },
   careSubtitleMobile: {
     fontSize: '1.2rem',
+    textAlign: 'center',
+    lineHeight: '1.8',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
   },
   careDetails: {
     display: 'flex',
@@ -537,7 +554,7 @@ const styles = {
     marginLeft: '16rem',
   },
   careImageMobile: {
-    width: '80%',
+    width: '100%',
     marginLeft: '0',
     marginBottom: '1rem',
   },
@@ -550,8 +567,10 @@ const styles = {
     marginLeft: '.7rem',
   },
   careListMobile: {
-    width: '90%',
+    width: '100%',
     marginLeft: '0',
+    paddingLeft: '0',         
+    paddingRight: '4rem',    
   },
   listItem: {
     display: 'flex', 
@@ -583,7 +602,7 @@ const styles = {
     fontSize: '1.2rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    color: '#333',
+    color: '#1E293B',
     marginTop: '0',
     marginBottom: '0',
   },
@@ -592,12 +611,12 @@ const styles = {
   },
   whySection: {
     backgroundColor: '#F6F6F6',
-    padding: '3rem 0',
+    padding: '2rem 0',
     textAlign: 'center',
     color: '#FFFFFF',
     width: '100%',
     marginBottom: '4rem',
-    marginTop: '4rem',
+    marginTop: '2rem',
   },
   whyTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -713,11 +732,12 @@ const styles = {
     textAlign: 'left', 
   },
   joinUsTextMobile: {
-    width: '100%',
-    padding: '0',
-    textAlign: 'center',
     fontSize: '1.2rem',
+    textAlign: 'center',
     lineHeight: '1.8',
+    paddingLeft: '1.5rem',
+    paddingRight: '1.5rem',
+    width: '90%',
   },
   joinUsImage: {
     width: '50%', 
