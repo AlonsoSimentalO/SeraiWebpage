@@ -5,10 +5,16 @@ import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.sv
 import { ReactComponent as SpeakerIcon } from "../images/icons/volume-high.svg";
 import { ReactComponent as SpeakerMuteIcon } from "../images/icons/volume-mute.svg";
 
+import video4k from '../animations/Serai_2D_Animation_Eng4k.mp4';
+import video1080p from '../animations/Serai_2D_Animation_Eng1080p.mp4';
+
 function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true); 
+  const [videoSource, setVideoSource] = useState('');
+  const [quality, setQuality] = useState('auto');
   const videoRef = useRef(null);
+  const playbackTimeRef = useRef(0);
   const elderlyCareRef = useRef(null); 
   const whySectionRef = useRef(null);
 
@@ -23,16 +29,66 @@ function Home() {
   }, []);
 
   useEffect(() => {
+    if (videoRef.current) {
+      playbackTimeRef.current = videoRef.current.currentTime;
+    }
+
+    const determineVideoQuality = () => {
+      if (quality === 'auto') {
+        let connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+
+        if (connection && connection.effectiveType) {
+          let effectiveType = connection.effectiveType;
+
+          if (effectiveType === '4g') {
+            setVideoSource(video4k);
+          } else {
+            setVideoSource(video1080p);
+          }
+        } else {
+          setVideoSource(video1080p);
+        }
+      } else if (quality === '4k') {
+        setVideoSource(video4k);
+      } else if (quality === '1080p') {
+        setVideoSource(video1080p);
+      }
+    };
+
+    determineVideoQuality();
+
+  }, [quality]);
+
+  useEffect(() => {
+    const handleLoadedMetadata = () => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = playbackTimeRef.current;
+        videoRef.current.play();
+      }
+    };
+
+    if (videoRef.current) {
+      videoRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        videoRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      }
+    };
+  }, [videoSource]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.play();
       }
       setIsPlaying(true);
       setIsMuted(false); 
-    }, 4000); 
+    }, 3000); 
 
     return () => clearTimeout(timer); 
-  }, []);
+  }, [videoSource]);
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -166,6 +222,16 @@ function Home() {
     ...(isMobile && styles.joinUsTitleMobile),
   };
 
+  const qualitySelectorContainerStyles = {
+    ...styles.qualitySelectorContainer,
+    ...(isMobile && styles.qualitySelectorContainerMobile),
+  };
+
+  const qualitySelectorStyles = {
+    ...styles.qualitySelector,
+    ...(isMobile && styles.qualitySelectorMobile),
+  };
+
   return (
     <div style={containerStyles}>
       <Header />
@@ -179,7 +245,7 @@ function Home() {
           muted={isMuted}
           controls
         >
-          <source src={require('../animations/Serai_2D_Animation_Eng4k.mp4')} type="video/mp4" />
+          {videoSource && <source src={videoSource} type="video/mp4" />}
         </video>
 
         {!isPlaying && (
@@ -194,6 +260,14 @@ function Home() {
         <button style={styles.muteButton} onClick={toggleMute}>
           {isMuted ? <SpeakerMuteIcon style={styles.muteIcon} /> : <SpeakerIcon style={styles.muteIcon} />}
         </button>
+
+        <div style={qualitySelectorContainerStyles}>
+          <select value={quality} onChange={(e) => setQuality(e.target.value)} style={qualitySelectorStyles}>
+            <option value="auto">Auto</option>
+            <option value="4k">4K</option>
+            <option value="1080p">1080p</option>
+          </select>
+        </div>
       </div>
 
       <div style={styles.promoSection}>
@@ -262,14 +336,14 @@ function Home() {
           </div>
           <div style={cardStyles}>
             <div style={styles.cardImageContainer}>
-              <img src={require('../images/secure.png')} alt="Intelligent" style={styles.cardImage} />
+              <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} />
             </div>
             <h3 style={cardTitleStyles}>Secure</h3>
             <p style={cardTextStyles}>Your data is physically stored in your home.</p>
           </div>
           <div style={cardStyles}>
             <div style={styles.cardImageContainer}>
-              <img src={require('../images/evolving.png')} alt="Intelligent" style={styles.cardImage} />
+              <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} />
             </div>
             <h3 style={cardTitleStyles}>Evolving</h3>
             <p style={cardTextStyles}>Our Machine Learning algorithms will constantly improve, providing an ever-improving experience for you and your loved ones.</p>
@@ -653,6 +727,27 @@ const styles = {
   joinUsImageMobile: {
     width: '100%',
     marginTop: '1rem',
+  },
+  qualitySelectorContainer: {
+    position: 'absolute',
+    top: '7%',
+    right: '12%',
+    zIndex: 3,
+  },
+  qualitySelectorContainerMobile: {
+    top: '35%',
+    right: '8%',
+  },
+  qualitySelector: {
+    padding: '5px',
+    fontSize: '1rem',
+    borderRadius: '5px',
+    border: '1px solid #ccc',
+    cursor: 'pointer',
+  },
+  qualitySelectorMobile: {
+    padding: '3px',
+    fontSize: '0.8rem',
   },
 };
 
