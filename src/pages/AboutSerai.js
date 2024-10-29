@@ -34,20 +34,16 @@ function AboutSerai() {
   
   const isMobile = useMediaQuery('(max-width: 820px)');
   
-  // const goalStylesArray = [
-  //   { width: '70%' },  
-  //   { width: '90%' },  
-  //   { width: '100%' }  
-  // ].map((style) => ({
-  //   ...style,
-  //   ...(isMobile && { width: '90%' }),
-  // }));
-
   const goalStylesArray = [
     { width: '75%' },  
     { width: '90%' },  
     { width: '100%' }  
   ];
+
+  const dividerStyles = {
+    ...styles.divider,
+    ...(isMobile && styles.dividerMobile),
+  };
 
   const teamMembers = [
     { name: 'Emre Tuna', role: 'Investor and Executive Board Member', image: emreImage, linkedin: 'https://www.linkedin.com/in/emre-tuna-09b7b280/' },
@@ -77,10 +73,39 @@ function AboutSerai() {
     </div>
   );
 
+  const sectionStyles = {
+    ...styles.section,
+    ...(isMobile && styles.sectionMobile),
+  };
+
+  const titleContainerStyles = {
+    ...styles.titleContainer,
+    ...(isMobile && styles.titleContainerMobile),
+  };
+
+  const sectionTitleStyles = {
+    ...styles.sectionTitle,
+    ...(isMobile && styles.sectionTitleMobile),
+  };
+
+  const textContainerStyles = {
+    ...styles.textContainer,
+    ...(isMobile && styles.textContainerMobile),
+  };
+
+  const sectionTextStyles = {
+    ...styles.sectionText,
+    ...(isMobile && styles.sectionTextMobile),
+  };
+
+  const researchTitleStyles = {
+    ...styles.researchTitle,
+    ...(isMobile && styles.researchTitleMobile),
+  };
+
   return (
     <div style={styles.container}>
       <Header />
-
       <div style={styles.content}>
         <h1 style={{ ...styles.title, ...(isMobile && styles.titleMobile) }}>These goals drive Us:</h1>
         <div style={{ ...styles.goals, ...(isMobile && styles.goalsMobile) }}>
@@ -102,25 +127,25 @@ function AboutSerai() {
             </p>
           ))}
         </div>
-        <div style={styles.divider}></div>
-        <div style={{ ...styles.section, ...(isMobile && styles.sectionMobile) }}>
-          <div style={{ ...styles.titleContainer, ...(isMobile && styles.titleContainerMobile) }}>
-            <h2 style={{ ...styles.sectionTitle, ...(isMobile && styles.sectionTitleMobile) }}>About Serai</h2>
+        <div style={dividerStyles}></div>
+        <div style={sectionStyles}>
+          <div style={titleContainerStyles}>
+            <h2 style={sectionTitleStyles}>About Serai</h2>
           </div>
-          <div style={{ ...styles.textContainer, ...(isMobile && styles.textContainerMobile) }}>
-            <p style={{ ...styles.sectionText, ...(isMobile && styles.sectionTextMobile) }}>
+          <div style={textContainerStyles}>
+            <p style={sectionTextStyles}>
               We build software and research algorithms to detect irregularities in everyday life of elderly. We detect fall in living spaces, monitor mood changes in daily behaviour and spot other behavioural anomalies commonly seen among seniors.
             </p>
           </div>
         </div>
 
-        <div style={styles.divider}></div>
-        <div style={{ ...styles.section, ...(isMobile && styles.sectionMobile) }}>
-          <div style={{ ...styles.titleContainer, ...(isMobile && styles.titleContainerMobile) }}>
-            <h2 style={{ ...styles.sectionTitle, ...(isMobile && styles.sectionTitleMobile) }}>Research</h2>
+        <div style={dividerStyles}></div>
+        <div style={sectionStyles}>
+          <div style={titleContainerStyles}>
+            <h2 style={sectionTitleStyles}>Research</h2>
           </div>
-          <div style={{ ...styles.textContainer, ...(isMobile && styles.textContainerMobile) }}>
-            <p style={{ ...styles.sectionText, ...(isMobile && styles.sectionTextMobile) }}>
+          <div style={textContainerStyles}>
+            <p style={sectionTextStyles}>
               We not only do engineering but also commit to 
               <span style={styles.highlight}> CHF 1M+</span> research with FHNW in Aargau to develop our patented technology.
               Headquartered in Zurich, Switzerland, we are committed to enhancing the safety, 
@@ -129,44 +154,44 @@ function AboutSerai() {
           </div>
         </div>
 
-        <div style={styles.divider}></div>
-        <div style={{ ...styles.section, ...(isMobile && styles.sectionMobile) }}>
-          <div style={{ ...styles.titleContainer, ...(isMobile && styles.titleContainerMobile) }}>
-            <h2 style={{ ...styles.sectionTitle, ...(isMobile && styles.sectionTitleMobile) }}>The Problem</h2>
+        <div style={dividerStyles}></div>
+        <div style={sectionStyles}>
+          <div style={titleContainerStyles}>
+            <h2 style={sectionTitleStyles}>The Problem</h2>
           </div>
-          <div style={{ ...styles.textContainer, ...(isMobile && styles.textContainerMobile) }}>
-            <p style={{ ...styles.sectionText, ...(isMobile && styles.sectionTextMobile) }}>
-            Elder population is growing exponentially. Projected to reach <span style={styles.highlight}> 1.5 billion </span> by <span style={styles.highlight}> 2050. </span>
-            Falls cause <span style={styles.highlight}> 684’000 </span> fatalities annually among seniors. Care solutions lack privacy safeguards and are not used due to privacy concerns.
+          <div style={textContainerStyles}>
+            <p style={sectionTextStyles}>
+              Elder population is growing exponentially. Projected to reach <span style={styles.highlight}> 1.5 billion </span> by <span style={styles.highlight}> 2050. </span>
+              Falls cause <span style={styles.highlight}> 684’000 </span> fatalities annually among seniors. Care solutions lack privacy safeguards and are not used due to privacy concerns.
             </p>
           </div>
         </div>
 
-        <div style={styles.divider}></div>
-        <div style={{ ...styles.section, ...(isMobile && styles.sectionMobile) }}>
-          <div style={{ ...styles.titleContainer, ...(isMobile && styles.titleContainerMobile) }}>
-            <h2 style={{ ...styles.sectionTitle, ...(isMobile && styles.sectionTitleMobile) }}>Our Solution</h2>
+        <div style={dividerStyles}></div>
+        <div style={sectionStyles}>
+          <div style={titleContainerStyles}>
+            <h2 style={sectionTitleStyles}>Our Solution</h2>
           </div>
-          <div style={{ ...styles.textContainer, ...(isMobile && styles.textContainerMobile) }}>
-            <p style={{ ...styles.sectionText, ...(isMobile && styles.sectionTextMobile) }}>
-            Serai offers an AI-driven system using sensors and cameras to enhance older adults' quality of life. It detects and prevents falls, providing real-time alerts to caregivers.
-            The non-intrusive design ensures comfort without wearables, while privacy-preserving features protect user data and dignity.
+          <div style={textContainerStyles}>
+            <p style={sectionTextStyles}>
+              Serai offers an AI-driven system using sensors and cameras to enhance older adults' quality of life. It detects and prevents falls, providing real-time alerts to caregivers.
+              The non-intrusive design ensures comfort without wearables, while privacy-preserving features protect user data and dignity.
             </p>
           </div>
         </div>
 
-        <div style={styles.divider}></div>
-        <div style={{ ...styles.section, ...(isMobile && styles.sectionMobile) }}>
-          <div style={{ ...styles.titleContainer, ...(isMobile && styles.titleContainerMobile) }}>
-            <h2 style={{ ...styles.sectionTitle, ...(isMobile && styles.sectionTitleMobile) }}>Our Business Impact</h2>
+        <div style={dividerStyles}></div>
+        <div style={sectionStyles}>
+          <div style={titleContainerStyles}>
+            <h2 style={sectionTitleStyles}>Our Business Impact</h2>
           </div>
-          <div style={{ ...styles.textContainer, ...(isMobile && styles.textContainerMobile) }}>
-            <p style={{ ...styles.sectionText, ...(isMobile && styles.sectionTextMobile) }}>
-            Raised <span style={styles.highlight}> CHF 1.1M </span> in private investment. Secured Innosuisse funding through research partnership with FHNW
+          <div style={textContainerStyles}>
+            <p style={sectionTextStyles}>
+              Raised <span style={styles.highlight}> CHF 1.1M </span> in private investment. Secured Innosuisse funding through research partnership with FHNW
             </p>
           </div>
         </div>
-        <div style={styles.divider}></div>
+        <div style={dividerStyles}></div>
 
         <div style={styles.teamSection}>
           <h2 style={{ ...styles.teamTitle, ...(isMobile && styles.teamTitleMobile) }}>Meet Our Team</h2>
@@ -180,12 +205,12 @@ function AboutSerai() {
           </div>
         </div>
 
-        <div style={{ ...styles.researchTitle, ...(isMobile && styles.researchTitleMobile) }}>Research Partners</div>
-          <div style={{ ...styles.researchPartners, ...(isMobile && styles.researchPartnersMobile) }}>
-            {researchPartners.map(partner => (
-              <TeamMember key={partner.name} {...partner} />
-            ))}
-          </div>
+        <div style={researchTitleStyles}>Research Partners</div>
+        <div style={{ ...styles.researchPartners, ...(isMobile && styles.researchPartnersMobile) }}>
+          {researchPartners.map(partner => (
+            <TeamMember key={partner.name} {...partner} />
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
@@ -202,6 +227,7 @@ const styles = {
   content: {
     flex: 1,
     padding: '2rem',
+    width: '100%',
   },
   contentMobile: {
     padding: '1rem',
@@ -235,8 +261,9 @@ const styles = {
     marginBottom: '4rem'
   },
   goalsMobile: {
-    padding: '0 3%',
+    padding: '0 4%',
     marginBottom: '2rem',
+    width: '84%'
   },
   goal: {
     textAlign: 'left',
@@ -260,6 +287,9 @@ const styles = {
     margin: '1rem auto',
     display: 'block'
   },
+  dividerMobile: {
+    width: "90%",
+  },
   section: {
     display: 'flex',
     margin: '4rem auto',
@@ -270,20 +300,23 @@ const styles = {
     width: "65%",
   },
   sectionMobile: {
-    flexDirection: 'column',
-    padding: '0 1%',
-    width: '100%',
-    margin: '1rem auto',
+    flexDirection: "column",
+    padding: "0 5%",
+    width: "90%",
+    margin: "2rem auto",
+    alignItems: "flex-start",
   },
   titleContainer: {
     flex: '0 0 350px',
     marginRight: '100px'
   },
   titleContainerMobile: {
-    flex: '0 0 90px',
-    width: '100%',
-    marginRight: '0',
-    marginBottom: '0rem',
+    flex: "0 0 auto",
+    width: "100%",
+    marginRight: "0",
+    marginBottom: "1rem",
+    textAlign: "left",
+    alignSelf: "stretch",
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -295,14 +328,14 @@ const styles = {
     marginTop: '0'
   },
   sectionTitleMobile: {
-    textAlign: 'left',
-    fontSize: '2rem',
-    marginTop: '0',
-    marginBottom: '0.5rem',
+    fontSize: "2.2rem",
+    marginBottom: "1rem",
+    textAlign: "left",
   },
   textContainer: {
     flex: '1',
-    padding: '0 20px'
+    padding: '0 20px',
+    position: 'relative',
   },
   textContainerMobile: {
     padding: '0',
@@ -311,15 +344,13 @@ const styles = {
     fontSize: '1.3rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    marginTop: '0',
     lineHeight: '1.6',
+    marginTop: '0',
   },
   sectionTextMobile: {
     fontSize: '1.1rem',
     textAlign: 'left',
-    marginTop: '0',
     lineHeight: '1.8',
-    marginBottom: '0.5rem',
   },
   highlight: {
     fontWeight: 'bold',

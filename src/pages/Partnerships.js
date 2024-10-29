@@ -261,7 +261,7 @@ const styles = {
     marginTop: '0',
   },
   sectionTitleMobile: {
-    fontSize: '2rem',
+    fontSize: '1.8rem',
     marginBottom: '1rem',
     textAlign: 'left',
   },
