@@ -223,6 +223,7 @@ const styles = {
   sectionCenteredMobile: {
     padding: '0 5%',
     marginTop: '1rem',
+    textAlign: 'left',
   },
   section: {
     display: 'flex',
@@ -237,7 +238,7 @@ const styles = {
     padding: '0 5%',
     width: '90%',
     margin: '2rem auto',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   titleContainer: {
     flex: '0 0 350px',
@@ -247,8 +248,8 @@ const styles = {
     flex: '0 0 auto',
     marginRight: '0',
     marginBottom: '1rem',
-    textAlign: 'center',
-    alignSelf: 'center',
+    textAlign: 'left',
+    alignSelf: 'stretch',
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -262,7 +263,7 @@ const styles = {
   sectionTitleMobile: {
     fontSize: '2rem',
     marginBottom: '1rem',
-    textAlign: 'center',
+    textAlign: 'left',
   },
   sectionText: {
     fontSize: '1.3rem',
@@ -273,7 +274,7 @@ const styles = {
   },
   sectionTextMobile: {
     fontSize: '1.1rem',
-    textAlign: 'justify',
+    textAlign: 'left',
     lineHeight: "1.8",
   },
   textContainer: {
@@ -298,6 +299,7 @@ const styles = {
   sectionTitleCenteredMobile: {
     fontSize: '2rem',
     marginBottom: '2rem',
+    textAlign: 'left',
   },
   sectionTextCentered: {
     fontSize: '1.3rem',
@@ -310,6 +312,7 @@ const styles = {
   sectionTextCenteredMobile: {
     fontSize: '1.1rem',
     marginBottom: '1.5rem',
+    textAlign: 'left',
   },
   becomePartnerButton: {
     padding: '28px 100px',
@@ -343,8 +346,7 @@ const styles = {
   },
   listItemMobile: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
     margin: '1rem 0',
   },
   listText: {
@@ -357,7 +359,7 @@ const styles = {
   },
   listTextMobile: {
     fontSize: '1.1rem',
-    textAlign: 'center',
+    textAlign: 'left',
   },
   checkIcon: {
     width: '30px', 
@@ -380,7 +382,7 @@ const styles = {
     padding: '0 0',
   },
   imageContainerMobile: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   partnerImageLarge: {
     width: '500px', 

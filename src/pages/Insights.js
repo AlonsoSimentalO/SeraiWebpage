@@ -170,8 +170,8 @@ const styles = {
     flexDirection: 'column',
     padding: '0 5%',
     width: '90%',
-    margin: '2rem auto',
-    alignItems: 'center',
+    margin: '1rem auto',
+    alignItems: 'flex-start',
   },
   titleContainer: {
     flex: '0 0 450px',
@@ -181,8 +181,8 @@ const styles = {
     flex: '0 0 auto',
     marginRight: '0',
     marginBottom: '1rem',
-    textAlign: 'center',
-    alignSelf: 'center',
+    textAlign: 'left',
+    alignSelf: 'stretch',
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -196,7 +196,7 @@ const styles = {
   sectionTitleMobile: {
     fontSize: '2rem',
     marginBottom: '1rem',
-    textAlign: 'center',
+    textAlign: 'left',
   },
   textContainer: {
     flex: '1',
@@ -205,6 +205,7 @@ const styles = {
   },
   textContainerMobile: {
     padding: '0',
+    marginBottom: '0rem'
   },
   sectionText: {
     fontSize: '1.3rem',
@@ -215,8 +216,9 @@ const styles = {
   },
   sectionTextMobile: {
     fontSize: '1.1rem',
-    textAlign: 'justify',
+    textAlign: 'left',
     lineHeight: "1.8",
+    marginBottom: '0rem'
   },
   list: {
     listStyleType: 'none',
@@ -230,8 +232,7 @@ const styles = {
   },
   listItemMobile: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
     marginBottom: '1rem',
   },
   sectionTextIcon: {

@@ -100,7 +100,7 @@ function Research() {
       <Header />
       <div style={styles.promoSection}>
         <h2 style={promoTitleStyles}>
-          Promoting Independence and <br /> Well-being for Seniors
+          Our Research
         </h2>
         <p style={promoTextStyles}>
           We are leaders in Research through our partnerships with top research
@@ -276,7 +276,7 @@ const styles = {
     marginBottom: "3rem",
   },
   promoTitleMobile: {
-    fontSize: "2.5rem",
+    fontSize: "2.3rem",
     width: "90%",
     marginBottom: "2rem",
   },
@@ -289,9 +289,13 @@ const styles = {
     marginBottom: "4rem",
   },
   promoTextMobile: {
-    fontSize: "1.1rem",
-    marginBottom: "2rem",
-    lineHeight: "1.8",
+    fontSize: '1.2rem',
+    marginBottom: '2rem',
+    textAlign: 'center',
+    lineHeight: '1.8',
+    paddingLeft: '1.5rem',
+    paddingRight: '1.5rem',
+    width: '90%',
   },
   learnMoreButton: {
     padding: "28px 100px",
@@ -330,7 +334,7 @@ const styles = {
     padding: "0 5%",
     width: "90%",
     margin: "2rem auto",
-    alignItems: "center", 
+    alignItems: "flex-start",
   },
   titleContainer: {
     flex: "0 0 350px",
@@ -340,8 +344,8 @@ const styles = {
     flex: "0 0 auto",
     marginRight: "0",
     marginBottom: "1rem",
-    textAlign: "center",
-    alignSelf: "center", 
+    textAlign: "left",
+    alignSelf: "stretch",
   },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
@@ -353,9 +357,9 @@ const styles = {
     marginTop: "0",
   },
   sectionTitleMobile: {
-    fontSize: "2.5rem",
+    fontSize: "2.2rem",
     marginBottom: "1rem",
-    textAlign: "center", 
+    textAlign: "left",
   },
   textContainer: {
     flex: "1",
@@ -374,7 +378,7 @@ const styles = {
   },
   sectionTextMobile: {
     fontSize: "1.1rem",
-    textAlign: "justify",
+    textAlign: "left",
     lineHeight: "1.8",
   },
   sectionSubtitle: {
@@ -387,7 +391,7 @@ const styles = {
   },
   sectionSubtitleMobile: {
     fontSize: "1.1rem",
-    textAlign: "center",
+    textAlign: "left",
   },
   sectionTextContainer: {
     position: "relative",
@@ -395,14 +399,14 @@ const styles = {
   },
   sectionTextContainerMobile: {
     margin: "0 0 1.5rem 0",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   sectionTextContainerLast: {
     position: "relative",
   },
   sectionTextContainerLastMobile: {
     marginBottom: "0",
-    alignItems: "center",
+    alignItems: "flex-start",
   },
   sectionTextIcon: {
     position: "absolute",
@@ -419,8 +423,8 @@ const styles = {
   iconAndSubtitleContainerMobile: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: "0.5rem",
+    justifyContent: "flex-start",
+    marginBottom: "0.4rem",
   },
 };
 

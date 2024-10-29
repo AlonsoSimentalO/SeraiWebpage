@@ -295,7 +295,7 @@ const styles = {
     marginTop: '0'
   },
   sectionTitleMobile: {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: '2rem',
     marginTop: '0',
     marginBottom: '0.5rem',
@@ -316,7 +316,7 @@ const styles = {
   },
   sectionTextMobile: {
     fontSize: '1.1rem',
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: '0',
     lineHeight: '1.8',
     marginBottom: '0.5rem',
