@@ -34,14 +34,20 @@ function AboutSerai() {
   
   const isMobile = useMediaQuery('(max-width: 820px)');
   
+  // const goalStylesArray = [
+  //   { width: '70%' },  
+  //   { width: '90%' },  
+  //   { width: '100%' }  
+  // ].map((style) => ({
+  //   ...style,
+  //   ...(isMobile && { width: '90%' }),
+  // }));
+
   const goalStylesArray = [
-    { width: '70%' },  
+    { width: '75%' },  
     { width: '90%' },  
     { width: '100%' }  
-  ].map((style) => ({
-    ...style,
-    ...(isMobile && { width: '90%' }),
-  }));
+  ];
 
   const teamMembers = [
     { name: 'Emre Tuna', role: 'Investor and Executive Board Member', image: emreImage, linkedin: 'https://www.linkedin.com/in/emre-tuna-09b7b280/' },
@@ -245,7 +251,7 @@ const styles = {
   },
   goalMobile: {
     textAlign: 'center',
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
   },
   divider: {
     height: '2px',
