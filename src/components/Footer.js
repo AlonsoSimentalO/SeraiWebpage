@@ -17,35 +17,30 @@ function useMediaQuery(query) {
 
 function Footer() {
   const isMobile = useMediaQuery('(max-width: 820px)');
+  const isTablet = useMediaQuery('(min-width: 821px) and (max-width: 1024px)');
 
   const footerContentStyles = {
     ...styles.footerContent,
     ...(isMobile && styles.footerContentMobile),
+    ...(isTablet && styles.footerContentTablet),
   };
 
   const logoSectionStyles = {
     ...styles.logoSection,
     ...(isMobile && styles.logoSectionMobile),
+    ...(isTablet && styles.logoSectionTablet),
   };
 
   const infoSectionStyles = {
     ...styles.infoSection,
     ...(isMobile && styles.infoSectionMobile),
-  };
-
-  const companyInfoStyles = {
-    ...styles.companyInfo,
-    ...(isMobile && styles.companyInfoMobile),
+    ...(isTablet && styles.infoSectionTablet),
   };
 
   const legalSectionStyles = {
     ...styles.legalSection,
     ...(isMobile && styles.legalSectionMobile),
-  };
-
-  const legalLeftStyles = {
-    ...styles.legalLeft,
-    ...(isMobile && styles.legalLeftMobile),
+    ...(isTablet && styles.legalSectionTablet),
   };
 
   return (
@@ -60,11 +55,11 @@ function Footer() {
           </div>
         )}
         <div style={infoSectionStyles}>
-          <p style={companyInfoStyles}>Serai AG</p>
-          <p style={companyInfoStyles}>Horneggstrasse 9</p>
-          <p style={companyInfoStyles}>8008 Zurich, Switzerland</p>
-          <p style={companyInfoStyles}>+41-44-8806188</p>
-          <p style={companyInfoStyles}>info@seraispaces.com</p>
+          <p style={styles.companyInfo}>Serai AG</p>
+          <p style={styles.companyInfo}>Horneggstrasse 9</p>
+          <p style={styles.companyInfo}>8008 Zurich, Switzerland</p>
+          <p style={styles.companyInfo}>+41-44-8806188</p>
+          <p style={styles.companyInfo}>info@seraispaces.com</p>
         </div>
         {!isMobile && (
           <div style={styles.linksSection}>
@@ -77,7 +72,7 @@ function Footer() {
         )}
       </div>
       <div style={legalSectionStyles}>
-        <div style={legalLeftStyles}>
+        <div style={styles.legalLeft}>
           <p style={styles.legalText}>Serai © 2024. All rights reserved.</p>
         </div>
       </div>
@@ -109,7 +104,29 @@ const styles = {
     borderBottom: '1px solid #444',
     gap: '500px',
   },
+  footerContentMobile: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: '20px',
+    paddingBottom: '10px',
+  },
+  footerContentTablet: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: '50px', 
+    paddingBottom: '20px',
+    borderBottom: '1px solid #444',
+  },
   logoSection: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  logoSectionMobile: {
+    width: '100%',
+  },
+  logoSectionTablet: {
+    flex: '1', 
     display: 'flex',
     alignItems: 'center',
   },
@@ -123,8 +140,22 @@ const styles = {
     alignItems: 'flex-start', 
     marginLeft: '40px',
   },
+  infoSectionMobile: {
+    alignItems: 'flex-start',
+    marginLeft: '0',
+    textAlign: 'left',
+  },
+  infoSectionTablet: {
+    alignItems: 'flex-start',
+    marginLeft: '0',
+    textAlign: 'left',
+    flex: '1', 
+  },
   companyInfo: {
     margin: '5px 0',
+  },
+  companyInfoMobile: {
+    textAlign: 'left',
   },
   linksSection: {
     display: 'flex',
@@ -135,6 +166,7 @@ const styles = {
     textDecoration: 'none',
     color: '#fff',
     marginBottom: '20px',
+    fontSize: '1rem',
   },
   legalSection: {
     paddingTop: '20px',
@@ -144,9 +176,21 @@ const styles = {
     fontSize: '0.8rem',
     width: '100%',
   },
+  legalSectionMobile: {
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+  legalSectionTablet: {
+    justifyContent: 'center',
+    textAlign: 'center',
+    width: '100%',
+  },
   legalLeft: {
     display: 'flex',
     justifyContent: 'flex-start',
+  },
+  legalLeftMobile: {
+    justifyContent: 'center',
   },
   legalText: {
     margin: '0 10px', 
@@ -156,15 +200,6 @@ const styles = {
     margin: '0 10px', 
     color: '#E2E8F0', 
   },
-  footerContentMobile: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    gap: '20px',
-    paddingBottom: '10px',
-  },
-  logoSectionMobile: {
-    width: '100%',
-  },
   contactUsSectionMobile: {
     marginTop: '0px',
   },
@@ -172,21 +207,6 @@ const styles = {
     fontSize: '1.2rem',
     fontWeight: 'bold',
     textAlign: 'left',
-  },
-  infoSectionMobile: {
-    alignItems: 'flex-start',
-    marginLeft: '0',
-    textAlign: 'left',
-  },
-  companyInfoMobile: {
-    textAlign: 'left',
-  },
-  legalSectionMobile: {
-    justifyContent: 'center',
-    textAlign: 'center',
-  },
-  legalLeftMobile: {
-    justifyContent: 'center',
   },
 };
 

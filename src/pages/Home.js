@@ -20,6 +20,7 @@ function Home() {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isMobile = windowWidth <= 820;
+  const isTablet = windowWidth > 820 && windowWidth <= 1024;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -115,126 +116,139 @@ function Home() {
   const containerStyles = {
     ...styles.container,
     ...(isMobile && styles.containerMobile),
+    ...(isTablet && styles.containerTablet),
   };
 
   const videoContainerStyles = {
     ...styles.videoContainer,
     ...(isMobile && styles.videoContainerMobile),
+    ...(isTablet && styles.videoContainerTablet),
   };
 
   const videoStyles = {
     ...styles.video,
     ...(isMobile && styles.videoMobile),
+    ...(isTablet && styles.videoTablet),
   };
 
   const overlayTextStyles = {
     ...styles.overlayText,
     ...(isMobile && styles.overlayTextMobile),
+    ...(isTablet && styles.overlayTextTablet),
   };
 
   const promoTitleStyles = {
     ...styles.promoTitle,
     ...(isMobile && styles.promoTitleMobile),
+    ...(isTablet && styles.promoTitleTablet),
   };
 
   const promoTextStyles = {
     ...styles.promoText,
     ...(isMobile && styles.promoTextMobile),
+    ...(isTablet && styles.promoTextTablet),
   };
 
   const learnMoreButtonStyles = {
     ...styles.learnMoreButton,
     ...(isMobile && styles.learnMoreButtonMobile),
+    ...(isTablet && styles.learnMoreButtonTablet),
   };
 
   const careTitleStyles = {
     ...styles.careTitle,
     ...(isMobile && styles.careTitleMobile),
+    ...(isTablet && styles.careTitleTablet),
   };
 
   const careSubtitleStyles = {
     ...styles.careSubtitle,
     ...(isMobile && styles.careSubtitleMobile),
+    ...(isTablet && styles.careSubtitleTablet),
   };
 
   const careDetailsStyles = {
     ...styles.careDetails,
     ...(isMobile && styles.careDetailsMobile),
+    ...(isTablet && styles.careDetailsTablet),
   };
 
   const careImageStyles = {
     ...styles.careImage,
     ...(isMobile && styles.careImageMobile),
+    ...(isTablet && styles.careImageTablet),
   };
 
   const careListStyles = {
     ...styles.careList,
     ...(isMobile && styles.careListMobile),
+    ...(isTablet && styles.careListTablet),
   };
 
   const listTitleStyles = {
     ...styles.listTitle,
     ...(isMobile && styles.listTitleMobile),
+    ...(isTablet && styles.listTitleTablet),
   };
 
   const listDescriptionStyles = {
     ...styles.listDescription,
     ...(isMobile && styles.listDescriptionMobile),
+    ...(isTablet && styles.listDescriptionTablet),
   };
 
   const whyTitleStyles = {
     ...styles.whyTitle,
     ...(isMobile && styles.whyTitleMobile),
+    ...(isTablet && styles.whyTitleTablet),
   };
 
   const cardsContainerStyles = {
     ...styles.cardsContainer,
     ...(isMobile && styles.cardsContainerMobile),
+    ...(isTablet && styles.cardsContainerTablet),
   };
 
   const cardStyles = {
     ...styles.card,
     ...(isMobile && styles.cardMobile),
+    ...(isTablet && styles.cardTablet),
   };
 
   const cardTitleStyles = {
     ...styles.cardTitle,
     ...(isMobile && styles.cardTitleMobile),
+    ...(isTablet && styles.cardTitleTablet),
   };
 
   const cardTextStyles = {
     ...styles.cardText,
     ...(isMobile && styles.cardTextMobile),
+    ...(isTablet && styles.cardTextTablet),
   };
 
   const joinUsSectionStyles = {
     ...styles.joinUsSection,
     ...(isMobile && styles.joinUsSectionMobile),
+    ...(isTablet && styles.joinUsSectionTablet),
   };
 
   const joinUsTextStyles = {
     ...styles.joinUsText,
     ...(isMobile && styles.joinUsTextMobile),
+    ...(isTablet && styles.joinUsTextTablet),
   };
 
   const joinUsImageStyles = {
     ...styles.joinUsImage,
     ...(isMobile && styles.joinUsImageMobile),
+    ...(isTablet && styles.joinUsImageTablet),
   };
 
   const joinUsTitleStyles = {
     ...styles.joinUsTitle,
     ...(isMobile && styles.joinUsTitleMobile),
-  };
-
-  const qualitySelectorContainerStyles = {
-    ...styles.qualitySelectorContainer,
-    ...(isMobile && styles.qualitySelectorContainerMobile),
-  };
-
-  const qualitySelectorStyles = {
-    ...styles.qualitySelector,
-    ...(isMobile && styles.qualitySelectorMobile),
+    ...(isTablet && styles.joinUsTitleTablet),
   };
 
   return (
@@ -265,14 +279,6 @@ function Home() {
         <button style={styles.muteButton} onClick={toggleMute}>
           {isMuted ? <SpeakerMuteIcon style={styles.muteIcon} /> : <SpeakerIcon style={styles.muteIcon} />}
         </button>
-
-        <div style={qualitySelectorContainerStyles}>
-          <select value={quality} onChange={(e) => setQuality(e.target.value)} style={qualitySelectorStyles}>
-            <option value="auto">Auto</option>
-            <option value="4k">4K</option>
-            <option value="1080p">1080p</option>
-          </select>
-        </div>
       </div>
 
       <div style={styles.promoSection}>
@@ -379,6 +385,9 @@ const styles = {
   containerMobile: {
     width: '100%',
   },
+  containerTablet: {
+    width: '100%',
+  },
   videoContainer: {
     position: 'relative',  
     width: '75%', 
@@ -390,6 +399,11 @@ const styles = {
     height: '40vh',
     margin: '1rem auto',
   },
+  videoContainerTablet: {
+    width: '80%',
+    height: '50vh',
+    margin: '1.5rem auto',
+  },
   video: {
     width: '100%',
     height: 'auto', 
@@ -397,6 +411,10 @@ const styles = {
     borderRadius: '15px',
   },
   videoMobile: {
+    height: '100%',
+    objectFit: 'cover',
+  },
+  videoTablet: {
     height: '100%',
     objectFit: 'cover',
   },
@@ -428,6 +446,9 @@ const styles = {
   },
   overlayTextMobile: {
     fontSize: '2rem',
+  },
+  overlayTextTablet: {
+    fontSize: '3rem',
   },
   muteButton: {
     position: 'absolute',
@@ -468,6 +489,11 @@ const styles = {
     width: '90%',
     marginBottom: '2rem',
   },
+  promoTitleTablet: {
+    fontSize: '2.8rem',
+    width: '95%',
+    marginBottom: '2.5rem',
+  },
   promoText: {
     fontSize: '1.5rem',
     marginBottom: '4rem',
@@ -483,6 +509,13 @@ const styles = {
     paddingRight: '1.5rem',
     width: '90%',
   },
+  promoTextTablet: {
+    fontSize: '1.4rem',
+    marginBottom: '3rem',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    width: '95%',
+  },
   learnMoreButton: {
     padding: '28px 100px',
     fontSize: '1rem',
@@ -496,6 +529,9 @@ const styles = {
   },
   learnMoreButtonMobile: {
     padding: '14px 50px',
+  },
+  learnMoreButtonTablet: {
+    padding: '20px 70px',
   },
   elderlyCareSection: {
     display: 'flex',
@@ -517,6 +553,10 @@ const styles = {
     fontSize: '2rem',
     textAlign: 'center',
   },
+  careTitleTablet: {
+    fontSize: '2.5rem',
+    textAlign: 'center',
+  },
   careSubtitle: {
     fontSize: '1.6rem',
     color: '#1E293B',
@@ -533,6 +573,13 @@ const styles = {
     paddingLeft: '1rem',
     paddingRight: '1rem',
   },
+  careSubtitleTablet: {
+    fontSize: '1.4rem',
+    textAlign: 'center',
+    lineHeight: '1.8',
+    paddingLeft: '1.5rem',
+    paddingRight: '1.5rem',
+  },
   careDetails: {
     display: 'flex',
     flexDirection: 'row',
@@ -547,6 +594,12 @@ const styles = {
     alignItems: 'center',
     padding: '0',
   },
+  careDetailsTablet: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center', // Centrar el contenido
+    padding: '1rem 2rem',
+  },
   careImage: {
     width: '30%',
     height: 'auto',
@@ -557,6 +610,12 @@ const styles = {
     width: '100%',
     marginLeft: '0',
     marginBottom: '1rem',
+  },
+  careImageTablet: {
+    width: '40%',
+    marginLeft: '0', // Eliminar margen izquierdo para centrar
+    marginRight: '2rem', // Añadir margen derecho para espaciar del texto
+    marginBottom: '0',
   },
   careList: {
     width: '35%',
@@ -571,6 +630,11 @@ const styles = {
     marginLeft: '0',
     paddingLeft: '0',         
     paddingRight: '4rem',    
+  },
+  careListTablet: {
+    width: '45%',
+    marginLeft: '0', // Eliminar margen izquierdo para centrar
+    paddingRight: '2rem',
   },
   listItem: {
     display: 'flex', 
@@ -598,6 +662,9 @@ const styles = {
   listTitleMobile: {
     fontSize: '1.2rem',
   },
+  listTitleTablet: {
+    fontSize: '1.3rem',
+  },
   listDescription: {
     fontSize: '1.2rem',
     fontFamily: 'Helvetica Neue, sans-serif',
@@ -608,6 +675,9 @@ const styles = {
   },
   listDescriptionMobile: {
     fontSize: '1rem',
+  },
+  listDescriptionTablet: {
+    fontSize: '1.1rem',
   },
   whySection: {
     backgroundColor: '#F6F6F6',
@@ -631,6 +701,10 @@ const styles = {
     fontSize: '2rem',
     marginBottom: '2.5rem',
   },
+  whyTitleTablet: {
+    fontSize: '2.5rem',
+    marginBottom: '2.5rem',
+  },
   cardsContainer: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -642,6 +716,14 @@ const styles = {
     padding: '0',
     alignItems: 'center',
   },
+  cardsContainerTablet: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    padding: '0 5%',
+    gap: '2rem',
+  },
   card: {
     width: '30%',
     height: '600px',
@@ -652,6 +734,11 @@ const styles = {
   },
   cardMobile: {
     width: '80%',
+    height: 'auto',
+    marginBottom: '2rem',
+  },
+  cardTablet: {
+    width: '45%',
     height: 'auto',
     marginBottom: '2rem',
   },
@@ -684,6 +771,10 @@ const styles = {
     fontSize: '1.5rem',
     textAlign: 'center',
   },
+  cardTitleTablet: {
+    fontSize: '1.7rem',
+    textAlign: 'center',
+  },
   cardText: {
     fontSize: '1.5rem',
     fontFamily: 'Helvetica Neue, sans-serif',
@@ -693,6 +784,10 @@ const styles = {
   },
   cardTextMobile: {
     fontSize: '1.1rem',
+    textAlign: 'center',
+  },
+  cardTextTablet: {
+    fontSize: '1.3rem',
     textAlign: 'center',
   },
   joinUsSection: {
@@ -709,6 +804,11 @@ const styles = {
     padding: '1rem',
     marginBottom: '2rem',
   },
+  joinUsSectionTablet: {
+    flexDirection: 'row',
+    padding: '2rem 5%',
+    justifyContent: 'space-between',
+  },
   joinUsTitle: {
     fontSize: '3rem',  
     fontWeight: '600',
@@ -721,6 +821,10 @@ const styles = {
   },  
   joinUsTitleMobile: {
     fontSize: '2rem',
+    textAlign: 'center',
+  },
+  joinUsTitleTablet: {
+    fontSize: '2.5rem',
     textAlign: 'center',
   },
   joinUsText: {
@@ -739,6 +843,14 @@ const styles = {
     paddingRight: '1.5rem',
     width: '90%',
   },
+  joinUsTextTablet: {
+    fontSize: '1.4rem',
+    textAlign: 'center',
+    lineHeight: '1.8',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    width: '45%',
+  },
   joinUsImage: {
     width: '50%', 
     height: 'auto', 
@@ -748,26 +860,9 @@ const styles = {
     width: '100%',
     marginTop: '1rem',
   },
-  qualitySelectorContainer: {
-    position: 'absolute',
-    top: '7%',
-    right: '12%',
-    zIndex: 3,
-  },
-  qualitySelectorContainerMobile: {
-    top: '35%',
-    right: '8%',
-  },
-  qualitySelector: {
-    padding: '5px',
-    fontSize: '1rem',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-    cursor: 'pointer',
-  },
-  qualitySelectorMobile: {
-    padding: '3px',
-    fontSize: '0.8rem',
+  joinUsImageTablet: {
+    width: '45%',
+    marginTop: '0',
   },
 };
 

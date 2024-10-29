@@ -21,25 +21,30 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const isMobile = useMediaQuery('(max-width: 820px)');
+  const isTablet = useMediaQuery('(min-width: 821px) and (max-width: 1024px)');
 
   const headerStyles = {
     ...styles.header,
     ...(isMobile && styles.headerMobile),
+    ...(isTablet && styles.headerTablet),
   };
 
   const logoStyles = {
     ...styles.logo,
     ...(isMobile && styles.logoMobile),
+    ...(isTablet && styles.logoTablet),
   };
 
   const navListStyles = {
     ...styles.navList,
     ...(isMobile && styles.navListMobile),
+    ...(isTablet && styles.navListTablet),
   };
 
   const navLinkStyles = {
     ...styles.navLink,
     ...(isMobile && styles.navLinkMobile),
+    ...(isTablet && styles.navLinkTablet),
   };
 
   const navLinks = [
@@ -92,7 +97,7 @@ function Header() {
           )}
         </div>
       ) : (
-        <nav style={styles.navContainer}>
+        <nav style={isTablet ? styles.navContainerTablet : styles.navContainer}>
           <ul style={navListStyles}>
             {navLinks.map(({ path, label }) => (
               <li style={styles.listItem} key={path}>
@@ -117,7 +122,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'nowrap',
-    padding: '1rem 1rem',
+    padding: '1rem 2rem',
     backgroundColor: '#fff',
     width: '100%',
     maxWidth: '100%',
@@ -129,6 +134,9 @@ const styles = {
   },
   headerMobile: {
     padding: '1rem 1rem',
+  },
+  headerTablet: {
+    padding: '1rem 1.5rem',
   },
   menuContainer: {
     display: 'flex',
@@ -155,7 +163,16 @@ const styles = {
     height: '50px',
     maxWidth: '100%',
   },
+  logoTablet: {
+    height: '60px', 
+    maxWidth: '100%',
+  },
   navContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    flexGrow: 1,
+  },
+  navContainerTablet: {
     display: 'flex',
     justifyContent: 'flex-end',
     flexGrow: 1,
@@ -183,6 +200,13 @@ const styles = {
     gap: '1rem',
     padding: '0 1rem',
   },
+  navListTablet: {
+    display: 'flex',
+    gap: '1.5rem', 
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+  },
   navLink: {
     textDecoration: 'none',
     color: '#1E293B',
@@ -192,6 +216,9 @@ const styles = {
   },
   navLinkMobile: {
     fontSize: '0.9rem',
+  },
+  navLinkTablet: {
+    fontSize: '0.95rem', 
   },
   listItem: {
     position: 'relative',
