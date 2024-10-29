@@ -17,7 +17,7 @@ function useMediaQuery(query) {
 }
 
 function Contact() {
-  const isMobile = useMediaQuery('(max-width: 820px)');
+  const isMobile = useMediaQuery('(max-width: 767px)');
 
   const sectionGetTouchStyles = {
     ...styles.sectionGetTouch,
