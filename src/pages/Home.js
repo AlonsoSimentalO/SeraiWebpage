@@ -19,8 +19,8 @@ function Home() {
   const whySectionRef = useRef(null);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const isMobile = windowWidth <= 820;
-  const isTablet = windowWidth > 820 && windowWidth <= 1024;
+  const isMobile = windowWidth <= 767;
+  const isTablet = windowWidth > 767 && windowWidth <= 1024;
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);

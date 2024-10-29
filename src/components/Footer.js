@@ -16,8 +16,8 @@ function useMediaQuery(query) {
 }
 
 function Footer() {
-  const isMobile = useMediaQuery('(max-width: 820px)');
-  const isTablet = useMediaQuery('(min-width: 821px) and (max-width: 1024px)');
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
   const footerContentStyles = {
     ...styles.footerContent,
