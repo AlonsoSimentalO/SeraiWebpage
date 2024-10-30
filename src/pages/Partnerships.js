@@ -468,7 +468,7 @@ const styles = {
     marginBottom: '2rem',
   },
   partnerImageLargeTablet: {
-    width: '400px',
+    width: '90%',
     marginBottom: '3rem',
   },
   partnerImageSmall: {
@@ -480,7 +480,7 @@ const styles = {
     marginBottom: '0rem',
   },
   partnerImageSmallTablet: {
-    width: '400px',
+    width: '90%',
     marginBottom: '0rem',
   },
 };
