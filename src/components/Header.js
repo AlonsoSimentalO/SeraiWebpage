@@ -100,7 +100,14 @@ function Header() {
         <nav style={isTablet ? styles.navContainerTablet : styles.navContainer}>
           <ul style={navListStyles}>
             {navLinks.map(({ path, label }) => (
-              <li style={styles.listItem} key={path}>
+              <li
+                style={
+                  isTablet && label === 'Contact'
+                    ? { ...styles.listItem, ...styles.contactListItemTablet }
+                    : styles.listItem
+                }
+                key={path}
+              >
                 <Link to={`/${path}`} style={navLinkStyles}>
                   {label}
                 </Link>
@@ -122,7 +129,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'nowrap',
-    padding: '1rem 2rem',
+    padding: '1rem 2rem', 
     backgroundColor: '#fff',
     width: '100%',
     maxWidth: '100%',
@@ -136,21 +143,19 @@ const styles = {
     padding: '1rem 1rem',
   },
   headerTablet: {
-    padding: '1rem 1.5rem',
+    padding: '1rem 4rem', 
   },
   menuContainer: {
     display: 'flex',
     alignItems: 'center',
   },
   currentVisit: {
-    width: '115%',
+    width: '100%',
     height: '2px',
     backgroundColor: 'rgb(58, 60, 230)',
-    position: 'absolute',
-    right: '-50%',
-    left: '-50%',
-    top: '1.5rem',
-    placeSelf: 'center',
+    position: 'relative',
+    top: '0.5rem',
+    marginTop: '0.5rem',
   },
   logoContainer: {
     flexShrink: 0,
@@ -170,12 +175,12 @@ const styles = {
   navContainer: {
     display: 'flex',
     justifyContent: 'flex-end',
-    flexGrow: 1,
+    marginLeft: 'auto', 
   },
   navContainerTablet: {
     display: 'flex',
     justifyContent: 'flex-end',
-    flexGrow: 1,
+    marginLeft: 'auto',
   },
   navContainerMobile: {
     position: 'absolute',
@@ -222,6 +227,9 @@ const styles = {
   },
   listItem: {
     position: 'relative',
+  },
+  contactListItemTablet: {
+    marginRight: '0',
   },
   hamburger: {
     display: 'flex',

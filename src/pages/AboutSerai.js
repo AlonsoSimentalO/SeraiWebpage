@@ -33,6 +33,7 @@ function AboutSerai() {
   const [hoverIndex, setHoverIndex] = useState(-1);
   
   const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
   
   const goalStylesArray = [
     { width: '75%' },  
@@ -43,6 +44,7 @@ function AboutSerai() {
   const dividerStyles = {
     ...styles.divider,
     ...(isMobile && styles.dividerMobile),
+    ...(isTablet && styles.dividerTablet),
   };
 
   const teamMembers = [
@@ -63,10 +65,26 @@ function AboutSerai() {
   ];
 
   const TeamMember = ({ name, role, image, linkedin }) => (
-    <div style={{ ...styles.memberContainer, ...(isMobile && styles.memberContainerMobile) }}>
-      <img src={image} alt={name} style={{ ...styles.memberImage, ...(isMobile && styles.memberImageMobile) }} />
-      <h3 style={{ ...styles.memberName, ...(isMobile && styles.memberNameMobile) }}>{name}</h3>
-      <p style={{ ...styles.memberRole, ...(isMobile && styles.memberRoleMobile) }}>{role}</p>
+    <div style={{ 
+      ...styles.memberContainer, 
+      ...(isMobile && styles.memberContainerMobile),
+      ...(isTablet && styles.memberContainerTablet),
+    }}>
+      <img src={image} alt={name} style={{ 
+        ...styles.memberImage, 
+        ...(isMobile && styles.memberImageMobile),
+        ...(isTablet && styles.memberImageTablet),
+      }} />
+      <h3 style={{ 
+        ...styles.memberName, 
+        ...(isMobile && styles.memberNameMobile),
+        ...(isTablet && styles.memberNameTablet),
+      }}>{name}</h3>
+      <p style={{ 
+        ...styles.memberRole, 
+        ...(isMobile && styles.memberRoleMobile),
+        ...(isTablet && styles.memberRoleTablet),
+      }}>{role}</p>
       <a href={linkedin} target="_blank" rel="noopener noreferrer">
         <img src={linkedinIcon} alt="LinkedIn" style={styles.linkedinIcon} />
       </a>
@@ -76,39 +94,55 @@ function AboutSerai() {
   const sectionStyles = {
     ...styles.section,
     ...(isMobile && styles.sectionMobile),
+    ...(isTablet && styles.sectionTablet),
   };
 
   const titleContainerStyles = {
     ...styles.titleContainer,
     ...(isMobile && styles.titleContainerMobile),
+    ...(isTablet && styles.titleContainerTablet),
   };
 
   const sectionTitleStyles = {
     ...styles.sectionTitle,
     ...(isMobile && styles.sectionTitleMobile),
+    ...(isTablet && styles.sectionTitleTablet),
   };
 
   const textContainerStyles = {
     ...styles.textContainer,
     ...(isMobile && styles.textContainerMobile),
+    ...(isTablet && styles.textContainerTablet),
   };
 
   const sectionTextStyles = {
     ...styles.sectionText,
     ...(isMobile && styles.sectionTextMobile),
+    ...(isTablet && styles.sectionTextTablet),
   };
 
   const researchTitleStyles = {
     ...styles.researchTitle,
     ...(isMobile && styles.researchTitleMobile),
+    ...(isTablet && styles.researchTitleTablet),
   };
 
   return (
     <div style={styles.container}>
       <Header />
       <div style={styles.content}>
-        <h1 style={{ ...styles.title, ...(isMobile && styles.titleMobile) }}>These goals drive Us:</h1>
-        <div style={{ ...styles.goals, ...(isMobile && styles.goalsMobile) }}>
+        <h1 style={{ 
+          ...styles.title, 
+          ...(isMobile && styles.titleMobile),
+          ...(isTablet && styles.titleTablet),
+        }}>
+          These goals drive Us:
+        </h1>
+        <div style={{ 
+          ...styles.goals, 
+          ...(isMobile && styles.goalsMobile),
+          ...(isTablet && styles.goalsTablet),
+        }}>
           {["Improving the safety, independence, and well-being of older adults.",
             "Developing advanced software and algorithms to detect irregularities in the lives of older adults.",
             "Invest in ongoing research and development to continuously improve the evolving needs of the elderly population.",
@@ -119,6 +153,7 @@ function AboutSerai() {
               transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)',
               transition: 'transform 0.3s ease',
               ...(isMobile && styles.goalMobile),
+              ...(isTablet && styles.goalTablet),
             }} 
             key={index}
             onMouseEnter={() => setHoverIndex(index)}
@@ -194,11 +229,23 @@ function AboutSerai() {
         <div style={dividerStyles}></div>
 
         <div style={styles.teamSection}>
-          <h2 style={{ ...styles.teamTitle, ...(isMobile && styles.teamTitleMobile) }}>Meet Our Team</h2>
-          <p style={{ ...styles.teamDescription, ...(isMobile && styles.teamDescriptionMobile) }}>
+          <h2 style={{ 
+            ...styles.teamTitle, 
+            ...(isMobile && styles.teamTitleMobile),
+            ...(isTablet && styles.teamTitleTablet),
+          }}>Meet Our Team</h2>
+          <p style={{ 
+            ...styles.teamDescription, 
+            ...(isMobile && styles.teamDescriptionMobile),
+            ...(isTablet && styles.teamDescriptionTablet),
+          }}>
             Serai Team Advisory and Executive Board Member Committee
           </p>
-          <div style={{ ...styles.teamMembers, ...(isMobile && styles.teamMembersMobile) }}>
+          <div style={{ 
+            ...styles.teamMembers, 
+            ...(isMobile && styles.teamMembersMobile),
+            ...(isTablet && styles.teamMembersTablet),
+          }}>
             {teamMembers.map(member => (
               <TeamMember key={member.name} {...member} />
             ))}
@@ -206,7 +253,11 @@ function AboutSerai() {
         </div>
 
         <div style={researchTitleStyles}>Research Partners</div>
-        <div style={{ ...styles.researchPartners, ...(isMobile && styles.researchPartnersMobile) }}>
+        <div style={{ 
+          ...styles.researchPartners, 
+          ...(isMobile && styles.researchPartnersMobile),
+          ...(isTablet && styles.researchPartnersTablet),
+        }}>
           {researchPartners.map(partner => (
             <TeamMember key={partner.name} {...partner} />
           ))}
@@ -248,6 +299,12 @@ const styles = {
     fontSize: '2rem',
     marginBottom: '1rem',
   },
+  titleTablet: {
+    textAlign: 'center',
+    marginLeft: '0',
+    fontSize: '2.5rem',
+    marginBottom: '1.5rem',
+  },
   goals: {
     marginTop: '2rem',
     padding: '0 20%',
@@ -265,6 +322,11 @@ const styles = {
     marginBottom: '2rem',
     width: '84%'
   },
+  goalsTablet: {
+    padding: '0 10%',
+    marginBottom: '3rem',
+    width: '80%',
+  },
   goal: {
     textAlign: 'left',
     backgroundColor: '#2176FF33',
@@ -280,6 +342,10 @@ const styles = {
     textAlign: 'center',
     fontSize: '1.1rem',
   },
+  goalTablet: {
+    textAlign: 'left',
+    fontSize: '1.2rem',
+  },
   divider: {
     height: '2px',
     backgroundColor: '#D3E4FF',
@@ -289,6 +355,9 @@ const styles = {
   },
   dividerMobile: {
     width: "90%",
+  },
+  dividerTablet: {
+    width: "80%",
   },
   section: {
     display: 'flex',
@@ -306,6 +375,14 @@ const styles = {
     margin: "2rem auto",
     alignItems: "flex-start",
   },
+  sectionTablet: {
+    flexDirection: "row",
+    padding: "0 10%",
+    width: "80%",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    margin: "3rem auto",
+  },
   titleContainer: {
     flex: '0 0 350px',
     marginRight: '100px'
@@ -317,6 +394,10 @@ const styles = {
     marginBottom: "1rem",
     textAlign: "left",
     alignSelf: "stretch",
+  },
+  titleContainerTablet: {
+    flex: '0 0 300px', 
+    marginRight: '0px', 
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -332,6 +413,11 @@ const styles = {
     marginBottom: "1rem",
     textAlign: "left",
   },
+  sectionTitleTablet: {
+    fontSize: "2.5rem",
+    marginBottom: "1.5rem",
+    textAlign: "left",
+  },
   textContainer: {
     flex: '1',
     padding: '0 20px',
@@ -339,6 +425,9 @@ const styles = {
   },
   textContainerMobile: {
     padding: '0',
+  },
+  textContainerTablet: {
+    padding: '0 10px',
   },
   sectionText: {
     fontSize: '1.3rem',
@@ -351,6 +440,10 @@ const styles = {
     fontSize: '1.1rem',
     textAlign: 'left',
     lineHeight: '1.8',
+  },
+  sectionTextTablet: {
+    fontSize: '1.2rem',
+    lineHeight: '1.7',
   },
   highlight: {
     fontWeight: 'bold',
@@ -371,6 +464,9 @@ const styles = {
   teamTitleMobile: {
     fontSize: '2.5rem',
   },
+  teamTitleTablet: {
+    fontSize: '2.8rem',
+  },
   teamDescription: {
     fontSize: '2rem',
     fontFamily: 'Helvetica Neue, sans-serif',
@@ -384,14 +480,22 @@ const styles = {
     fontSize: '1.5rem',
     marginTop: '2rem',
   },
+  teamDescriptionTablet: {
+    fontSize: '1.8rem',
+    marginTop: '3rem',
+  },
   teamMembers: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '0px',
+    gap: '50px',
     justifyItems: 'center'
   },
   teamMembersMobile: {
     gridTemplateColumns: 'repeat(1, 1fr)',
+  },
+  teamMembersTablet: {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '30px',
   },
   researchTitle: {
     fontSize: '2rem',
@@ -406,6 +510,10 @@ const styles = {
     fontSize: '1.5rem',
     marginTop: '3rem',
   },
+  researchTitleTablet: {
+    fontSize: '1.8rem',
+    marginTop: '4rem',
+  },
   researchPartners: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)', 
@@ -414,6 +522,10 @@ const styles = {
   },
   researchPartnersMobile: {
     gridTemplateColumns: 'repeat(1, 1fr)',
+  },
+  researchPartnersTablet: {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '30px',
   },
   memberContainer: {
     display: 'flex',
@@ -428,6 +540,10 @@ const styles = {
     marginTop: '3rem',
     width: '80%',
   },
+  memberContainerTablet: {
+    marginTop: '4rem',
+    width: '220px',
+  },
   memberImage: {
     width: '100%',
     height: 'auto', 
@@ -436,6 +552,9 @@ const styles = {
   },
   memberImageMobile: {
     width: '100%',
+  },
+  memberImageTablet: {
+    width: '90%', 
   },
   memberName: {
     fontSize: '1.3rem',
@@ -447,6 +566,9 @@ const styles = {
   memberNameMobile: {
     fontSize: '1.2rem',
   },
+  memberNameTablet: {
+    fontSize: '1.3rem',
+  },
   memberRole: {
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
@@ -457,6 +579,9 @@ const styles = {
   },
   memberRoleMobile: {
     fontSize: '0.9rem',
+  },
+  memberRoleTablet: {
+    fontSize: '1rem',
   },
   linkedinIcon: {
     width: '36px',

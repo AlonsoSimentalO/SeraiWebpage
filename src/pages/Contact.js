@@ -18,45 +18,54 @@ function useMediaQuery(query) {
 
 function Contact() {
   const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
   const sectionGetTouchStyles = {
     ...styles.sectionGetTouch,
     ...(isMobile && styles.sectionGetTouchMobile),
+    ...(isTablet && styles.sectionGetTouchTablet),
   };
 
   const sectionStyles = {
     ...styles.section,
     ...(isMobile && styles.sectionMobile),
+    ...(isTablet && styles.sectionTablet),
   };
 
   const titleContainerStyles = {
     ...styles.titleContainer,
     ...(isMobile && styles.titleContainerMobile),
+    ...(isTablet && styles.titleContainerTablet),
   };
 
   const sectionTitleStyles = {
     ...styles.sectionTitle,
     ...(isMobile && styles.sectionTitleMobile),
+    ...(isTablet && styles.sectionTitleTablet),
   };
 
   const textContainerStyles = {
     ...styles.textContainer,
     ...(isMobile && styles.textContainerMobile),
+    ...(isTablet && styles.textContainerTablet),
   };
 
   const sectionTextStyles = {
     ...styles.sectionText,
     ...(isMobile && styles.sectionTextMobile),
+    ...(isTablet && styles.sectionTextTablet),
   };
 
   const addressPStyles = {
     ...styles.addressP,
     ...(isMobile && styles.addressPMobile),
+    ...(isTablet && styles.addressPTablet),
   };
 
   const dividerStyles = {
     ...styles.divider,
     ...(isMobile && styles.dividerMobile),
+    ...(isTablet && styles.dividerTablet),
   };
 
   return (
@@ -87,11 +96,9 @@ function Contact() {
             <p> Horneggstrasse 9 </p>
             <p> 8008 Zurich, Switzerland</p>
             <p>
-              {" "}
               <b>Phone:</b> +41-44-6880168
             </p>
             <p>
-              {" "}
               <b>Email:</b> info@seraispaces.com
             </p>
           </div>
@@ -119,6 +126,10 @@ const styles = {
   dividerMobile: {
     width: "90%",
   },
+  dividerTablet: {
+    width: "80%",
+    margin: "6rem auto 1rem auto", 
+  },
   section: {
     display: "flex",
     padding: "0 20%",
@@ -133,6 +144,14 @@ const styles = {
     width: "90%",
     margin: "2rem auto",
     alignItems: "center",
+  },
+  sectionTablet: {
+    flexDirection: "row",
+    padding: "0 10%",
+    width: "80%",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    margin: "3rem auto",
   },
   sectionGetTouch: {
     display: "flex",
@@ -151,6 +170,13 @@ const styles = {
     height: "auto",
     alignItems: "center",
   },
+  sectionGetTouchTablet: {
+    flexDirection: "row",
+    padding: "0 10%",
+    width: "80%",
+    alignItems: "flex-start",
+    height: "auto",
+  },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
     WebkitBackgroundClip: "text",
@@ -165,6 +191,11 @@ const styles = {
     marginBottom: "1rem",
     textAlign: "center",
   },
+  sectionTitleTablet: {
+    fontSize: "2.5rem",
+    marginBottom: "1.5rem",
+    textAlign: "left",
+  },
   sectionText: {
     fontSize: "1.3rem",
     fontFamily: "Helvetica Neue, sans-serif",
@@ -177,6 +208,10 @@ const styles = {
     textAlign: "justify",
     lineHeight: '1.8'
   },
+  sectionTextTablet: {
+    fontSize: "1.2rem",
+    lineHeight: "1.7",
+  },
   titleContainer: {
     flex: "0 0 350px",
     marginRight: "100px",
@@ -188,6 +223,10 @@ const styles = {
     textAlign: "center",
     alignSelf: "center",
   },
+  titleContainerTablet: {
+    flex: "0 0 300px", 
+    marginRight: "50px", // Reducir margen para tablets
+  },
   textContainer: {
     flex: "1",
     padding: "0 20px",
@@ -195,6 +234,9 @@ const styles = {
   },
   textContainerMobile: {
     padding: "0",
+  },
+  textContainerTablet: {
+    padding: "0 10px",
   },
   addressP: {
     marginTop: "0",
@@ -204,6 +246,10 @@ const styles = {
   },
   addressPMobile: {
     fontSize: "1.1rem",
+  },
+  addressPTablet: {
+    fontSize: "1.2rem",
+    marginBottom: "0.5rem",
   },
 };
 

@@ -19,45 +19,54 @@ function useMediaQuery(query) {
 
 function Insights() {
   const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
   const sectionStyles = {
     ...styles.section,
     ...(isMobile && styles.sectionMobile),
+    ...(isTablet && styles.sectionTablet),
   };
 
   const titleContainerStyles = {
     ...styles.titleContainer,
     ...(isMobile && styles.titleContainerMobile),
+    ...(isTablet && styles.titleContainerTablet),
   };
 
   const sectionTitleStyles = {
     ...styles.sectionTitle,
     ...(isMobile && styles.sectionTitleMobile),
+    ...(isTablet && styles.sectionTitleTablet),
   };
 
   const textContainerStyles = {
     ...styles.textContainer,
     ...(isMobile && styles.textContainerMobile),
+    ...(isTablet && styles.textContainerTablet),
   };
 
   const sectionTextStyles = {
     ...styles.sectionText,
     ...(isMobile && styles.sectionTextMobile),
+    ...(isTablet && styles.sectionTextTablet),
   };
 
   const listItemStyles = {
     ...styles.listItem,
     ...(isMobile && styles.listItemMobile),
+    ...(isTablet && styles.listItemTablet),
   };
 
   const sectionTextIconStyles = {
     ...styles.sectionTextIcon,
     ...(isMobile && styles.sectionTextIconMobile),
+    ...(isTablet && styles.sectionTextIconTablet),
   };
 
   const dividerStyles = {
     ...styles.divider,
     ...(isMobile && styles.dividerMobile),
+    ...(isTablet && styles.dividerTablet),
   };
 
   return (
@@ -158,6 +167,9 @@ const styles = {
   dividerMobile: {
     width: '90%',
   },
+  dividerTablet: {
+    width: '80%',
+  },
   section: {
     display: 'flex',
     padding: '0 20%',
@@ -173,6 +185,14 @@ const styles = {
     margin: '1rem auto',
     alignItems: 'flex-start',
   },
+  sectionTablet: {
+    flexDirection: 'row',
+    padding: '0 10%',
+    width: '80%',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    margin: '3rem auto',
+  },
   titleContainer: {
     flex: '0 0 450px',
     marginRight: '100px',
@@ -183,6 +203,10 @@ const styles = {
     marginBottom: '1rem',
     textAlign: 'left',
     alignSelf: 'stretch',
+  },
+  titleContainerTablet: {
+    flex: '0 0 300px', 
+    marginRight: '0px', 
   },
   sectionTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -198,6 +222,11 @@ const styles = {
     marginBottom: '1rem',
     textAlign: 'left',
   },
+  sectionTitleTablet: {
+    fontSize: '2.5rem',
+    marginBottom: '1.5rem',
+    textAlign: 'left',
+  },
   textContainer: {
     flex: '1',
     padding: '0 20px',
@@ -206,6 +235,9 @@ const styles = {
   textContainerMobile: {
     padding: '0',
     marginBottom: '0rem'
+  },
+  textContainerTablet: {
+    padding: '0 10px',
   },
   sectionText: {
     fontSize: '1.3rem',
@@ -219,6 +251,10 @@ const styles = {
     textAlign: 'left',
     lineHeight: "1.8",
     marginBottom: '0rem'
+  },
+  sectionTextTablet: {
+    fontSize: '1.2rem',
+    lineHeight: "1.7",
   },
   list: {
     listStyleType: 'none',
@@ -235,6 +271,11 @@ const styles = {
     alignItems: 'flex-start',
     marginBottom: '1rem',
   },
+  listItemTablet: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: '1rem',
+  },
   sectionTextIcon: {
     marginRight: "10px",
   },
@@ -242,12 +283,10 @@ const styles = {
     marginRight: '10px',
     marginBottom: '0',
   },
-  checkIcon: {
-    marginLeft: '-7px',
-    height: '35px',
+  sectionTextIconTablet: {
     marginRight: '10px',
-    marginTop: '-20px'
+    marginBottom: '0',
   },
 };
 
-export default Insights; 
+export default Insights;

@@ -23,46 +23,55 @@ function useMediaQuery(query) {
 function Research() {
   const navigate = useNavigate();
 
-  const isMobile = useMediaQuery("(max-width: 767px)");
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
   const promoTitleStyles = {
     ...styles.promoTitle,
     ...(isMobile && styles.promoTitleMobile),
+    ...(isTablet && styles.promoTitleTablet),
   };
 
   const promoTextStyles = {
     ...styles.promoText,
     ...(isMobile && styles.promoTextMobile),
+    ...(isTablet && styles.promoTextTablet),
   };
 
   const learnMoreButtonStyles = {
     ...styles.learnMoreButton,
     ...(isMobile && styles.learnMoreButtonMobile),
+    ...(isTablet && styles.learnMoreButtonTablet),
   };
 
   const sectionStyles = {
     ...styles.section,
     ...(isMobile && styles.sectionMobile),
+    ...(isTablet && styles.sectionTablet),
   };
 
   const titleContainerStyles = {
     ...styles.titleContainer,
     ...(isMobile && styles.titleContainerMobile),
+    ...(isTablet && styles.titleContainerTablet),
   };
 
   const sectionTitleStyles = {
     ...styles.sectionTitle,
     ...(isMobile && styles.sectionTitleMobile),
+    ...(isTablet && styles.sectionTitleTablet),
   };
 
   const textContainerStyles = {
     ...styles.textContainer,
     ...(isMobile && styles.textContainerMobile),
+    ...(isTablet && styles.textContainerTablet),
   };
 
   const sectionTextStyles = {
     ...styles.sectionText,
     ...(isMobile && styles.sectionTextMobile),
+    ...(isTablet && styles.sectionTextTablet),
   };
 
   const sectionSubtitleStyles = {
@@ -73,35 +82,38 @@ function Research() {
   const sectionTextContainerStyles = {
     ...styles.sectionTextContainer,
     ...(isMobile && styles.sectionTextContainerMobile),
+    ...(isTablet && styles.sectionTextContainerTablet),
   };
 
   const sectionTextContainerLastStyles = {
     ...styles.sectionTextContainerLast,
     ...(isMobile && styles.sectionTextContainerLastMobile),
+    ...(isTablet && styles.sectionTextContainerLastTablet),
   };
 
   const sectionTextIconStyles = {
     ...styles.sectionTextIcon,
     ...(isMobile && styles.sectionTextIconMobile),
+    ...(isTablet && styles.sectionTextIconTablet),
   };
 
   const iconAndSubtitleContainerStyles = {
     ...styles.iconAndSubtitleContainer,
     ...(isMobile && styles.iconAndSubtitleContainerMobile),
+    ...(isTablet && styles.iconAndSubtitleContainerTablet),
   };
 
   const dividerStyles = {
     ...styles.divider,
     ...(isMobile && styles.dividerMobile),
+    ...(isTablet && styles.dividerTablet),
   };
 
   return (
     <div style={styles.container}>
       <Header />
       <div style={styles.promoSection}>
-        <h2 style={promoTitleStyles}>
-          Our Research
-        </h2>
+        <h2 style={promoTitleStyles}>Our Research</h2>
         <p style={promoTextStyles}>
           We are leaders in Research through our partnerships with top research
           institutions like FHNW in Aargau to develop our <br />
@@ -280,6 +292,11 @@ const styles = {
     width: "90%",
     marginBottom: "2rem",
   },
+  promoTitleTablet: {
+    fontSize: "2.8rem",
+    width: "95%",
+    marginBottom: "2.5rem",
+  },
   promoText: {
     fontSize: "1.3rem",
     fontFamily: "Helvetica Neue, sans-serif",
@@ -297,6 +314,13 @@ const styles = {
     paddingRight: '1.5rem',
     width: '90%',
   },
+  promoTextTablet: {
+    fontSize: '1.3rem',
+    marginBottom: '3rem',
+    paddingLeft: '2rem',
+    paddingRight: '2rem',
+    width: '95%',
+  },
   learnMoreButton: {
     padding: "28px 100px",
     fontSize: "1rem",
@@ -311,6 +335,9 @@ const styles = {
   learnMoreButtonMobile: {
     padding: "14px 50px",
   },
+  learnMoreButtonTablet: {
+    padding: "20px 70px",
+  },
   divider: {
     height: "2px",
     backgroundColor: "#D3E4FF",
@@ -320,6 +347,9 @@ const styles = {
   },
   dividerMobile: {
     width: "90%",
+  },
+  dividerTablet: {
+    width: "80%",
   },
   section: {
     display: "flex",
@@ -336,6 +366,14 @@ const styles = {
     margin: "2rem auto",
     alignItems: "flex-start",
   },
+  sectionTablet: {
+    flexDirection: "row",
+    padding: "0 10%",
+    width: "80%",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    margin: "3rem auto",
+  },
   titleContainer: {
     flex: "0 0 350px",
     marginRight: "100px",
@@ -346,6 +384,10 @@ const styles = {
     marginBottom: "1rem",
     textAlign: "left",
     alignSelf: "stretch",
+  },
+  titleContainerTablet: {
+    flex: '0 0 300px', 
+    marginRight: '30px', 
   },
   sectionTitle: {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
@@ -361,6 +403,11 @@ const styles = {
     marginBottom: "1rem",
     textAlign: "left",
   },
+  sectionTitleTablet: {
+    fontSize: "2.5rem",
+    marginBottom: "1.5rem",
+    textAlign: "left",
+  },
   textContainer: {
     flex: "1",
     padding: "0 20px",
@@ -368,6 +415,9 @@ const styles = {
   },
   textContainerMobile: {
     padding: "0",
+  },
+  textContainerTablet: {
+    padding: "0 10px",
   },
   sectionText: {
     fontSize: "1.3rem",
@@ -380,6 +430,10 @@ const styles = {
     fontSize: "1.1rem",
     textAlign: "left",
     lineHeight: "1.8",
+  },
+  sectionTextTablet: {
+    fontSize: "1.2rem",
+    lineHeight: "1.7",
   },
   sectionSubtitle: {
     fontSize: "1.3rem",
@@ -401,12 +455,18 @@ const styles = {
     margin: "0 0 1.5rem 0",
     alignItems: "flex-start",
   },
+  sectionTextContainerTablet: {
+    margin: "0 0 2rem 0",
+  },
   sectionTextContainerLast: {
     position: "relative",
   },
   sectionTextContainerLastMobile: {
     marginBottom: "0",
     alignItems: "flex-start",
+  },
+  sectionTextContainerLastTablet: {
+    marginBottom: "0",
   },
   sectionTextIcon: {
     position: "absolute",
@@ -417,6 +477,11 @@ const styles = {
     position: "static",
     marginBottom: "0.5rem",
   },
+  sectionTextIconTablet: {
+    position: "absolute",
+    left: "-50px",
+    top: "-5px",
+  },
   iconAndSubtitleContainer: {
     display: "block",
   },
@@ -425,6 +490,151 @@ const styles = {
     alignItems: "center",
     justifyContent: "flex-start",
     marginBottom: "0.4rem",
+  },
+  iconAndSubtitleContainerTablet: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginBottom: "0.4rem",
+  },
+  teamSection: {
+    marginTop: "5rem",
+    textAlign: "center",
+  },
+  teamTitle: {
+    fontSize: "3.2rem",
+    fontWeight: "700",
+    fontFamily: "Atyp BL, sans-serif",
+    background: "linear-gradient(to right, #1A0046, #3A3CE6)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  },
+  teamTitleMobile: {
+    fontSize: "2.5rem",
+  },
+  teamTitleTablet: {
+    fontSize: "2.8rem",
+  },
+  teamDescription: {
+    fontSize: "2rem",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontWeight: "400",
+    color: "#1A0046",
+    textAlign: "center",
+    marginTop: "5rem",
+    marginBottom: "1rem",
+  },
+  teamDescriptionMobile: {
+    fontSize: "1.5rem",
+    marginTop: "2rem",
+  },
+  teamDescriptionTablet: {
+    fontSize: "1.8rem",
+    marginTop: "3rem",
+  },
+  teamMembers: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "50px",
+    justifyItems: "center",
+  },
+  teamMembersMobile: {
+    gridTemplateColumns: "repeat(1, 1fr)",
+  },
+  teamMembersTablet: {
+    gridTemplateColumns: "repeat(2, 1fr)", 
+    gap: "30px",
+  },
+  researchTitle: {
+    fontSize: "2rem",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontWeight: "400",
+    color: "#1A0046",
+    textAlign: "center",
+    marginTop: "5rem",
+    marginBottom: "1rem",
+  },
+  researchTitleMobile: {
+    fontSize: "1.5rem",
+    marginTop: "3rem",
+  },
+  researchTitleTablet: {
+    fontSize: "1.8rem",
+    marginTop: "4rem",
+  },
+  researchPartners: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "50px",
+    justifyItems: "center",
+  },
+  researchPartnersMobile: {
+    gridTemplateColumns: "repeat(1, 1fr)",
+  },
+  researchPartnersTablet: {
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "30px",
+  },
+  memberContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    textAlign: "center",
+    width: "250px",
+    marginTop: "7rem",
+  },
+  memberContainerMobile: {
+    marginTop: "3rem",
+    width: "80%",
+  },
+  memberContainerTablet: {
+    marginTop: "4rem",
+    width: "220px",
+  },
+  memberImage: {
+    width: "100%",
+    height: "auto",
+    clipPath: "polygon(50% 0%, 98% 22%, 98% 78%, 50% 100%, 2% 78%, 2% 22%)",
+    boxSizing: "border-box",
+  },
+  memberImageMobile: {
+    width: "100%",
+  },
+  memberImageTablet: {
+    width: "90%", 
+  },
+  memberName: {
+    fontSize: "1.3rem",
+    fontWeight: "700",
+    fontFamily: "Atyp BL, sans-serif",
+    marginTop: "10px",
+    marginBottom: "0px",
+  },
+  memberNameMobile: {
+    fontSize: "1.2rem",
+  },
+  memberNameTablet: {
+    fontSize: "1.3rem",
+  },
+  memberRole: {
+    fontSize: "1rem",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontWeight: "400",
+    color: "#3E3E59",
+    marginBottom: "10px",
+    flex: "1",
+  },
+  memberRoleMobile: {
+    fontSize: "0.9rem",
+  },
+  memberRoleTablet: {
+    fontSize: "1rem",
+  },
+  linkedinIcon: {
+    width: "36px",
+    height: "36px",
+    marginBottom: "10px",
   },
 };
 
