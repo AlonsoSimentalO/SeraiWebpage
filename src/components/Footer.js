@@ -44,7 +44,10 @@ function Footer() {
   };
 
   return (
-    <div style={styles.footer}>
+    <div style={{
+      ...styles.footer,
+      ...(isMobile && styles.footerMobile), // Aplicar estilos móviles al footer
+    }}>
       <div style={footerContentStyles}>
         <div style={logoSectionStyles}>
           <img src={require('../images/serai_logo_negative.png')} alt="Serai Logo" style={styles.logo} />
@@ -84,7 +87,7 @@ const styles = {
   footer: {
     backgroundColor: '#0F172A',
     color: '#E2E8F0',
-    padding: '20px 50px',
+    padding: '20px 60px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -94,6 +97,10 @@ const styles = {
     boxSizing: 'border-box',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
+  },
+  footerMobile: {
+    alignItems: 'flex-start', 
+    padding: '20px 20px',    
   },
   footerContent: {
     display: 'flex',
@@ -123,7 +130,8 @@ const styles = {
     alignItems: 'center',
   },
   logoSectionMobile: {
-    width: '100%',
+    width: 'auto', // Ajustar width para alinear a la izquierda
+    marginLeft: '0', // Eliminar margen izquierdo
   },
   logoSectionTablet: {
     flex: '1', 

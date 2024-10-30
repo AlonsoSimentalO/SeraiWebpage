@@ -5,14 +5,11 @@ import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.sv
 import { ReactComponent as SpeakerIcon } from "../images/icons/volume-high.svg";
 import { ReactComponent as SpeakerMuteIcon } from "../images/icons/volume-mute.svg";
 
-import video4k from '../animations/Serai_2D_Animation_Eng4k.mp4';
 import video1080p from '../animations/Serai_2D_Animation_Eng1080p.mp4';
 
 function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true); 
-  const [videoSource, setVideoSource] = useState('');
-  const [quality, setQuality] = useState('auto');
   const videoRef = useRef(null);
   const playbackTimeRef = useRef(0);
   const elderlyCareRef = useRef(null); 
@@ -34,31 +31,7 @@ function Home() {
       playbackTimeRef.current = videoRef.current.currentTime;
     }
 
-    const determineVideoQuality = () => {
-      if (quality === 'auto') {
-        let connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-
-        if (connection && connection.effectiveType) {
-          let effectiveType = connection.effectiveType;
-
-          if (effectiveType === '4g') {
-            setVideoSource(video4k);
-          } else {
-            setVideoSource(video1080p);
-          }
-        } else {
-          setVideoSource(video1080p);
-        }
-      } else if (quality === '4k') {
-        setVideoSource(video4k);
-      } else if (quality === '1080p') {
-        setVideoSource(video1080p);
-      }
-    };
-
-    determineVideoQuality();
-
-  }, [quality]);
+  }, []);
 
   useEffect(() => {
     const handleLoadedMetadata = () => {
@@ -77,7 +50,7 @@ function Home() {
         videoRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
       }
     };
-  }, [videoSource]);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -89,7 +62,7 @@ function Home() {
     }, 3000); 
 
     return () => clearTimeout(timer); 
-  }, [videoSource]);
+  }, []);
 
   const handlePlay = () => {
     setIsPlaying(true);
@@ -251,6 +224,16 @@ function Home() {
     ...(isTablet && styles.joinUsTitleTablet),
   };
 
+  const listItemStyles = {
+    ...styles.listItem,
+    ...(isTablet && styles.listItemTablet),
+  };
+
+  const solutionIconStyles = {
+    ...styles.solutionIcon,
+    ...(isTablet && styles.solutionIconTablet),
+  };
+
   return (
     <div style={containerStyles}>
       <Header />
@@ -263,9 +246,8 @@ function Home() {
           onPause={handlePause}  
           muted={isMuted}
           controls
-        >
-          {videoSource && <source src={videoSource} type="video/mp4" />}
-        </video>
+          src={video1080p} 
+        />
 
         {!isPlaying && (
           <>
@@ -292,39 +274,43 @@ function Home() {
         </button>
       </div>
 
-      <div ref={elderlyCareRef} style={styles.elderlyCareSection}>
+      <div ref={elderlyCareRef} style={{
+        ...styles.elderlyCareSection,
+        ...(isMobile && styles.elderlyCareSectionMobile),
+        ...(isTablet && styles.elderlyCareSectionTablet),
+      }}>
         <h2 style={careTitleStyles}>Transformative Solutions for Elderly Care</h2>
         <p style={careSubtitleStyles}>At Serai, we leverage machine learning to improve safety and provide independence for the elderly.</p>
         <div style={careDetailsStyles}>
           <img src={require('../images/elderlyCare.png')} alt="Elderly Care" style={careImageStyles}/>
           <div style={careListStyles}>
             <ul>
-              <li style={styles.listItem}>
-                <SolutionIcon style={styles.solutionIcon}/>
+              <li style={listItemStyles}>
+                <SolutionIcon style={solutionIconStyles}/>
                 <div style={styles.listText}>
                   <p style={listTitleStyles}>Real-Time Fall Detection</p>
-                  <p style={listDescriptionStyles}>Our advanced AI technology detects falls instantly, provides immediate alerts to caregivers hence preventing serious injuries.</p>
+                  <p style={listDescriptionStyles}>Our AI detects falls instantly, providing immediate alerts to caregivers.</p>
                 </div>
               </li>
-              <li style={styles.listItem}>
-                <SolutionIcon style={styles.solutionIcon}/>
+              <li style={listItemStyles}>
+                <SolutionIcon style={solutionIconStyles}/>
                 <div style={styles.listText}>
                   <p style={listTitleStyles}>Emergency Notifications</p>
-                  <p style={listDescriptionStyles}>Our system sends real-time notifications to designated caregivers enhancing the safety and security of the elderly.</p>
+                  <p style={listDescriptionStyles}>Real-time notifications enhance the safety and security of the elderly.</p>
                 </div>
               </li>
-              <li style={styles.listItem}>
-                <SolutionIcon style={styles.solutionIcon}/>
+              <li style={listItemStyles}>
+                <SolutionIcon style={solutionIconStyles}/>
                 <div style={styles.listText}>
                   <p style={listTitleStyles}>Medication Reminders</p>
-                  <p style={listDescriptionStyles}>Our system provides timely reminders for medication, helping seniors adhere to their prescribed schedules.</p>
+                  <p style={listDescriptionStyles}>Timely reminders help seniors adhere to their medication schedules.</p>
                 </div>
               </li>
-              <li style={styles.listItem}>
-                <SolutionIcon style={styles.solutionIcon}/>
+              <li style={listItemStyles}>
+                <SolutionIcon style={solutionIconStyles}/>
                 <div style={styles.listText}>
                   <p style={listTitleStyles}>24/7 Monitoring</p>
-                  <p style={listDescriptionStyles}>Our system detects any irregularities in daily activities, providing a comprehensive safety net for the elderly.</p>
+                  <p style={listDescriptionStyles}>Continuous monitoring provides a comprehensive safety net for the elderly.</p>
                 </div>
               </li>
             </ul>
@@ -335,7 +321,11 @@ function Home() {
         </button>
       </div>
 
-      <div ref={whySectionRef} style={styles.whySection}>
+      <div ref={whySectionRef} style={{
+        ...styles.whySection,
+        ...(isMobile && styles.whySectionMobile),
+        ...(isTablet && styles.whySectionTablet),
+      }}>
         <h2 style={whyTitleStyles}>Why use our systems?</h2>
         <div style={cardsContainerStyles}>
           <div style={cardStyles}>
@@ -343,21 +333,21 @@ function Home() {
               <img src={require('../images/intelligent.png')} alt="Intelligent" style={styles.cardImage} />
             </div>
             <h3 style={cardTitleStyles}>Intelligent</h3>
-            <p style={cardTextStyles}>Serai gets to know you and provides insights to increase your quality of life.</p>
+            <p style={cardTextStyles}>Serai understands your needs, providing insights to enhance your quality of life.</p>
           </div>
           <div style={cardStyles}>
             <div style={styles.cardImageContainer}>
               <img src={require('../images/secure.png')} alt="Secure" style={styles.cardImage} />
             </div>
             <h3 style={cardTitleStyles}>Secure</h3>
-            <p style={cardTextStyles}>Your data is physically stored in your home.</p>
+            <p style={cardTextStyles}>Your data is securely stored in your home, ensuring privacy and safety.</p>
           </div>
           <div style={cardStyles}>
             <div style={styles.cardImageContainer}>
               <img src={require('../images/evolving.png')} alt="Evolving" style={styles.cardImage} />
             </div>
             <h3 style={cardTitleStyles}>Evolving</h3>
-            <p style={cardTextStyles}>Our Machine Learning algorithms will constantly improve, providing an ever-improving experience for you and your loved ones.</p>
+            <p style={cardTextStyles}>Our ML algorithms continuously improve, offering an ever-enhancing experience.</p>
           </div>
         </div>
       </div>
@@ -367,7 +357,7 @@ function Home() {
           <h2 style={joinUsTitleStyles}>Join Us</h2>
           <p>Join us in making solitary living safer and enhancing the quality of life for the elderly. Together, we can create a safer, more independent future for our ageing population.</p>
         </div>
-        <img src={require('../images/nurse.jpeg')} alt="Ambulance Service" style={joinUsImageStyles} />
+        <img src={require('../images/joinimage.png')} alt="Join Us" style={joinUsImageStyles} />
       </div>
 
       <Footer />
@@ -381,6 +371,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    boxSizing: 'border-box',
   },
   containerMobile: {
     width: '100%',
@@ -393,6 +384,7 @@ const styles = {
     width: '75%', 
     margin: '2rem auto',
     marginTop: '2rem',
+    boxSizing: 'border-box',
   },
   videoContainerMobile: {
     width: '90%',
@@ -403,12 +395,14 @@ const styles = {
     width: '80%',
     height: '50vh',
     margin: '1.5rem auto',
+    boxSizing: 'border-box', 
   },
   video: {
     width: '100%',
     height: 'auto', 
     maxWidth: '100%', 
     borderRadius: '15px',
+    boxSizing: 'border-box', 
   },
   videoMobile: {
     height: '100%',
@@ -470,6 +464,7 @@ const styles = {
     textAlign: 'center',
     marginTop: '2rem',
     padding: '2rem 0',
+    boxSizing: 'border-box',
   },
   promoTitle: {
     fontSize: '3.5rem',  
@@ -483,6 +478,7 @@ const styles = {
     width: '85%', 
     margin: '0 auto', 
     marginBottom: '3rem',
+    boxSizing: 'border-box', 
   },
   promoTitleMobile: {
     fontSize: '2.3rem',
@@ -499,6 +495,7 @@ const styles = {
     marginBottom: '4rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
+    boxSizing: 'border-box', 
   },
   promoTextMobile: {
     fontSize: '1.2rem',
@@ -515,6 +512,7 @@ const styles = {
     paddingLeft: '2rem',
     paddingRight: '2rem',
     width: '95%',
+    boxSizing: 'border-box', 
   },
   learnMoreButton: {
     padding: '28px 100px',
@@ -526,6 +524,7 @@ const styles = {
     border: 'none',
     borderRadius: '48px',
     cursor: 'pointer',
+    boxSizing: 'border-box',
   },
   learnMoreButtonMobile: {
     padding: '14px 50px',
@@ -539,6 +538,20 @@ const styles = {
     alignItems: 'center',
     width: '90%',
     margin: '2rem auto',
+    boxSizing: 'border-box', 
+  },
+  elderlyCareSectionMobile: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '0',
+    marginTop: '1rem',      
+    marginBottom: '1rem',  
+  },
+  elderlyCareSectionTablet: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '0',
+    boxSizing: 'border-box',
   },
   careTitle: {
     fontSize: '3rem',  
@@ -548,6 +561,7 @@ const styles = {
     WebkitBackgroundClip: 'text',  
     WebkitTextFillColor: 'transparent',  
     marginBottom: '1rem',
+    boxSizing: 'border-box',
   },
   careTitleMobile: {
     fontSize: '2rem',
@@ -565,6 +579,7 @@ const styles = {
     marginBottom: '2rem',
     textAlign: 'center',
     lineHeight: '1.8',
+    boxSizing: 'border-box', 
   },
   careSubtitleMobile: {
     fontSize: '1.2rem',
@@ -588,6 +603,7 @@ const styles = {
     width: '100%',
     padding: '1rem',
     marginBottom: '2rem',
+    boxSizing: 'border-box', 
   },
   careDetailsMobile: {
     flexDirection: 'column',
@@ -597,14 +613,16 @@ const styles = {
   careDetailsTablet: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center', // Centrar el contenido
+    justifyContent: 'center', 
     padding: '1rem 2rem',
+    boxSizing: 'border-box', 
   },
   careImage: {
     width: '30%',
     height: 'auto',
     borderRadius: '15px',
     marginLeft: '16rem',
+    boxSizing: 'border-box', 
   },
   careImageMobile: {
     width: '100%',
@@ -612,10 +630,11 @@ const styles = {
     marginBottom: '1rem',
   },
   careImageTablet: {
-    width: '40%',
-    marginLeft: '0', // Eliminar margen izquierdo para centrar
-    marginRight: '2rem', // Añadir margen derecho para espaciar del texto
+    width: '50%',
+    marginLeft: '0', 
+    marginRight: '1rem', 
     marginBottom: '0',
+    boxSizing: 'border-box', 
   },
   careList: {
     width: '35%',
@@ -624,6 +643,7 @@ const styles = {
     listStyleType: 'none', 
     paddingLeft: '0',
     marginLeft: '.7rem',
+    boxSizing: 'border-box', 
   },
   careListMobile: {
     width: '100%',
@@ -632,14 +652,20 @@ const styles = {
     paddingRight: '4rem',    
   },
   careListTablet: {
-    width: '45%',
-    marginLeft: '0', // Eliminar margen izquierdo para centrar
-    paddingRight: '2rem',
+    width: '40%',
+    marginLeft: '0',
+    paddingRight: '1.5rem',
+    boxSizing: 'border-box', 
   },
   listItem: {
     display: 'flex', 
     alignItems: 'flex-start',
     marginBottom: '1rem', 
+    boxSizing: 'border-box', 
+  },
+  listItemTablet: {
+    alignItems: 'center',
+    boxSizing: 'border-box', 
   },
   solutionIcon: {
     width: '75px',
@@ -647,10 +673,18 @@ const styles = {
     fill: '#1A0046',
     marginRight: '10px',
     marginTop: '2px', 
+    boxSizing: 'border-box', 
+  },
+  solutionIconTablet: {
+    width: '120px',
+    height: '120px',
+    marginRight: '15px',
+    boxSizing: 'border-box', 
   },
   listText: {
     display: 'flex',
     flexDirection: 'column',
+    boxSizing: 'border-box', 
   },
   listTitle: {
     fontSize: '1.4rem',
@@ -658,12 +692,13 @@ const styles = {
     fontWeight: 'bold',
     color: '#1A0046',
     marginBottom: "0.5rem",
+    boxSizing: 'border-box', 
   },
   listTitleMobile: {
     fontSize: '1.2rem',
   },
   listTitleTablet: {
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
   },
   listDescription: {
     fontSize: '1.2rem',
@@ -672,12 +707,13 @@ const styles = {
     color: '#1E293B',
     marginTop: '0',
     marginBottom: '0',
+    boxSizing: 'border-box', 
   },
   listDescriptionMobile: {
     fontSize: '1rem',
   },
   listDescriptionTablet: {
-    fontSize: '1.1rem',
+    fontSize: '1rem',
   },
   whySection: {
     backgroundColor: '#F6F6F6',
@@ -687,6 +723,18 @@ const styles = {
     width: '100%',
     marginBottom: '4rem',
     marginTop: '2rem',
+    boxSizing: 'border-box', 
+  },
+  whySectionMobile: {
+    marginTop: '1rem',      
+    marginBottom: '2rem',    
+    padding: '1rem 0',        
+  },
+  whySectionTablet: {
+    marginTop: '2rem',
+    marginBottom: '4rem',
+    padding: '2rem 0',
+    boxSizing: 'border-box', 
   },
   whyTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -696,10 +744,12 @@ const styles = {
     fontWeight: '600',
     fontFamily: 'Atyp BL, sans-serif',
     marginBottom: '3rem',
+    boxSizing: 'border-box', 
   },
   whyTitleMobile: {
     fontSize: '2rem',
-    marginBottom: '2.5rem',
+    marginBottom: '1rem',  
+    textAlign: 'center',
   },
   whyTitleTablet: {
     fontSize: '2.5rem',
@@ -710,6 +760,7 @@ const styles = {
     justifyContent: 'space-around',
     padding: '0 10%',
     marginBottom: '2.5rem',
+    boxSizing: 'border-box',
   },
   cardsContainerMobile: {
     flexDirection: 'column',
@@ -723,6 +774,7 @@ const styles = {
     justifyContent: 'center',
     padding: '0 5%',
     gap: '2rem',
+    boxSizing: 'border-box', 
   },
   card: {
     width: '30%',
@@ -731,6 +783,7 @@ const styles = {
     borderRadius: '15px',
     color: '#333',
     marginBottom: '1rem',
+    boxSizing: 'border-box',
   },
   cardMobile: {
     width: '80%',
@@ -741,6 +794,7 @@ const styles = {
     width: '45%',
     height: 'auto',
     marginBottom: '2rem',
+    boxSizing: 'border-box', 
   },
   cardImageContainer: {
     backgroundColor: '#3A3CE61A',
@@ -752,11 +806,13 @@ const styles = {
     height: '200px', 
     marginBottom: '1rem',
     border: '10px solid #fff',
+    boxSizing: 'border-box', 
   },
   cardImage: {
     maxWidth: '100%', 
     maxHeight: '100%',
     margin: 'auto',
+    boxSizing: 'border-box',
   },
   cardTitle: {
     fontSize: '1.9rem',
@@ -766,6 +822,7 @@ const styles = {
     textAlign: 'left',
     padding: '0 1rem',
     color: '#1A0046',
+    boxSizing: 'border-box',
   },
   cardTitleMobile: {
     fontSize: '1.5rem',
@@ -781,6 +838,7 @@ const styles = {
     fontWeight: '400',
     textAlign: 'left',
     padding: '0 1rem',
+    boxSizing: 'border-box',
   },
   cardTextMobile: {
     fontSize: '1.1rem',
@@ -798,6 +856,7 @@ const styles = {
     backgroundColor: '#ffffff', 
     color: '#333', 
     marginBottom: '4rem', 
+    boxSizing: 'border-box', 
   },
   joinUsSectionMobile: {
     flexDirection: 'column',
@@ -808,6 +867,7 @@ const styles = {
     flexDirection: 'row',
     padding: '2rem 5%',
     justifyContent: 'space-between',
+    boxSizing: 'border-box', 
   },
   joinUsTitle: {
     fontSize: '3rem',  
@@ -818,6 +878,7 @@ const styles = {
     WebkitTextFillColor: 'transparent',
     textAlign: 'left', 
     display: 'inline',
+    boxSizing: 'border-box', 
   },  
   joinUsTitleMobile: {
     fontSize: '2rem',
@@ -834,6 +895,7 @@ const styles = {
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
     textAlign: 'left', 
+    boxSizing: 'border-box', 
   },
   joinUsTextMobile: {
     fontSize: '1.2rem',
@@ -850,11 +912,13 @@ const styles = {
     paddingLeft: '2rem',
     paddingRight: '2rem',
     width: '45%',
+    boxSizing: 'border-box', 
   },
   joinUsImage: {
     width: '50%', 
     height: 'auto', 
     borderRadius: '10px', 
+    boxSizing: 'border-box',
   },
   joinUsImageMobile: {
     width: '100%',
@@ -863,6 +927,7 @@ const styles = {
   joinUsImageTablet: {
     width: '45%',
     marginTop: '0',
+    boxSizing: 'border-box',
   },
 };
 

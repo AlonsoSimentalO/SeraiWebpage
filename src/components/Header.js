@@ -129,7 +129,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'nowrap',
-    padding: '1rem 2rem', 
+    padding: '1rem 3.2rem', 
     backgroundColor: '#fff',
     width: '100%',
     maxWidth: '100%',
@@ -194,7 +194,7 @@ const styles = {
   },
   navList: {
     display: 'flex',
-    gap: '2rem',
+    gap: '3rem',
     listStyle: 'none',
     margin: 0,
     padding: 0,
@@ -217,13 +217,14 @@ const styles = {
     color: '#1E293B',
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '600',
+    fontWeight: '500',
   },
   navLinkMobile: {
     fontSize: '0.9rem',
   },
   navLinkTablet: {
-    fontSize: '0.95rem', 
+    fontSize: '0.95rem',
+    fontWeight: '500', 
   },
   listItem: {
     position: 'relative',

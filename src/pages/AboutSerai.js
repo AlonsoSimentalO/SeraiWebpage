@@ -128,9 +128,15 @@ function AboutSerai() {
   };
 
   return (
-    <div style={styles.container}>
+    <div style={{
+      ...styles.container,
+      ...(isMobile && { overflowX: 'hidden' }), // Evita el desbordamiento horizontal en móviles
+    }}>
       <Header />
-      <div style={styles.content}>
+      <div style={{
+        ...styles.content,
+        ...(isMobile && styles.contentMobile),
+      }}>
         <h1 style={{ 
           ...styles.title, 
           ...(isMobile && styles.titleMobile),
@@ -548,7 +554,6 @@ const styles = {
     width: '100%',
     height: 'auto', 
     clipPath: 'polygon(50% 0%, 98% 22%, 98% 78%, 50% 100%, 2% 78%, 2% 22%)',
-    boxSizing: 'border-box' 
   },
   memberImageMobile: {
     width: '100%',
