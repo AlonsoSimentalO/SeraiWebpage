@@ -88,11 +88,17 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 5rem;
+  padding-top: 103px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media only screen and (max-width: 1024px){
+  body {
+    padding-top: 93px;
+  }
 }
 
+@media only screen and (max-width: 767px){
+  body {
+    padding-top: 67px;
+  }
+}

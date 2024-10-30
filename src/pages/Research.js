@@ -269,10 +269,10 @@ const styles = {
     justifyContent: "flex-start",
   },
   promoSection: {
-    width: "100%",
     textAlign: "center",
     marginTop: "2rem",
     padding: "2rem 0",
+    marginInline: 'auto',
   },
   promoTitle: {
     fontSize: "3.5rem",
@@ -302,8 +302,8 @@ const styles = {
     fontFamily: "Helvetica Neue, sans-serif",
     fontWeight: "400",
     lineHeight: "1.6",
-    marginTop: "0",
     marginBottom: "4rem",
+    marginInline: 'auto'
   },
   promoTextMobile: {
     fontSize: '1.2rem',
@@ -353,11 +353,11 @@ const styles = {
   },
   section: {
     display: "flex",
-    padding: "0 20%",
     flexDirection: "row",
-    alignItems: "flex-start",
+    alignItems: "center",
     margin: "4rem auto",
-    width: "65%",
+    maxWidth: '1440px',
+    gap: '20px'
   },
   sectionMobile: {
     flexDirection: "column",
@@ -368,15 +368,13 @@ const styles = {
   },
   sectionTablet: {
     flexDirection: "row",
-    padding: "0 10%",
     width: "80%",
     justifyContent: "space-between",
     alignItems: "flex-start",
     margin: "3rem auto",
   },
   titleContainer: {
-    flex: "0 0 350px",
-    marginRight: "100px",
+    maxWidth: '350px'
   },
   titleContainerMobile: {
     flex: "0 0 auto",
@@ -393,10 +391,12 @@ const styles = {
     background: "linear-gradient(to right, #1A0046, #3A3CE6)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    fontSize: "3rem",
+    fontSize: "2.5rem",
     fontWeight: "500",
     fontFamily: "Atyp BL, sans-serif",
     marginTop: "0",
+    paddingLeft: '1rem',
+    minWidth: '350px'
   },
   sectionTitleMobile: {
     fontSize: "2.2rem",
@@ -424,7 +424,7 @@ const styles = {
     fontFamily: "Helvetica Neue, sans-serif",
     fontWeight: "400",
     lineHeight: "1.6",
-    marginTop: "0",
+    maxWidth: '790px'
   },
   sectionTextMobile: {
     fontSize: "1.1rem",

@@ -6,7 +6,7 @@ import Insights from './pages/Insights';
 import Partnerships from './pages/Partnerships';
 import Research from './pages/Research';
 import Contact from './pages/Contact';
-
+import './reset.css';
 
 const App = () => {
   return (

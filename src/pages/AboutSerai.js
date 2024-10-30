@@ -283,7 +283,7 @@ const styles = {
   },
   content: {
     flex: 1,
-    padding: '2rem',
+    padding: '0',
     width: '100%',
   },
   contentMobile: {
@@ -313,7 +313,7 @@ const styles = {
   },
   goals: {
     marginTop: '2rem',
-    padding: '0 20%',
+    padding: '0',
     fontSize: '1.4rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
@@ -337,12 +337,9 @@ const styles = {
     textAlign: 'left',
     backgroundColor: '#2176FF33',
     color: '#1A0046',
-    margin: '1rem 0',
-    padding: '1rem',
-    minHeight: '70px',
     borderRadius: '5px',
     fontWeight: '600',
-    display: 'block'
+    display: 'block',
   },
   goalMobile: {
     textAlign: 'center',
@@ -368,7 +365,7 @@ const styles = {
   section: {
     display: 'flex',
     margin: '4rem auto',
-    padding: '0 20%',
+    padding: '0 0',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',

@@ -124,19 +124,19 @@ function Insights() {
         <div style={textContainerStyles}>
           <ul style={styles.list}>
             <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
+              <div style={sectionTextIconStyles} className="svgIcon">
                 <SolutionIcon />
               </div>
               <p style={sectionTextStyles}>We have raised CHF 1.1 million in private investment.</p>
             </li>
             <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
+              <div style={sectionTextIconStyles} className="svgIcon">
                 <SolutionIcon />
               </div>
               <p style={sectionTextStyles}>Secured Innosuisse funding through a research partnership with FHNW.</p>
             </li>
             <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
+              <div style={sectionTextIconStyles} className="svgIcon">
                 <SolutionIcon />
               </div>
               <p style={sectionTextStyles}>Developed a fall detection and behavioral anomaly solution for the senior care market.</p>
@@ -171,100 +171,105 @@ const styles = {
     width: '80%',
   },
   section: {
-    display: 'flex',
-    padding: '0 20%',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    margin: '4rem auto',
-    width: '65%'
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    margin: "4rem auto",
+    maxWidth: '1440px',
+    gap: '20px',
   },
   sectionMobile: {
-    flexDirection: 'column',
-    padding: '0 5%',
-    width: '90%',
-    margin: '1rem auto',
-    alignItems: 'flex-start',
+    flexDirection: "column",
+    padding: "0 5%",
+    width: "90%",
+    margin: "2rem auto",
+    alignItems: "flex-start",
   },
   sectionTablet: {
-    flexDirection: 'row',
-    padding: '0 10%',
-    width: '80%',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    margin: '3rem auto',
+    flexDirection: "row",
+    width: "80%",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    margin: "3rem auto",
   },
+
+  
   titleContainer: {
-    flex: '0 0 450px',
-    marginRight: '100px',
+    maxWidth: '350px'
   },
   titleContainerMobile: {
-    flex: '0 0 auto',
-    marginRight: '0',
-    marginBottom: '1rem',
-    textAlign: 'left',
-    alignSelf: 'stretch',
+    flex: "0 0 auto",
+    marginRight: "0",
+    marginBottom: "1rem",
+    textAlign: "left",
+    alignSelf: "stretch",
   },
   titleContainerTablet: {
     flex: '0 0 300px', 
-    marginRight: '0px', 
+    marginRight: '30px', 
   },
+
   sectionTitle: {
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    fontSize: '3rem',  
-    fontWeight: '500',
-    fontFamily: 'Atyp BL, sans-serif',
-    marginTop: '0'
+    background: "linear-gradient(to right, #1A0046, #3A3CE6)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontSize: "2.5rem",
+    fontWeight: "500",
+    fontFamily: "Atyp BL, sans-serif",
+    marginTop: "0",
+    paddingLeft: '1rem',
+    minWidth: '350px'
   },
   sectionTitleMobile: {
-    fontSize: '2rem',
-    marginBottom: '1rem',
-    textAlign: 'left',
+    fontSize: "2.2rem",
+    marginBottom: "1rem",
+    textAlign: "left",
   },
   sectionTitleTablet: {
-    fontSize: '2.5rem',
-    marginBottom: '1.5rem',
-    textAlign: 'left',
+    fontSize: "2.5rem",
+    marginBottom: "1.5rem",
+    textAlign: "left",
   },
+
   textContainer: {
-    flex: '1',
-    padding: '0 20px',
+    flex: "1",
+    padding: "0 20px",
     position: "relative",
   },
   textContainerMobile: {
-    padding: '0',
-    marginBottom: '0rem'
+    padding: "0",
   },
   textContainerTablet: {
-    padding: '0 10px',
+    padding: "0 10px",
   },
+
+
   sectionText: {
-    fontSize: '1.3rem',
-    fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '400',
+    fontSize: "1.3rem",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontWeight: "400",
     lineHeight: "1.6",
-    marginTop: "0",
+    maxWidth: '790px'
   },
   sectionTextMobile: {
-    fontSize: '1.1rem',
-    textAlign: 'left',
+    fontSize: "1.1rem",
+    textAlign: "left",
     lineHeight: "1.8",
-    marginBottom: '0rem'
   },
   sectionTextTablet: {
-    fontSize: '1.2rem',
+    fontSize: "1.2rem",
     lineHeight: "1.7",
   },
+
+
   list: {
     listStyleType: 'none',
-    padding: 0,
-    marginBottom: '6rem',
+    maxWidth: '790px'
   },
   listItem: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '0rem',
+    marginBottom: '1.5rem'
   },
   listItemMobile: {
     flexDirection: 'row',
@@ -281,11 +286,9 @@ const styles = {
   },
   sectionTextIconMobile: {
     marginRight: '10px',
-    marginBottom: '0',
   },
   sectionTextIconTablet: {
     marginRight: '10px',
-    marginBottom: '0',
   },
 };
 

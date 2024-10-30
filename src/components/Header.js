@@ -131,13 +131,12 @@ const styles = {
     flexWrap: 'nowrap',
     padding: '1rem 3.2rem', 
     backgroundColor: '#fff',
-    width: '100%',
-    maxWidth: '100%',
     boxSizing: 'border-box',
     position: 'fixed',
     top: 0,
     left: 0,
-    zIndex: 1000,
+    zIndex:'10',
+    width: '100%'
   },
   headerMobile: {
     padding: '1rem 1rem',

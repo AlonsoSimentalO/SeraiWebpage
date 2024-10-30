@@ -5,6 +5,9 @@ import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.sv
 import { ReactComponent as SpeakerIcon } from "../images/icons/volume-high.svg";
 import { ReactComponent as SpeakerMuteIcon } from "../images/icons/volume-mute.svg";
 
+import '../styles/home.css';
+
+
 import video1080p from '../animations/Serai_2D_Animation_Eng1080p.mp4';
 
 function Home() {
@@ -86,11 +89,6 @@ function Home() {
     window.scrollTo({top: y, behavior: 'smooth'});
   };
 
-  const containerStyles = {
-    ...styles.container,
-    ...(isMobile && styles.containerMobile),
-    ...(isTablet && styles.containerTablet),
-  };
 
   const videoContainerStyles = {
     ...styles.videoContainer,
@@ -235,7 +233,7 @@ function Home() {
   };
 
   return (
-    <div style={containerStyles}>
+    <div>
       <Header />
 
       <div style={videoContainerStyles}>
@@ -275,9 +273,7 @@ function Home() {
       </div>
 
       <div ref={elderlyCareRef} style={{
-        ...styles.elderlyCareSection,
-        ...(isMobile && styles.elderlyCareSectionMobile),
-        ...(isTablet && styles.elderlyCareSectionTablet),
+        ...styles.elderlyCareSection
       }}>
         <h2 style={careTitleStyles}>Transformative Solutions for Elderly Care</h2>
         <p style={careSubtitleStyles}>At Serai, we leverage machine learning to improve safety and provide independence for the elderly.</p>
@@ -353,7 +349,7 @@ function Home() {
       </div>
 
       <div style={joinUsSectionStyles}>
-        <div style={joinUsTextStyles}>
+        <div style={joinUsTextStyles} className="joinUs">
           <h2 style={joinUsTitleStyles}>Join Us</h2>
           <p>Join us in making solitary living safer and enhancing the quality of life for the elderly. Together, we can create a safer, more independent future for our ageing population.</p>
         </div>
@@ -366,51 +362,17 @@ function Home() {
 }
 
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    boxSizing: 'border-box',
-  },
-  containerMobile: {
-    width: '100%',
-  },
-  containerTablet: {
-    width: '100%',
-  },
   videoContainer: {
-    position: 'relative',  
-    width: '75%', 
+    position: 'relative',
     margin: '2rem auto',
-    marginTop: '2rem',
     boxSizing: 'border-box',
-  },
-  videoContainerMobile: {
-    width: '90%',
-    height: '40vh',
-    margin: '1rem auto',
-  },
-  videoContainerTablet: {
-    width: '80%',
-    height: '50vh',
-    margin: '1.5rem auto',
-    boxSizing: 'border-box', 
+    maxWidth: '1280px'
+
   },
   video: {
     width: '100%',
     height: 'auto', 
-    maxWidth: '100%', 
     borderRadius: '15px',
-    boxSizing: 'border-box', 
-  },
-  videoMobile: {
-    height: '100%',
-    objectFit: 'cover',
-  },
-  videoTablet: {
-    height: '100%',
-    objectFit: 'cover',
   },
   overlay: {
     position: 'absolute',
@@ -460,11 +422,14 @@ const styles = {
     fill: '#000', 
   },
   promoSection: {
-    width: '100%',
+    display: 'flex', 
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     textAlign: 'center',
-    marginTop: '2rem',
-    padding: '2rem 0',
-    boxSizing: 'border-box',
+    gap: '2rem', 
+    margin: '6rem auto',
+    width: 'fit-content'
   },
   promoTitle: {
     fontSize: '3.5rem',  
@@ -475,44 +440,34 @@ const styles = {
     WebkitTextFillColor: 'transparent',  
     padding: '0 10px',  
     lineHeight: '1.3',  
-    width: '85%', 
-    margin: '0 auto', 
-    marginBottom: '3rem',
+    width: 'fit-content',
+    marginInline: 'auto', 
     boxSizing: 'border-box', 
   },
   promoTitleMobile: {
-    fontSize: '2.3rem',
-    width: '90%',
-    marginBottom: '2rem',
+    fontSize: '2.3rem'
   },
   promoTitleTablet: {
     fontSize: '2.8rem',
-    width: '95%',
-    marginBottom: '2.5rem',
   },
   promoText: {
-    fontSize: '1.5rem',
-    marginBottom: '4rem',
+    fontSize: '1.6rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    boxSizing: 'border-box', 
-  },
+    lineHeight: '1.6',
+ },
   promoTextMobile: {
     fontSize: '1.2rem',
-    marginBottom: '2rem',
     textAlign: 'center',
-    lineHeight: '1.8',
+    lineHeight: '1.6',
     paddingLeft: '1.5rem',
     paddingRight: '1.5rem',
-    width: '90%',
   },
   promoTextTablet: {
     fontSize: '1.4rem',
-    marginBottom: '3rem',
     paddingLeft: '2rem',
+    lineHeight: '1.6',
     paddingRight: '2rem',
-    width: '95%',
-    boxSizing: 'border-box', 
   },
   learnMoreButton: {
     padding: '28px 100px',
@@ -533,25 +488,13 @@ const styles = {
     padding: '20px 70px',
   },
   elderlyCareSection: {
+    margin: '6rem auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    width: '90%',
-    margin: '2rem auto',
-    boxSizing: 'border-box', 
-  },
-  elderlyCareSectionMobile: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '0',
-    marginTop: '1rem',      
-    marginBottom: '1rem',  
-  },
-  elderlyCareSectionTablet: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '0',
-    boxSizing: 'border-box',
+    width: 'fit-content',
+    gap: '2rem',
+    padding: '0 1rem'
   },
   careTitle: {
     fontSize: '3rem',  
@@ -560,7 +503,6 @@ const styles = {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)', 
     WebkitBackgroundClip: 'text',  
     WebkitTextFillColor: 'transparent',  
-    marginBottom: '1rem',
     boxSizing: 'border-box',
   },
   careTitleMobile: {
@@ -576,39 +518,35 @@ const styles = {
     color: '#1E293B',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    marginBottom: '2rem',
     textAlign: 'center',
-    lineHeight: '1.8',
+    lineHeight: '1.6',
     boxSizing: 'border-box', 
   },
   careSubtitleMobile: {
     fontSize: '1.2rem',
     textAlign: 'center',
-    lineHeight: '1.8',
+    lineHeight: '1.6',
     paddingLeft: '1rem',
     paddingRight: '1rem',
   },
   careSubtitleTablet: {
     fontSize: '1.4rem',
     textAlign: 'center',
-    lineHeight: '1.8',
+    lineHeight: '1.6',
     paddingLeft: '1.5rem',
     paddingRight: '1.5rem',
   },
   careDetails: {
     display: 'flex',
+    gap: '50px',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    width: '100%',
-    padding: '1rem',
-    marginBottom: '2rem',
+    justifyContent: 'center',
     boxSizing: 'border-box', 
   },
   careDetailsMobile: {
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '0',
   },
   careDetailsTablet: {
     flexDirection: 'row',
@@ -618,10 +556,9 @@ const styles = {
     boxSizing: 'border-box', 
   },
   careImage: {
-    width: '30%',
+    maxWidth: '556px',
     height: 'auto',
     borderRadius: '15px',
-    marginLeft: '16rem',
     boxSizing: 'border-box', 
   },
   careImageMobile: {
@@ -637,24 +574,13 @@ const styles = {
     boxSizing: 'border-box', 
   },
   careList: {
-    width: '35%',
+    maxWidth: '583px',
     fontSize: '1.5rem',
     fontWeight: '600',
     listStyleType: 'none', 
-    paddingLeft: '0',
-    marginLeft: '.7rem',
-    boxSizing: 'border-box', 
-  },
-  careListMobile: {
-    width: '100%',
-    marginLeft: '0',
-    paddingLeft: '0',         
-    paddingRight: '4rem',    
   },
   careListTablet: {
     width: '40%',
-    marginLeft: '0',
-    paddingRight: '1.5rem',
     boxSizing: 'border-box', 
   },
   listItem: {
@@ -705,8 +631,6 @@ const styles = {
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
     color: '#1E293B',
-    marginTop: '0',
-    marginBottom: '0',
     boxSizing: 'border-box', 
   },
   listDescriptionMobile: {
@@ -717,13 +641,14 @@ const styles = {
   },
   whySection: {
     backgroundColor: '#F6F6F6',
-    padding: '2rem 0',
     textAlign: 'center',
     color: '#FFFFFF',
     width: '100%',
-    marginBottom: '4rem',
-    marginTop: '2rem',
-    boxSizing: 'border-box', 
+    display: 'flex',
+    flexDirection:  'column',
+    gap: '2rem',
+    padding: '6rem 0',
+    alignItems: 'center'
   },
   whySectionMobile: {
     marginTop: '1rem',      
@@ -735,6 +660,7 @@ const styles = {
     marginBottom: '4rem',
     padding: '2rem 0',
     boxSizing: 'border-box', 
+
   },
   whyTitle: {
     background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
@@ -743,94 +669,64 @@ const styles = {
     fontSize: '3rem',  
     fontWeight: '600',
     fontFamily: 'Atyp BL, sans-serif',
-    marginBottom: '3rem',
     boxSizing: 'border-box', 
+    textAlign: 'center',
   },
   whyTitleMobile: {
-    fontSize: '2rem',
-    marginBottom: '1rem',  
-    textAlign: 'center',
+    fontSize: '2rem',  
   },
   whyTitleTablet: {
     fontSize: '2.5rem',
-    marginBottom: '2.5rem',
   },
   cardsContainer: {
     display: 'flex',
     justifyContent: 'space-around',
-    padding: '0 10%',
-    marginBottom: '2.5rem',
-    boxSizing: 'border-box',
-  },
-  cardsContainerMobile: {
-    flexDirection: 'column',
-    padding: '0',
-    alignItems: 'center',
-  },
-  cardsContainerTablet: {
-    display: 'flex',
-    flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center',
-    padding: '0 5%',
-    gap: '2rem',
-    boxSizing: 'border-box', 
+    columnGap: '3rem',
+    rowGap: '2rem',
+    maxWidth: '1440px',
+    padding: '0 1rem'
   },
   card: {
-    width: '30%',
-    height: '600px',
+    maxWidth: '375px',
+    minWidth: '300px',    
+    paddingBottom: '2em',
     backgroundColor: '#FFFFFF',
     borderRadius: '15px',
     color: '#333',
-    marginBottom: '1rem',
-    boxSizing: 'border-box',
+    flex: '1',
+
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '2rem'
   },
-  cardMobile: {
-    width: '80%',
-    height: 'auto',
-    marginBottom: '2rem',
-  },
-  cardTablet: {
-    width: '45%',
-    height: 'auto',
-    marginBottom: '2rem',
-    boxSizing: 'border-box', 
-  },
+
   cardImageContainer: {
     backgroundColor: '#3A3CE61A',
     padding: '1rem',
     borderRadius: '25px',
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     height: '200px', 
-    marginBottom: '1rem',
     border: '10px solid #fff',
-    boxSizing: 'border-box', 
   },
   cardImage: {
     maxWidth: '100%', 
     maxHeight: '100%',
     margin: 'auto',
-    boxSizing: 'border-box',
   },
   cardTitle: {
     fontSize: '1.9rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: 'bold',
-    marginTop: '1rem',
     textAlign: 'left',
     padding: '0 1rem',
     color: '#1A0046',
-    boxSizing: 'border-box',
   },
   cardTitleMobile: {
-    fontSize: '1.5rem',
-    textAlign: 'center',
+    fontSize: '1.3rem',
   },
   cardTitleTablet: {
-    fontSize: '1.7rem',
-    textAlign: 'center',
+    fontSize: '1.3rem',
   },
   cardText: {
     fontSize: '1.5rem',
@@ -839,35 +735,20 @@ const styles = {
     textAlign: 'left',
     padding: '0 1rem',
     boxSizing: 'border-box',
+    lineHeight: '1.6'
   },
   cardTextMobile: {
-    fontSize: '1.1rem',
-    textAlign: 'center',
+    fontSize: '1.2rem',
   },
   cardTextTablet: {
-    fontSize: '1.3rem',
-    textAlign: 'center',
+    fontSize: '1.2rem',
   },
   joinUsSection: {
     display: 'flex',
-    alignItems: 'center', 
-    justifyContent: 'space-between', 
-    padding: '2rem 10%', 
-    backgroundColor: '#ffffff', 
-    color: '#333', 
-    marginBottom: '4rem', 
-    boxSizing: 'border-box', 
-  },
-  joinUsSectionMobile: {
-    flexDirection: 'column',
-    padding: '1rem',
-    marginBottom: '2rem',
-  },
-  joinUsSectionTablet: {
-    flexDirection: 'row',
-    padding: '2rem 5%',
-    justifyContent: 'space-between',
-    boxSizing: 'border-box', 
+    maxWidth: '1440px',
+    justifyContent: 'center',
+    margin: '6rem auto',
+    flexWrap: 'wrap'
   },
   joinUsTitle: {
     fontSize: '3rem',  
@@ -878,7 +759,7 @@ const styles = {
     WebkitTextFillColor: 'transparent',
     textAlign: 'left', 
     display: 'inline',
-    boxSizing: 'border-box', 
+    marginBottom: '2rem',
   },  
   joinUsTitleMobile: {
     fontSize: '2rem',
@@ -900,34 +781,27 @@ const styles = {
   joinUsTextMobile: {
     fontSize: '1.2rem',
     textAlign: 'center',
-    lineHeight: '1.8',
+    lineHeight: '1.6',
     paddingLeft: '1.5rem',
     paddingRight: '1.5rem',
     width: '90%',
   },
   joinUsTextTablet: {
+    width: '100%',
     fontSize: '1.4rem',
     textAlign: 'center',
-    lineHeight: '1.8',
+    lineHeight: '1.6',
     paddingLeft: '2rem',
     paddingRight: '2rem',
-    width: '45%',
     boxSizing: 'border-box', 
   },
   joinUsImage: {
-    width: '50%', 
-    height: 'auto', 
+    maxWidth: '100%',
+    maxHeight: '334px', 
     borderRadius: '10px', 
-    boxSizing: 'border-box',
   },
   joinUsImageMobile: {
-    width: '100%',
     marginTop: '1rem',
-  },
-  joinUsImageTablet: {
-    width: '45%',
-    marginTop: '0',
-    boxSizing: 'border-box',
   },
 };
 

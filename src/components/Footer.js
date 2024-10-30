@@ -109,7 +109,6 @@ const styles = {
     width: '100%',
     paddingBottom: '20px',
     borderBottom: '1px solid #444',
-    gap: '500px',
   },
   footerContentMobile: {
     flexDirection: 'column',
