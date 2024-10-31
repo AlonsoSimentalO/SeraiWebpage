@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';  
 import Footer from '../components/Footer';
-import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.svg";
 
 function useMediaQuery(query) {
   const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
@@ -22,84 +21,6 @@ function Partnerships() {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
-  const sectionCenteredStyles = {
-    ...styles.sectionCentered,
-    ...(isMobile && styles.sectionCenteredMobile),
-    ...(isTablet && styles.sectionCenteredTablet),
-  };
-
-  const sectionTitleCenteredStyles = {
-    ...styles.sectionTitleCentered,
-    ...(isMobile && styles.sectionTitleCenteredMobile),
-    ...(isTablet && styles.sectionTitleCenteredTablet),
-  };
-
-  const sectionTextCenteredStyles = {
-    ...styles.sectionTextCentered,
-    ...(isMobile && styles.sectionTextCenteredMobile),
-    ...(isTablet && styles.sectionTextCenteredTablet),
-  };
-
-  const becomePartnerButtonStyles = {
-    ...styles.becomePartnerButton,
-    ...(isMobile && styles.becomePartnerButtonMobile),
-    ...(isTablet && styles.becomePartnerButtonTablet),
-  };
-
-  const sectionStyles = {
-    ...styles.section,
-    ...(isMobile && styles.sectionMobile),
-    ...(isTablet && styles.sectionTablet),
-  };
-
-  const titleContainerStyles = {
-    ...styles.titleContainer,
-    ...(isMobile && styles.titleContainerMobile),
-    ...(isTablet && styles.titleContainerTablet),
-  };
-
-  const sectionTitleStyles = {
-    ...styles.sectionTitle,
-    ...(isMobile && styles.sectionTitleMobile),
-    ...(isTablet && styles.sectionTitleTablet),
-  };
-
-  const textContainerStyles = {
-    ...styles.textContainer,
-    ...(isMobile && styles.textContainerMobile),
-    ...(isTablet && styles.textContainerTablet),
-  };
-
-  const sectionTextStyles = {
-    ...styles.sectionText,
-    ...(isMobile && styles.sectionTextMobile),
-    ...(isTablet && styles.sectionTextTablet),
-  };
-
-  const listItemStyles = {
-    ...styles.listItem,
-    ...(isMobile && styles.listItemMobile),
-    ...(isTablet && styles.listItemTablet),
-  };
-
-  const listTextStyles = {
-    ...styles.listText,
-    ...(isMobile && styles.listTextMobile),
-    ...(isTablet && styles.listTextTablet),
-  };
-
-  const sectionTextIconStyles = {
-    ...styles.sectionTextIcon,
-    ...(isMobile && styles.sectionTextIconMobile),
-    ...(isTablet && styles.sectionTextIconTablet),
-  };
-
-  const imageContainerStyles = {
-    ...styles.imageContainer,
-    ...(isMobile && styles.imageContainerMobile),
-    ...(isTablet && styles.imageContainerTablet),
-  };
-
   const partnerImageLargeStyles = {
     ...styles.partnerImageLarge,
     ...(isMobile && styles.partnerImageLargeMobile),
@@ -112,131 +33,111 @@ function Partnerships() {
     ...(isTablet && styles.partnerImageSmallTablet),
   };
 
-  const extraSpacingStyles = {
-    ...styles.extraSpacing,
-    ...(isMobile && styles.extraSpacingMobile),
-    ...(isTablet && styles.extraSpacingTablet),
-  };
 
-  const dividerStyles = {
-    ...styles.divider,
-    ...(isMobile && styles.dividerMobile),
-    ...(isTablet && styles.dividerTablet),
-  };
 
   return (
-    <div style={styles.container}>
+    <div>
       <Header />
-      <div style={sectionCenteredStyles}>
-        <h2 style={sectionTitleCenteredStyles}>Join as a B2B partner</h2>
-        <p style={sectionTextCenteredStyles}>
+
+      <div className="page-container">
+
+      <section>
+          <h1>Join as a B2B partner</h1>
+          <p>
           At Serai AG, we are dedicated to enhancing the safety, independence, and quality of life for older adults through innovative AI-driven solutions. 
           Our commitment to privacy and non-intrusive technology ensures that seniors can live comfortably and securely in their own homes.
-        </p>
-        <a href={mailToLink} target="_blank" rel="noopener noreferrer">
-          <button style={becomePartnerButtonStyles}>Become a Partner</button>
-        </a>
-      </div>
-
-      <div style={dividerStyles}></div>
-      <div style={sectionStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Why choose partnership</h2>
-        </div>
-        <div style={textContainerStyles}>
-          <p style={sectionTextStyles}>
-            Serai AG leverages innovative, privacy-focused AI technology that ensures user dignity, backed by proven success 
-            and scalable solutions for significant growth.
           </p>
-        </div>
-      </div>
+          <button className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
+          Become a Partner
+          </button>
+        </section>
 
-      <div style={dividerStyles}></div>
-      <div style={sectionStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Who we Partner with</h2>
-        </div>
-        <div style={textContainerStyles}> 
-          <ul style={styles.list}>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Healthcare Providers</p>
-            </li>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Insurance Companies</p>
-            </li>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Senior Care Facilities</p>
-            </li>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Government Institutions</p>
-            </li>
-          </ul>
-        </div>
-      </div>
+        <div className="divider"></div>
 
-      <div style={dividerStyles}></div>
-      <div style={sectionStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Our Partners so far</h2>
-        </div>
-        <div style={imageContainerStyles}>
-          <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={partnerImageLargeStyles} />
-          <img src={require('../images/iNNO LOGO.png')} alt="Innosuisse Partner" style={partnerImageSmallStyles} />
-        </div>
-      </div>
+        <section className="grid">
+            <div>
+              <h2>Why choose partnership</h2>
+            </div>
+            <div>
+              <p>
+              Serai AG leverages innovative, privacy-focused AI technology that ensures user dignity, backed by proven success 
+              and scalable solutions for significant growth.
+              </p>
+            </div>
+          </section>
 
-      <div style={dividerStyles}></div>
-      <div style={sectionCenteredStyles}>
-        <h2 style={sectionTitleCenteredStyles}>Join our Journey</h2>
-        <p style={sectionTextCenteredStyles}>
-          We’re always looking for great people to join our Serai team. 
-          Check out our current job listings below and get in touch if you think you could be a good match.
-        </p>
-        <a href={mailToLink} target="_blank" rel="noopener noreferrer">
-          <button style={becomePartnerButtonStyles}>General Application</button>
-        </a>
-        <div style={extraSpacingStyles}></div>
-      </div>
 
+   
+          <div className="divider"></div>
+
+
+          <section className="grid">
+          <div>
+            <h2>Who we Partner with</h2>
+          </div>
+          <div>
+          <div className="icon-list">
+              <ul>
+                <li>
+                  <div>
+                    <p>Healthcare Providers</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <p>Insurance Companies</p>
+                  </div>
+                </li>
+            
+                <li >
+                  <div >
+                    <p>Senior Care Facilities</p>
+                  </div>
+                </li>
+                <li >
+                  <div >
+                    <p>Government Institutions</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div className="divider"></div>
+        <section className="grid">
+            <div>
+              <h2>Why choose partnership</h2>
+            </div>
+            <div>
+              <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={partnerImageLargeStyles} />
+              <img src={require('../images/iNNO LOGO.png')} alt="Innosuisse Partner" style={partnerImageSmallStyles} />
+            </div>
+          </section>
+
+
+
+          <div className="divider"></div>
+
+          <section>
+            <h1>Join our Journey</h1>
+            <p>
+            We’re always looking for great people to join our Serai team. 
+            Check out our current job listings below and get in touch if you think you could be a good match.
+            </p>
+            <button className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
+            General Application
+            </button>
+        </section>
+
+      </div>
       <Footer />
     </div>
   );
 }
 
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  divider: {
-    height: '2px',
-    backgroundColor: '#D3E4FF',
-    width: '70%',
-    display: 'block',
-    margin: '8rem auto 1rem auto',  
-  },
-  dividerMobile: {
-    width: '90%',
-    margin: '4rem auto 1rem auto',
-  },
-  dividerTablet: {
-    width: '80%',
-    margin: '6rem auto 1rem auto',
-  },
+
   sectionCentered: {
     textAlign: 'center',
     padding: '0 20%',

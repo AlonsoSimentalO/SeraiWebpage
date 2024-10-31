@@ -214,15 +214,15 @@ const styles = {
   navLink: {
     textDecoration: 'none',
     color: '#1E293B',
-    fontSize: '1rem',
+    fontSize: '18px',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '500',
   },
   navLinkMobile: {
-    fontSize: '0.9rem',
+    fontSize: '16px',
   },
   navLinkTablet: {
-    fontSize: '0.95rem',
+    fontSize: '16px',
     fontWeight: '500', 
   },
   listItem: {

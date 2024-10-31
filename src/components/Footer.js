@@ -160,6 +160,8 @@ const styles = {
   },
   companyInfo: {
     margin: '5px 0',
+    color: 'white',
+    fontSize: '16px'
   },
   companyInfoMobile: {
     textAlign: 'left',
@@ -180,8 +182,9 @@ const styles = {
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    fontSize: '0.8rem',
+    fontSize: '16px',
     width: '100%',
+    color: 'white'
   },
   legalSectionMobile: {
     justifyContent: 'center',
@@ -195,12 +198,16 @@ const styles = {
   legalLeft: {
     display: 'flex',
     justifyContent: 'flex-start',
+    fontSize: '16px',
+    color: 'white'
   },
   legalLeftMobile: {
     justifyContent: 'center',
   },
   legalText: {
     margin: '0 10px', 
+    color: 'white',
+    fontSize: '16px'
   },
   legalLink: {
     textDecoration: 'none',

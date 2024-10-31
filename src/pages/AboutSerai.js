@@ -133,142 +133,135 @@ function AboutSerai() {
       ...(isMobile && { overflowX: 'hidden' }), // Evita el desbordamiento horizontal en móviles
     }}>
       <Header />
-      <div style={{
-        ...styles.content,
-        ...(isMobile && styles.contentMobile),
-      }}>
-        <h1 style={{ 
-          ...styles.title, 
-          ...(isMobile && styles.titleMobile),
-          ...(isTablet && styles.titleTablet),
-        }}>
-          These goals drive Us:
-        </h1>
-        <div style={{ 
-          ...styles.goals, 
-          ...(isMobile && styles.goalsMobile),
-          ...(isTablet && styles.goalsTablet),
-        }}>
-          {["Improving the safety, independence, and well-being of older adults.",
-            "Developing advanced software and algorithms to detect irregularities in the lives of older adults.",
-            "Invest in ongoing research and development to continuously improve the evolving needs of the elderly population.",
-          ].map((goal, index) => (
-            <p style={{ 
-              ...styles.goal, 
-              ...goalStylesArray[index], 
-              transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)',
-              transition: 'transform 0.3s ease',
-              ...(isMobile && styles.goalMobile),
-              ...(isTablet && styles.goalTablet),
-            }} 
-            key={index}
-            onMouseEnter={() => setHoverIndex(index)}
-            onMouseLeave={() => setHoverIndex(-1)}>
-              {index + 1}. {goal}
-            </p>
-          ))}
-        </div>
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>About Serai</h2>
+        <div className="page-container">
+          
+          <div className="goals-section"> 
+              <h1 >
+              These goals drive Us:
+              </h1>
+              <div className="goals">
+                {["Improving the safety, independence, and well-being of older adults.",
+                  "Developing advanced software and algorithms to detect irregularities in the lives of older adults.",
+                  "Invest in ongoing research and development to continuously improve the evolving needs of the elderly population.",
+                ].map((goal, index) => (
+                  <p style={{ 
+                    ...styles.goal, 
+                    ...goalStylesArray[index], 
+                    transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)', 
+                    transition: 'transform 0.3s ease',
+                    ...(isMobile && styles.goalMobile),
+                    ...(isTablet && styles.goalTablet),
+                  }} 
+                  key={index}
+                  onMouseEnter={() => setHoverIndex(index)}
+                  onMouseLeave={() => setHoverIndex(-1)}>
+                    {index + 1}. {goal}
+                  </p>
+                ))}
+              </div>
           </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
+          
+          <div className="divider"></div>
+          
+          <section className="grid">
+            <div>
+              <h2>About Serai</h2>
+            </div>
+            <div>
+              <p>
               We build software and research algorithms to detect irregularities in everyday life of elderly. We detect fall in living spaces, monitor mood changes in daily behaviour and spot other behavioural anomalies commonly seen among seniors.
-            </p>
-          </div>
-        </div>
-
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>Research</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
+              </p>
+            </div>
+          </section>
+          
+          <div className="divider"></div>
+          <section className="grid">
+            <div>
+              <h2>Research</h2>
+            </div>
+            <div>
+              <p>
               We not only do engineering but also commit to 
-              <span style={styles.highlight}> CHF 1M+</span> research with FHNW in Aargau to develop our patented technology.
-              Headquartered in Zurich, Switzerland, we are committed to enhancing the safety, 
-              independence, and wellbeing of older adults. We believe in our product, and utilize it for our families.
-            </p>
-          </div>
-        </div>
+                <span className="highlight"> CHF 1M+</span> research with FHNW in Aargau to develop our patented technology.
+                Headquartered in Zurich, Switzerland, we are committed to enhancing the safety, 
+                independence, and wellbeing of older adults. We believe in our product, and utilize it for our families.            </p>
+            </div>
+          </section>
 
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>The Problem</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
-              Elder population is growing exponentially. Projected to reach <span style={styles.highlight}> 1.5 billion </span> by <span style={styles.highlight}> 2050. </span>
-              Falls cause <span style={styles.highlight}> 684’000 </span> fatalities annually among seniors. Care solutions lack privacy safeguards and are not used due to privacy concerns.
-            </p>
-          </div>
-        </div>
+          <div className="divider"></div>
 
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>Our Solution</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
+          <section className="grid">
+            <div>
+              <h2>The Problem</h2>
+            </div>
+            <div>
+              <p>
+              Elder population is growing exponentially. Projected to reach <span className="highlight"> 1.5 billion </span> by <span className="highlight"> 2050. </span>
+              Falls cause <span className="highlight"> 684’000 </span> fatalities annually among seniors. Care solutions lack privacy safeguards and are not used due to privacy concerns.            </p>
+            </div>
+          </section>
+          <div className="divider"></div>
+
+          <section className="grid">
+            <div>
+              <h2>Our Solution</h2>
+            </div>
+            <div>
+              <p>
               Serai offers an AI-driven system using sensors and cameras to enhance older adults' quality of life. It detects and prevents falls, providing real-time alerts to caregivers.
-              The non-intrusive design ensures comfort without wearables, while privacy-preserving features protect user data and dignity.
+                The non-intrusive design ensures comfort without wearables, while privacy-preserving features protect user data and dignity.
+              </p>
+            </div>
+          </section>
+          
+          <div className="divider"></div>
+          <section className="grid">
+              <div>
+                <h2>Our Business Impact</h2>
+              </div>
+              <div>
+                <p>
+                Raised <span className="highlight"> CHF 1.1M </span> in private investment. Secured Innosuisse funding through research partnership with FHNW
+                </p>
+              </div>
+          </section>
+          
+          <div className="divider"></div>
+          <div style={styles.teamSection}>
+            <h2 style={{ 
+              ...styles.teamTitle, 
+              ...(isMobile && styles.teamTitleMobile),
+              ...(isTablet && styles.teamTitleTablet),
+            }}>Meet Our Team</h2>
+            <p style={{ 
+              ...styles.teamDescription, 
+              ...(isMobile && styles.teamDescriptionMobile),
+              ...(isTablet && styles.teamDescriptionTablet),
+            }}>
+              Serai Team Advisory and Executive Board Member Committee
             </p>
+            <div style={{ 
+              ...styles.teamMembers, 
+              ...(isMobile && styles.teamMembersMobile),
+              ...(isTablet && styles.teamMembersTablet),
+            }}>
+              {teamMembers.map(member => (
+                <TeamMember key={member.name} {...member} />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>Our Business Impact</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
-              Raised <span style={styles.highlight}> CHF 1.1M </span> in private investment. Secured Innosuisse funding through research partnership with FHNW
-            </p>
-          </div>
-        </div>
-        <div style={dividerStyles}></div>
-
-        <div style={styles.teamSection}>
-          <h2 style={{ 
-            ...styles.teamTitle, 
-            ...(isMobile && styles.teamTitleMobile),
-            ...(isTablet && styles.teamTitleTablet),
-          }}>Meet Our Team</h2>
-          <p style={{ 
-            ...styles.teamDescription, 
-            ...(isMobile && styles.teamDescriptionMobile),
-            ...(isTablet && styles.teamDescriptionTablet),
-          }}>
-            Serai Team Advisory and Executive Board Member Committee
-          </p>
+          <div style={researchTitleStyles}>Research Partners</div>
           <div style={{ 
-            ...styles.teamMembers, 
-            ...(isMobile && styles.teamMembersMobile),
-            ...(isTablet && styles.teamMembersTablet),
+            ...styles.researchPartners, 
+            ...(isMobile && styles.researchPartnersMobile),
+            ...(isTablet && styles.researchPartnersTablet),
           }}>
-            {teamMembers.map(member => (
-              <TeamMember key={member.name} {...member} />
+            {researchPartners.map(partner => (
+              <TeamMember key={partner.name} {...partner} />
             ))}
           </div>
         </div>
-
-        <div style={researchTitleStyles}>Research Partners</div>
-        <div style={{ 
-          ...styles.researchPartners, 
-          ...(isMobile && styles.researchPartnersMobile),
-          ...(isTablet && styles.researchPartnersTablet),
-        }}>
-          {researchPartners.map(partner => (
-            <TeamMember key={partner.name} {...partner} />
-          ))}
-        </div>
-      </div>
       <Footer />
     </div>
   );
@@ -522,6 +515,7 @@ const styles = {
     gridTemplateColumns: 'repeat(2, 1fr)', 
     gap: '50px',
     justifyItems: 'center',
+    marginBottom: '5rem'
   },
   researchPartnersMobile: {
     gridTemplateColumns: 'repeat(1, 1fr)',
