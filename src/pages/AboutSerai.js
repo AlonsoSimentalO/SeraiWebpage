@@ -36,7 +36,7 @@ function AboutSerai() {
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
   
   const goalStylesArray = [
-    { width: '75%' },  
+    { width: '85%' },  
     { width: '90%' },  
     { width: '100%' }  
   ];
