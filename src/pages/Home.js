@@ -153,7 +153,7 @@ function Home() {
 
         <section ref={elderlyCareRef}>
           <h2>Transformative Solutions for Elderly Care</h2>
-          <p>At Serai, we leverage machine learning to improve safety and provide independence for the elderly.</p>
+          <p>Serai’s advanced technology supports the safety, dignity, and independence of elderly individuals. Our solutions provide continuous monitoring and immediate notifications to caregivers, ensuring a secure and supportive living environment.</p>
           <div className="elderly-section">
             <img src={require('../images/elderlyCare.png')} alt="Elderly Care" style={careImageStyles}/>
             <div className="icon-list">
@@ -161,25 +161,25 @@ function Home() {
                 <li>
                   <div>
                     <h5>Real-Time Fall Detection</h5>
-                    <p>Our AI detects falls instantly, providing immediate alerts to caregivers.</p>
+                    <p>Our advanced AI technology detects falls instantly, provides immediate alerts to caregivers hence preventing serious injuries.</p>
                   </div>
                 </li>
                 <li>
                   <div>
                     <h5>Emergency Notifications</h5>
-                    <p>Real-time notifications enhance the safety and security of the elderly.</p>
+                    <p>Our system sends real-time notifications to designated caregivers enhancing the safety and security of the elderly.</p>
                   </div>
                 </li>
                 <li>
                   <div>
                     <h5>Medication Reminders</h5>
-                    <p>Timely reminders help seniors adhere to their medication schedules.</p>
+                    <p>Our system provides timely reminders for medication, helping seniors adhere to their prescribed schedules.</p>
                   </div>
                 </li>
                 <li >
                   <div >
                     <h5>24/7 Monitoring</h5>
-                    <p>Continuous monitoring provides a comprehensive safety net for the elderly.</p>
+                    <p>Our system detects any irregularities in daily activities, providing a comprehensive safety net for the elderly.</p>
                   </div>
                 </li>
               </ul>
@@ -199,7 +199,7 @@ function Home() {
               </div>
               <div className="card-textblock">
                 <h4 className="card-title">Intelligent</h4>
-                <p className="card-text">Serai understands your needs, providing insights to enhance your quality of life.</p>
+                <p className="card-text">Serai adapts to individual needs, providing valuable insights to enhance quality of life.</p>
               </div>
             </div>
             <div className="card">
@@ -208,7 +208,7 @@ function Home() {
               </div>
               <div className="card-textblock">
                 <h4 className="card-title">Secure</h4>
-                <p className="card-text">Your data is securely stored in your home, ensuring privacy and safety.</p>
+                <p className="card-text">Your data is stored safely and securely within the home, ensuring privacy and trust.</p>
               </div>
             </div>
             <div className="card">
@@ -217,7 +217,7 @@ function Home() {
               </div>
               <div className="card-textblock">
                 <h4 className="card-title">Evolving</h4>
-                <p className="card-text">Our ML algorithms continuously improve, offering an ever-enhancing experience.</p>
+                <p className="card-text">Our AI continuously adapts, ensuring our solutions grow smarter, more responsive, and more attuned to the needs of the elderly.</p>
               </div>
             </div>
 
@@ -230,7 +230,7 @@ function Home() {
           <div className="row-container section-joinus">
             <div className="row-container--left">
               <h2>Join Us</h2>
-              <p>Join us in making solitary living safer and enhancing the quality of life for the elderly. Together, we can create a safer, more independent future for our ageing population.</p>
+              <p>Partner with Serai to elevate elderly care. Together, we’ll deliver innovative, privacy first solutions that enhance safety, independence, and quality of life.</p>
             </div>
             <div className="row-container--right">
               <img src={require('../images/joinimage.png')} alt="Join Us"/>

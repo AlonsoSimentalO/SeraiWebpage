@@ -44,8 +44,7 @@ function Partnerships() {
       <section>
           <h1>Join as a B2B partner</h1>
           <p>
-          At Serai AG, we are dedicated to enhancing the safety, independence, and quality of life for older adults through innovative AI-driven solutions. 
-          Our commitment to privacy and non-intrusive technology ensures that seniors can live comfortably and securely in their own homes.
+          Serai offers trusted, AI-driven elderly care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.
           </p>
           <button className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
           Become a Partner
@@ -56,7 +55,7 @@ function Partnerships() {
 
         <section className="grid">
             <div>
-              <h2>Why choose partnership</h2>
+              <h2>Why Partner with Serai</h2>
             </div>
             <div>
               <p>
@@ -107,7 +106,7 @@ function Partnerships() {
         <div className="divider"></div>
         <section className="grid">
             <div>
-              <h2>Why choose partnership</h2>
+              <h2>Our Partners so far</h2>
             </div>
             <div>
               <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={partnerImageLargeStyles} />

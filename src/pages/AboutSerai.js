@@ -104,9 +104,9 @@ function AboutSerai() {
               These goals drive Us:
               </h1>
               <div className="goals">
-                {["Improving the safety, independence, and well-being of older adults.",
-                  "Developing advanced software and algorithms to detect irregularities in the lives of older adults.",
-                  "Invest in ongoing research and development to continuously improve the evolving needs of the elderly population.",
+                {["Enhancing safety and independence to empower the elderly",
+                  "Advancing intelligent monitoring solutions for proactive care",
+                  "Investing in ongoing R&D to continuously improve the evolving needs of the elderly population",
                 ].map((goal, index) => (
                   <p style={{ 
                     ...styles.goal, 
@@ -133,7 +133,7 @@ function AboutSerai() {
             </div>
             <div>
               <p>
-              We build software and research algorithms to detect irregularities in everyday life of elderly. We detect fall in living spaces, monitor mood changes in daily behaviour and spot other behavioural anomalies commonly seen among seniors.
+              Serai develops privacy-focused software and intelligent monitoring algorithms to enhance safety and independence for the elderly. Our technology detects unusual activity patterns, identifying risks and enabling timely intervention to create safer living environments.
               </p>
             </div>
           </section>
@@ -145,10 +145,8 @@ function AboutSerai() {
             </div>
             <div>
               <p>
-              We not only do engineering but also commit to 
-                <span className="highlight"> CHF 1M+</span> research with FHNW in Aargau to develop our patented technology.
-                Headquartered in Zurich, Switzerland, we are committed to enhancing the safety, 
-                independence, and wellbeing of older adults. We believe in our product, and utilize it for our families.            </p>
+              Through a collaborative research project with FHNW, supported by Innosuisse’s Innocheque, Serai is advancing elderly care. With CHF <span className="highlight">1.1 million</span> in private seed funding and a 
+              patent application underway, we are committed to pioneering solutions that empower elderly individuals and support caregivers.           </p>
             </div>
           </section>
 
@@ -160,8 +158,9 @@ function AboutSerai() {
             </div>
             <div>
               <p>
-              Elder population is growing exponentially. Projected to reach <span className="highlight"> 1.5 billion </span> by <span className="highlight"> 2050. </span>
-              Falls cause <span className="highlight"> 684’000 </span> fatalities annually among seniors. Care solutions lack privacy safeguards and are not used due to privacy concerns.            </p>
+              Rising Elderly Population: Projected to reach <span className="highlight">1.5 billion</span> by <span className="highlight">2050</span>.
+              High Fall Incidence and Costs: In Switzerland, <span className="highlight">90,000</span> falls yearly lead to <span className="highlight">CHF 1.9 billion</span> in healthcare costs.
+              Limitations of Wearable Devices: Over <span className="highlight">80%</span> of seniors avoid wearables due to discomfort.            </p>
             </div>
           </section>
           <div className="divider"></div>
@@ -171,23 +170,54 @@ function AboutSerai() {
               <h2>Our Solution</h2>
             </div>
             <div>
-              <p>
-              Serai offers an AI-driven system using sensors and cameras to enhance older adults' quality of life. It detects and prevents falls, providing real-time alerts to caregivers.
-                The non-intrusive design ensures comfort without wearables, while privacy-preserving features protect user data and dignity.
-              </p>
+            <div className="icon-list">
+                <ul>
+                  <li>
+                    <div>
+                      <h5>Non-Intrusive Monitoring</h5>
+                      <p>Serai’s system uses advanced sensors and cameras to monitor safety without the need for wearables.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Immediate Alerts</h5>
+                      <p>AI-powered fall detection sends real-time alerts to caregivers.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Privacy and Cost Savings</h5>
+                      <p>Enhances safety and reduces healthcare costs through proactive fall prevention.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
-          
           <div className="divider"></div>
+
           <section className="grid">
-              <div>
-                <h2>Our Business Impact</h2>
+            <div>
+              <h2>Our Solution</h2>
+            </div>
+            <div>
+            <div className="icon-list">
+                <ul>
+                  <li>
+                    <div>
+                      <h5>Economic Impact</h5>
+                      <p>Serai offers a cost-effective alternative to traditional elderly care, with a low monthly subscription fee compared to the average <span className="highlight">CHF 9,122</span> monthly care costs.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Social Impact</h5>
+                      <p>Our solution promotes independence and safety for the elderly, easing caregiver burdens and enhancing family support.</p>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <div>
-                <p>
-                Raised <span className="highlight"> CHF 1.1M </span> in private investment. Secured Innosuisse funding through research partnership with FHNW
-                </p>
-              </div>
+            </div>
           </section>
           
           <div className="divider"></div>
