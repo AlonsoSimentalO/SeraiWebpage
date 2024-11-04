@@ -32,10 +32,10 @@ function Contact() {
             <p> Horneggstrasse 9 </p>
             <p> 8008 Zurich, Switzerland</p>
             <p>
-              <b>Phone:</b> +41-44-6880168
+              <span className="bold">Phone:</span> +41-44-6880168
             </p>
             <p>
-              <b>Email:</b> info@seraispaces.com
+              <span className="bold">Email:</span> info@seraispaces.com
             </p>
           </div>
         </section>
