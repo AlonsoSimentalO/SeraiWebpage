@@ -455,7 +455,7 @@ section {
 
   .page-container {
     margin: 0 var(--page-margin--m);
-    min-height: calc(100vh - 385px);
+    min-height: calc(100vh - 385px); /* possible issue */
   }
 
   .section-background--grey {

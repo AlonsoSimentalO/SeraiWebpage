@@ -1,82 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-function useMediaQuery(query) {
-  const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
-
-  React.useEffect(() => {
-    const mediaQueryList = window.matchMedia(query);
-    const listener = (event) => setMatches(event.matches);
-
-    mediaQueryList.addEventListener('change', listener);
-    return () => mediaQueryList.removeEventListener('change', listener); 
-  }, [query]);
-
-  return matches;
-}
+import '../styles/footer.css';
 
 function Footer() {
-  const isMobile = useMediaQuery('(max-width: 767px)');
-  const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
-
-  const footerContentStyles = {
-    ...styles.footerContent,
-    ...(isMobile && styles.footerContentMobile),
-    ...(isTablet && styles.footerContentTablet),
-  };
-
-  const logoSectionStyles = {
-    ...styles.logoSection,
-    ...(isMobile && styles.logoSectionMobile),
-    ...(isTablet && styles.logoSectionTablet),
-  };
-
-  const infoSectionStyles = {
-    ...styles.infoSection,
-    ...(isMobile && styles.infoSectionMobile),
-    ...(isTablet && styles.infoSectionTablet),
-  };
-
-  const legalSectionStyles = {
-    ...styles.legalSection,
-    ...(isMobile && styles.legalSectionMobile),
-    ...(isTablet && styles.legalSectionTablet),
-  };
-
   return (
-    <div style={{
-      ...styles.footer,
-      ...(isMobile && styles.footerMobile), // Aplicar estilos móviles al footer
-    }}>
-      <div style={footerContentStyles}>
-        <div style={logoSectionStyles}>
-          <img src={require('../images/serai_logo_negative.png')} alt="Serai Logo" style={styles.logo} />
+    <div className="footer">
+      <div className="footer-content">
+        <div className="logo-section">
+          <img src={require('../images/serai_logo_negative.png')} alt="Serai Logo" className="logo" />
         </div>
-        {isMobile && (
-          <div style={styles.contactUsSectionMobile}>
-            <p style={styles.contactUsTextMobile}>Contact Us</p>
-          </div>
-        )}
-        <div style={infoSectionStyles}>
-          <p style={styles.companyInfo}>Serai AG</p>
-          <p style={styles.companyInfo}>Horneggstrasse 9</p>
-          <p style={styles.companyInfo}>8008 Zurich, Switzerland</p>
-          <p style={styles.companyInfo}>+41-44-8806188</p>
-          <p style={styles.companyInfo}>info@seraispaces.com</p>
+        <div className="contact-us-section">
+          <p className="contact-us-text">Contact Us</p>
         </div>
-        {!isMobile && (
-          <div style={styles.linksSection}>
-            <Link to="/AboutSerai" style={styles.link}>About Serai</Link>
-            <Link to="/research" style={styles.link}>Research</Link>
-            <Link to="/Insights" style={styles.link}>Insights</Link>
-            <Link to="/Partnerships" style={styles.link}>Partnerships</Link>
-            <Link to="/contact" style={styles.link}>Contact</Link>
-          </div>
-        )}
+        <div className="info-section">
+          <p className="company-info">Serai AG</p>
+          <p className="company-info">Horneggstrasse 9</p>
+          <p className="company-info">8008 Zurich, Switzerland</p>
+          <p className="company-info">+41-44-8806188</p>
+          <p className="company-info">info@seraispaces.com</p>
+        </div>
+        <div className="links-section">
+          <Link to="/AboutSerai" className="link">About Serai</Link>
+          <Link to="/research" className="link">Research</Link>
+          <Link to="/Insights" className="link">Insights</Link>
+          <Link to="/Partnerships" className="link">Partnerships</Link>
+          <Link to="/contact" className="link">Contact</Link>
+        </div>
       </div>
-      <div style={legalSectionStyles}>
-        <div style={styles.legalLeft}>
-          <p style={styles.legalText}>Serai © 2024. All rights reserved.</p>
+      <div className="legal-section">
+        <div className="legal-left">
+          <p className="legal-text">Serai © 2024. All rights reserved.</p>
         </div>
       </div>
     </div>
