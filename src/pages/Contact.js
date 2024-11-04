@@ -6,7 +6,7 @@ function Contact() {
   return (
     <div>
       <Header />
-      <div className="page-container" style={styles.container}>
+      <div className="page-container">
       <div className="divider"></div>
       
       <section className="grid">
@@ -41,7 +41,7 @@ function Contact() {
         </section>
      
       </div>
-      <Footer style={styles.container} />
+      <Footer />
     </div>
   );
 }

@@ -10,7 +10,7 @@ import '../styles/home.css';
 import video1080p from '../animations/Serai_2D_Animation_Eng1080p.mp4';
 
 function Home() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true); 
   const videoRef = useRef(null);
   const playbackTimeRef = useRef(0);
@@ -26,13 +26,6 @@ function Home() {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      playbackTimeRef.current = videoRef.current.currentTime;
-    }
-
   }, []);
 
   useEffect(() => {
@@ -129,6 +122,7 @@ function Home() {
             onPause={handlePause}  
             muted={isMuted}
             controls
+            autoPlay
             src={video1080p} 
           />
 

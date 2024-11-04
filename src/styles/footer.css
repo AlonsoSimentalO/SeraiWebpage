@@ -1,0 +1,167 @@
+.footer {
+  background-color: #0F172A;
+  color: #E2E8F0;
+  padding: 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; 
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #444;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  margin-left: 40px;
+}
+
+.company-info {
+  margin: 5px 0;
+  color: white;
+  font-size: 16px;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.contact-us-section {
+  display: none; 
+}
+
+.contact-us-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.legal-section {
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  width: 100%;
+  color: white;
+}
+
+.legal-left {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 16px;
+  color: white;
+}
+
+.legal-text {
+  margin: 0 10px; 
+  color: white;
+  font-size: 16px;
+}
+
+.legal-link {
+  text-decoration: none;
+  margin: 0 10px; 
+  color: #E2E8F0; 
+}
+
+@media only screen and (max-width: 767px) {
+  .footer {
+    align-items: flex-start; 
+    padding: 20px 20px;    
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 10px;
+  }
+
+  .logo-section {
+    width: auto; 
+    margin-left: 0; 
+  }
+
+  .info-section {
+    align-items: flex-start;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .company-info {
+    text-align: left;
+  }
+
+  .links-section {
+    display: none;
+  }
+
+  .contact-us-section {
+    display: block; 
+    margin-top: 0px;
+  }
+
+  .legal-section {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .legal-left {
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .footer-content {
+    gap: 50px;
+  }
+
+  .logo-section {
+    flex: 1; 
+  }
+
+  .info-section {
+    margin-left: 0;
+    flex: 1; 
+  }
+
+  .legal-section {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+}
