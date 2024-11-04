@@ -143,8 +143,7 @@ function Home() {
         <section>
           <h1>Promoting Independence and <br/> Well-being for Seniors</h1>
           <p>
-            At Serai, we build innovative software and research advanced algorithms to <br/>
-            detect irregularities in the everyday lives of the elderly.
+          Serai provides privacy-preserving, intelligent solutions to support the independence and safety of the elderly. Our advanced technology detects unusual activity patterns, enabling quick intervention and ensuring peace of mind for caregivers.
           </p>
           <button className="cta" onClick={() => scrollToSection(elderlyCareRef)}>
             Learn More
