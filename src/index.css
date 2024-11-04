@@ -2,6 +2,8 @@
   --page-margin--l: 80px;
   --page-margin--m: 65px;
   --page-margin--s: 20px;
+
+  --btn-color: #3A3cE6;
 }
 
 @font-face {
@@ -141,6 +143,17 @@ p {
   font-size: 32px;
   font-weight: 400;
   line-height: 1.6; 
+}
+
+
+/* Menu */
+.menu-active-link {
+  color: #616EF3;
+  font-weight: 600;
+}
+
+.menu-inactive-link {
+  font-weight: 600;
 }
 
 /* page */ 
@@ -352,7 +365,7 @@ section {
   
   /* brand 3 */
   border: none;
-  background: #3A3CE6;
+  background: var(--btn-color);
   border-radius: 100px;
   color: #fff;
   font-size: 18px;
@@ -360,9 +373,12 @@ section {
   /* identical to box height, or 133% */
   letter-spacing: 0.5px;
   font-weight: 600;
+  transition: 0.3s background-color;
 }
 
-
+.cta:hover {
+  background-color: #2D3082;
+}
 
 /* Cards */ 
 

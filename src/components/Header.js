@@ -111,11 +111,7 @@ function Header() {
                       style={navLinkStyles}
                       onClick={() => setMenuOpen(false)}
                     >
-                      {label}
-                    </Link>
-                    {location.pathname === `/${path}` && (
-                      <div style={styles.currentVisit}></div>
-                    )}
+                    <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }> {label}</span>                    </Link>            
                   </li>
                 ))}
               </ul>
@@ -134,12 +130,11 @@ function Header() {
                 }
                 key={path}
               >
-                <Link to={`/${path}`} style={navLinkStyles}>
-                  {label}
+                <Link to={`/${path}`} 
+                style={navLinkStyles}>
+                  <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }> {label}</span>
                 </Link>
-                {location.pathname === `/${path}` && (
-                  <div style={styles.currentVisit}></div>
-                )}
+          
               </li>
             ))}
           </ul>
@@ -150,6 +145,10 @@ function Header() {
 }
 
 const styles = {
+  inactiveLink: {
+    color: '#000'
+  },
+  activeLInk: {color: '#00FF00'},
   header: {
     display: 'flex',
     justifyContent: 'space-between',
