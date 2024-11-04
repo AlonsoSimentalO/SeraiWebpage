@@ -41,12 +41,6 @@ function AboutSerai() {
     { width: '100%' }  
   ];
 
-  const dividerStyles = {
-    ...styles.divider,
-    ...(isMobile && styles.dividerMobile),
-    ...(isTablet && styles.dividerTablet),
-  };
-
   const teamMembers = [
     { name: 'Emre Tuna', role: 'Investor and Executive Board Member', image: emreImage, linkedin: 'https://www.linkedin.com/in/emre-tuna-09b7b280/' },
     { name: 'Alen Selim Kimer', role: 'Executive Board Member', image: alenImage, linkedin: 'https://www.linkedin.com/in/selimkimer/' },
@@ -90,36 +84,6 @@ function AboutSerai() {
       </a>
     </div>
   );
-
-  const sectionStyles = {
-    ...styles.section,
-    ...(isMobile && styles.sectionMobile),
-    ...(isTablet && styles.sectionTablet),
-  };
-
-  const titleContainerStyles = {
-    ...styles.titleContainer,
-    ...(isMobile && styles.titleContainerMobile),
-    ...(isTablet && styles.titleContainerTablet),
-  };
-
-  const sectionTitleStyles = {
-    ...styles.sectionTitle,
-    ...(isMobile && styles.sectionTitleMobile),
-    ...(isTablet && styles.sectionTitleTablet),
-  };
-
-  const textContainerStyles = {
-    ...styles.textContainer,
-    ...(isMobile && styles.textContainerMobile),
-    ...(isTablet && styles.textContainerTablet),
-  };
-
-  const sectionTextStyles = {
-    ...styles.sectionText,
-    ...(isMobile && styles.sectionTextMobile),
-    ...(isTablet && styles.sectionTextTablet),
-  };
 
   const researchTitleStyles = {
     ...styles.researchTitle,
