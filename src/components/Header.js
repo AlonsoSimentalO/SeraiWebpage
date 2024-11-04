@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
@@ -19,9 +19,35 @@ function useMediaQuery(query) {
 function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setMenuOpen(false);
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      window.addEventListener('scroll', handleScroll);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [menuOpen]);
 
   const headerStyles = {
     ...styles.header,
@@ -76,7 +102,7 @@ function Header() {
           </button>
 
           {menuOpen && (
-            <nav style={styles.navContainerMobile}>
+            <nav ref={menuRef} style={styles.navContainerMobile}>
               <ul style={navListStyles}>
                 {navLinks.map(({ path, label }) => (
                   <li style={styles.listItem} key={path}>
@@ -183,13 +209,14 @@ const styles = {
   },
   navContainerMobile: {
     position: 'absolute',
-    top: '100%',
+    top: '99%',
     left: 0,
     backgroundColor: '#fff',
     width: '100%',
     padding: '1rem 0',
     boxSizing: 'border-box',
     zIndex: 999,
+    boxShadow: '0 6px 6px rgba(0, 0, 0, 0.1)',
   },
   navList: {
     display: 'flex',
@@ -201,7 +228,7 @@ const styles = {
   navListMobile: {
     flexDirection: 'column',
     alignItems: 'flex-start',
-    gap: '1rem',
+    gap: '2rem',
     padding: '0 1rem',
   },
   navListTablet: {
