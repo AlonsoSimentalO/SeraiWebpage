@@ -423,7 +423,7 @@ section {
 
 @media only screen and (max-width: 1024px){
   body {
-    padding-top: 93px;
+    /*padding-top: 93px;*/
   }
   
   h1 {
@@ -522,13 +522,15 @@ section {
   .grid .icon-list ul {
     padding-left: 35px;
   }
-
+  .goals-section {
+    margin: 0 0;
+  }
   
 }
 
 @media only screen and (max-width: 767px){
   body {
-    padding-top: 67px;
+    /*padding-top: 67px;*/
   }
   h1 {
     font-size: 30px;
@@ -613,6 +615,8 @@ section {
   .grid .icon-list ul {
     padding-left: 0px;
   }
-
+  .goals-section {
+    margin: 0 0;
+  }
 
 }

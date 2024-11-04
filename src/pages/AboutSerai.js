@@ -447,15 +447,13 @@ const styles = {
   teamMembers: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '50px',
     justifyItems: 'center'
   },
   teamMembersMobile: {
     gridTemplateColumns: 'repeat(1, 1fr)',
   },
   teamMembersTablet: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
-    gap: '30px',
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
   researchTitle: {
     fontSize: '2rem',
