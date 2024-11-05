@@ -20,13 +20,19 @@ function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
         setMenuOpen(false);
       }
     };
@@ -95,10 +101,25 @@ function Header() {
 
       {isMobile ? (
         <div style={styles.menuContainer}>
-          <button style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
-            <div style={styles.bar}></div>
-            <div style={styles.bar}></div>
-            <div style={styles.bar}></div>
+          <button
+            ref={buttonRef}
+            style={styles.hamburger}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+
+            {menuOpen ? (
+              <div style={styles.closeIcon}>
+                <div style={{ ...styles.bar, ...styles.barX1 }}></div>
+                <div style={{ ...styles.bar, ...styles.barX2 }}></div>
+              </div>
+            ) : (
+              <div style={styles.hamburgerIcon}>
+                <div style={styles.bar}></div>
+                <div style={styles.bar}></div>
+                <div style={styles.bar}></div>
+              </div>
+            )}
           </button>
 
           {menuOpen && (
@@ -259,18 +280,46 @@ const styles = {
   },
   hamburger: {
     display: 'flex',
+    alignItems: 'center',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    width: '30px',
+    height: '25px',
+  },
+
+  hamburgerIcon: {
+    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
     width: '30px',
     height: '25px',
-    background: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
   },
+
+  closeIcon: {
+    position: 'relative',
+    width: '30px',
+    height: '25px',
+  },
+
   bar: {
     width: '100%',
     height: '3px',
     backgroundColor: '#1E293B',
+    transition: 'all 0.3s ease',
+  },
+
+  barX1: {
+    position: 'absolute',
+    top: '11px',
+    transform: 'rotate(45deg)',
+  },
+
+  barX2: {
+    position: 'absolute',
+    top: '11px',
+    transform: 'rotate(-45deg)',
   },
 };
 
