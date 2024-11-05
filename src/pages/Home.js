@@ -41,6 +41,7 @@ function Home() {
       autoplay: true,
       plugins: {
         videoJsResolutionSwitcher: {
+          default: 720,
           dynamicLabel: true // Display dynamic labels or gear symbol
         }
       }

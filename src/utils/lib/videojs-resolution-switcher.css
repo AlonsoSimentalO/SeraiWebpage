@@ -3,6 +3,10 @@
   font-family: VideoJS;
 }
 
+.vjs-fullscreen-control {
+  display: none !important;
+}
+
 .vjs-resolution-button .vjs-resolution-button-staticlabel:before {
   content: '\f110';
   font-size: 1.8em;
@@ -20,10 +24,14 @@
     text-align: center;
     box-sizing: inherit;
 		font-family: Arial, Helvetica, sans-serif;
+    margin-right: 10px !important;
 }
 
 .vjs-resolution-button ul.vjs-menu-content {
   width: 4em !important;
+  bottom: 1.55em !important;
+  left: 30px !important;
+  
 }
 
 .vjs-resolution-button .vjs-menu {
