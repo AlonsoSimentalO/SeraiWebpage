@@ -46,9 +46,9 @@ function Partnerships() {
           <p>
           Serai offers trusted, AI-driven elderly care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.
           </p>
-          <button className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
+          <a className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
           Become a Partner
-          </button>
+          </a>
         </section>
 
         <div className="divider"></div>
@@ -124,9 +124,9 @@ function Partnerships() {
             We’re always looking for great people to join our Serai team. 
             Check out our current job listings below and get in touch if you think you could be a good match.
             </p>
-            <button className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
+            <a className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
             General Application
-            </button>
+            </a>
         </section>
 
       </div>

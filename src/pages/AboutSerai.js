@@ -100,9 +100,9 @@ function AboutSerai() {
         <div className="page-container">
           
           <div className="goals-section"> 
-              <h1 >
+              <h2 >
               These goals drive Us:
-              </h1>
+              </h2>
               <div className="goals">
                 {["Enhancing safety and independence to empower the elderly",
                   "Advancing intelligent monitoring solutions for proactive care",
