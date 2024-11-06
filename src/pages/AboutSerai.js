@@ -59,7 +59,7 @@ function AboutSerai() {
   ];
 
   const TeamMember = ({ name, role, image, linkedin }) => (
-    <div style={{ 
+    <div class="team-member" style={{ 
       ...styles.memberContainer, 
       ...(isMobile && styles.memberContainerMobile),
       ...(isTablet && styles.memberContainerTablet),
@@ -127,7 +127,7 @@ function AboutSerai() {
           
           <div className="divider"></div>
           
-          <section className="grid">
+          <section className="grid grid-theme--light">
             <div>
               <h2>About Serai</h2>
             </div>
@@ -139,7 +139,7 @@ function AboutSerai() {
           </section>
           
           <div className="divider"></div>
-          <section className="grid">
+          <section className="grid grid-theme--light">
             <div>
               <h2>Research</h2>
             </div>
@@ -152,7 +152,7 @@ function AboutSerai() {
 
           <div className="divider"></div>
 
-          <section className="grid">
+          <section className="grid grid-theme--light" >
             <div>
               <h2>The Problem</h2>
             </div>
@@ -165,7 +165,7 @@ function AboutSerai() {
           </section>
           <div className="divider"></div>
 
-          <section className="grid">
+          <section className="grid grid-theme--light">
             <div>
               <h2>Our Solution</h2>
             </div>
@@ -196,7 +196,7 @@ function AboutSerai() {
           </section>
           <div className="divider"></div>
 
-          <section className="grid">
+          <section className="grid grid-theme--light">
             <div>
               <h2>Our business Impact</h2>
             </div>
@@ -278,7 +278,6 @@ const styles = {
   },
   title: {
     textAlign: 'left',
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     fontSize: '3rem',  
@@ -390,7 +389,6 @@ const styles = {
     marginRight: '0px', 
   },
   sectionTitle: {
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     fontSize: '3rem',  
@@ -445,11 +443,6 @@ const styles = {
   },
   teamTitle: {
     fontSize: '3.2rem',  
-    fontWeight: '700',
-    fontFamily: 'Atyp BL, sans-serif',
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
   },
   teamTitleMobile: {
     fontSize: '2.5rem',
@@ -547,8 +540,6 @@ const styles = {
   memberName: {
     fontSize: '1.3rem',
     fontWeight: '700',
-    color: '#1E293B',
-    fontFamily: 'Atyp BL, sans-serif',
     marginTop: '10px',
     marginBottom: '0px',
   },

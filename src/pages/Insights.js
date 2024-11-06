@@ -11,7 +11,7 @@ function Insights() {
 
         <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
             <div>
               <h2>Our Scalable Solution</h2>
             </div>
@@ -29,7 +29,7 @@ function Insights() {
           </section>
           <div className="divider"></div>
 
-          <section className="grid">
+          <section className="grid grid-theme--light">
             <div>
               <h2>The Impact of Falls</h2>
             </div>
@@ -41,7 +41,7 @@ function Insights() {
           </section>
 
             <div className="divider"></div>
-            <section className="grid">
+            <section className="grid grid-theme--light">
             <div>
               <h2>Privacy among Elderly Care</h2>
             </div>
@@ -55,7 +55,7 @@ function Insights() {
        
             <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
           <div>
             <h2>Our Milestones and&nbsp;Achievements</h2>
           </div>

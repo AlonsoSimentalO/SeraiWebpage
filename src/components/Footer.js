@@ -4,7 +4,7 @@ import '../styles/footer.css';
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer-content">
         <div className="logo-section">
           <img src={require('../images/serai_logo_negative.png')} alt="Serai Logo" className="logo" />
@@ -29,7 +29,7 @@ function Footer() {
           <p className="legal-text">Serai © 2024. All rights reserved.</p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

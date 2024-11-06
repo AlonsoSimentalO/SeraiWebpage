@@ -96,7 +96,25 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 103px;
+}
+
+#root>div {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 1rem 3.2rem;
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  position: sticky;
+  z-index: 10;
 }
 
 
@@ -120,7 +138,7 @@ h1 {
 
 h2 {
   font-size: 48px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 h3 {
@@ -138,6 +156,12 @@ h5 {
   font-weight: 600;
 }
 
+.team-member h3 {
+  color: #1A0046;
+  background: unset; 
+  -webkit-text-fill-color: unset;
+}
+
 p {
   font-family: 'Helvetica Neue';
   color: #1E293B;
@@ -146,6 +170,9 @@ p {
   line-height: 1.6; 
 }
 
+.grid-theme--light h2 {
+  font-weight: 400;
+}
 
 /* Menu */
 .menu-active-link {
@@ -166,6 +193,8 @@ p {
 
 .divider {
   width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
   background-color: rgb(211, 228, 255);
   height: 2px;
 
@@ -190,16 +219,21 @@ p {
 }
 
 .section-joinus {
-  align-items: center;
+  align-items: left;
   margin-top: 6em;
+}
+
+.section-joinus p {
+  text-align: left;
 }
 
 .section-joinus .row-container--right{
   max-width: 576px;
+  width: 100%;
   height: auto;
 }
 .section-joinus .row-container--right img{
-  width: 80%;
+  width: 100%;
   height: auto;
 }
 
@@ -585,6 +619,10 @@ section {
   }  
   section {
     margin: 0 0 3em 0;
+  }
+
+  .row-container--left h2 {
+    margin-bottom: 16px;
   }
 }
 

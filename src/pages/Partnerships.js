@@ -40,8 +40,7 @@ function Partnerships() {
       <Header />
 
       <div className="page-container">
-
-      <section>
+        <section>
           <h1>Join as a B2B partner</h1>
           <p>
           Serai offers trusted, AI-driven elderly care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.
@@ -53,7 +52,7 @@ function Partnerships() {
 
         <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
             <div>
               <h2>Why Partner with Serai</h2>
             </div>
@@ -70,7 +69,7 @@ function Partnerships() {
           <div className="divider"></div>
 
 
-          <section className="grid">
+          <section className="grid grid-theme--light">
           <div>
             <h2>Who we Partner with</h2>
           </div>
@@ -104,7 +103,7 @@ function Partnerships() {
         </section>
 
         <div className="divider"></div>
-        <section className="grid">
+        <section className="grid grid-theme--light">
             <div>
               <h2>Our Partners so far</h2>
             </div>

@@ -9,7 +9,7 @@ function Contact() {
       <div className="page-container">
       <div className="divider"></div>
       
-      <section className="grid">
+      <section className="grid grid-theme--light">
           <div>
             <h2>Get in Touch</h2>
           </div>
@@ -23,7 +23,7 @@ function Contact() {
         </section>
         <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
           <div>
             <h2>Contact US</h2>
           </div>

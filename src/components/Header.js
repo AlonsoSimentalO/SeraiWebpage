@@ -178,7 +178,6 @@ const styles = {
     padding: '1rem 3.2rem', 
     backgroundColor: '#fff',
     boxSizing: 'border-box',
-    position: 'fixed',
     top: 0,
     left: 0,
     zIndex:'10',

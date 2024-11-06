@@ -29,7 +29,7 @@ function Research() {
       
         <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
           <div>
             <h2>Research Focus</h2>
           </div>
@@ -47,7 +47,7 @@ function Research() {
         <div className="divider"></div>
 
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
           <div>
             <h2>Why <br /> Camera-Based Solutions?</h2>
           </div>
@@ -97,7 +97,7 @@ function Research() {
         </section>
         <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
           <div>
             <h2>Superior Information Capture</h2>
           </div>
@@ -114,7 +114,7 @@ function Research() {
 
         <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
           <div>
             <h2>Addressing Common Issues with Wearables</h2>
           </div>
@@ -134,7 +134,7 @@ function Research() {
 
         <div className="divider"></div>
 
-        <section className="grid">
+        <section className="grid grid-theme--light">
           <div>
             <h2>Versatility and Adaptability</h2>
           </div>
