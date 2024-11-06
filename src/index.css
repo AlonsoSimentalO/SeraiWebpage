@@ -495,6 +495,10 @@ section {
   color: #2176FF;
 }
 
+.researchPartners .team-member img {
+  max-width: 350px;
+}
+
 @media only screen and (max-width: 1024px){
   body {
     /*padding-top: 93px;*/

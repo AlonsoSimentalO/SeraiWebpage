@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import emreImage from '../images/linkedin/emre.jpg';
-import alenImage from '../images/linkedin/alen.jpg';
-import frankImage from '../images/linkedin/frank.jpg';
-import pinarImage from '../images/linkedin/pinar.jpg';
-import evrimImage from '../images/linkedin/evrim.jpg';
-import eduardoImage from '../images/linkedin/eduardo.jpg';
-import robertImage from '../images/linkedin/robert.jpg';
-import kevinImage from '../images/linkedin/kevin.jpg';
-import burakImage from '../images/linkedin/burak.jpg';
-import arzuImage from '../images/linkedin/arzu.jpg';
-import antonImage from '../images/linkedin/anton.jpg';
-import linkedinIcon from '../images/linkedin/linkedin_icon.png';
+import emreImage from '../images/profil_images/img_emre_tuna.svg';
+import alenImage from '../images/profil_images/img_alen_selim.svg';
+import frankImage from      '../images/profil_images/img_frank_theelen.svg'
+import pinarImage from      '../images/profil_images/img_pinar_yaktiyol.svg'
+import evrimImage from      '../images/profil_images/img_evrim_firatli.svg'
+import eduardoImage from    '../images/profil_images/img_eduardo_ferrer.svg'
+import robertImage from     '../images/profil_images/img_roberthasson.svg'
+import kevinImage from      '../images/profil_images/img_kevin_schawinski.svg'
+import burakImage from      '../images/profil_images/img_burak_yetiskin.svg'
+import arzuImage from       '../images/profil_images/img_arzu_coltekin.jpg'
+import antonImage from      '../images/profil_images/img_anton_fedosov.svg'
+import linkedinIcon from    '../images/linkedin/linkedin_icon.png'
 
 function useMediaQuery(query) {
   const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
@@ -221,17 +221,9 @@ function AboutSerai() {
           </section>
           
           <div className="divider"></div>
-          <div style={styles.teamSection}>
-            <h2 style={{ 
-              ...styles.teamTitle, 
-              ...(isMobile && styles.teamTitleMobile),
-              ...(isTablet && styles.teamTitleTablet),
-            }}>Meet Our Team</h2>
-            <p style={{ 
-              ...styles.teamDescription, 
-              ...(isMobile && styles.teamDescriptionMobile),
-              ...(isTablet && styles.teamDescriptionTablet),
-            }}>
+          <section style={styles.teamSection}>
+            <h2>Meet Our Team</h2>
+            <p>
               Serai Team Advisory and Executive Board Member Committee
             </p>
             <div style={{ 
@@ -243,7 +235,7 @@ function AboutSerai() {
                 <TeamMember key={member.name} {...member} />
               ))}
             </div>
-          </div>
+          </section>
 
           <div style={researchTitleStyles}>Research Partners</div>
           <div style={{ 
@@ -438,8 +430,7 @@ const styles = {
     color: '#2176FF', 
   },
   teamSection: {
-    marginTop: '5rem', 
-    textAlign: 'center', 
+    marginTop: '32px', 
   },
   teamTitle: {
     fontSize: '3.2rem',  
@@ -450,30 +441,16 @@ const styles = {
   teamTitleTablet: {
     fontSize: '2.8rem',
   },
-  teamDescription: {
-    fontSize: '2rem',
-    fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '400',
-    color: '#1E293B',  
-    textAlign: 'center',
-    marginTop: '5rem',
-    marginBottom: '1rem',
-  },
-  teamDescriptionMobile: {
-    fontSize: '1.5rem',
-    marginTop: '2rem',
-  },
-  teamDescriptionTablet: {
-    fontSize: '1.8rem',
-    marginTop: '3rem',
-  },
   teamMembers: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    justifyItems: 'center'
+    justifyItems: 'center',
+    rowGap: '48px',
   },
   teamMembersMobile: {
     gridTemplateColumns: 'repeat(1, 1fr)',
+    marginTop: '16px',
+
   },
   teamMembersTablet: {
     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -490,10 +467,13 @@ const styles = {
   researchTitleMobile: {
     fontSize: '1.5rem',
     marginTop: '3rem',
+    marginBottom: '3rem',
   },
   researchTitleTablet: {
     fontSize: '1.8rem',
     marginTop: '4rem',
+
+    marginBottom: '3rem',
   },
   researchPartners: {
     display: 'grid',
@@ -515,15 +495,13 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     textAlign: 'center',
-    width: '250px',
-    marginTop: '7rem',
+    width: '100%',
+    maxWidth: '450px'
   },
   memberContainerMobile: {
-    marginTop: '3rem',
     width: '80%',
   },
   memberContainerTablet: {
-    marginTop: '4rem',
     width: '220px',
   },
   memberImage: {
