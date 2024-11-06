@@ -59,8 +59,8 @@ function Partnerships() {
             </div>
             <div>
               <p>
-              Serai AG leverages innovative, privacy-focused AI technology that ensures user dignity, backed by proven success 
-              and scalable solutions for significant growth.
+              Our proven technology delivers continuous, non-intrusive monitoring without wearables, setting us apart with 
+              privacy-focused solutions and demonstrated success in real-world implementations.
               </p>
             </div>
           </section>
@@ -118,7 +118,7 @@ function Partnerships() {
 
           <div className="divider"></div>
 
-          <section>
+          <section className="journey-section">
             <h1>Join our Journey</h1>
             <p>
             We’re always looking for great people to join our Serai team. 

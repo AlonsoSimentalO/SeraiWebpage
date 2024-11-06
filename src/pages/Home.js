@@ -92,8 +92,8 @@ function Home() {
         console.info('Source changed to %s', player.src())
       })
 
-      player.on('pause', function () {console.log("played was paused")})
-      player.on('play', function () {console.log("player was played")})
+      player.on('pause', function () {console.log("played was paused"); setIsPlaying(false);})
+      player.on('play', function () {console.log("player was played"); setIsPlaying(true);})
 
 
     }) 
@@ -172,6 +172,12 @@ function Home() {
     ...(isTablet && styles.videoContainerTablet),
   };
 
+  const videoConStyles = {
+    ...styles.videoCon,
+    ...(isMobile && styles.videoConMobile),
+    ...(isTablet && styles.videoConTablet),
+  };
+
   const videoStyles = {
     ...styles.video,
     ...(isMobile && styles.videoMobile),
@@ -201,11 +207,11 @@ function Home() {
 
         <div style={videoContainerStyles}>
 
-        <iframe width="100%" height="675px" border="none" allowfullscreen
+        {/* <iframe width="100%" height="675px" border="none" allowfullscreen
         src="https://www.youtube.com/embed/u8XTpg5RJGA?controls=1&autoplay=1&mute=1">
-        </iframe> 
+        </iframe>  */}
 
-        <video style={styles.videoCon} id="video" className="video-js vjs-default-skin"></video>
+        <video style={styles.videoConStyles} id="video" className="video-js vjs-default-skin"></video>
 
           {!isPlaying && (
             <>
@@ -217,7 +223,7 @@ function Home() {
           )}
         </div>
 
-        <section>
+        <section className="promoting-section">
           <h1>
             Promoting Independence and <br /> Well-being for Seniors
           </h1>
@@ -391,9 +397,8 @@ const styles = {
     top: 0,
     left: 0,
     width: "100%",
-    height: "95%",
+    height: "95.8%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    borderRadius: "15px",
     zIndex: 1,
     pointerEvents: "none",
   },

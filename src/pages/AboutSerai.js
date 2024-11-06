@@ -100,9 +100,9 @@ function AboutSerai() {
         <div className="page-container">
           
           <div className="goals-section"> 
-              <h2 >
+              <h3 >
               These goals drive Us:
-              </h2>
+              </h3>
               <div className="goals">
                 {["Enhancing safety and independence to empower the elderly",
                   "Advancing intelligent monitoring solutions for proactive care",
@@ -198,7 +198,7 @@ function AboutSerai() {
 
           <section className="grid">
             <div>
-              <h2>Our Solution</h2>
+              <h2>Our business Impact</h2>
             </div>
             <div>
             <div className="icon-list">
@@ -329,7 +329,7 @@ const styles = {
     display: 'block',
   },
   goalMobile: {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: '1.1rem',
   },
   goalTablet: {
@@ -461,7 +461,7 @@ const styles = {
     fontSize: '2rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    color: '#1A0046',  
+    color: '#1E293B',  
     textAlign: 'center',
     marginTop: '5rem',
     marginBottom: '1rem',
@@ -547,21 +547,24 @@ const styles = {
   memberName: {
     fontSize: '1.3rem',
     fontWeight: '700',
+    color: '#1E293B',
     fontFamily: 'Atyp BL, sans-serif',
     marginTop: '10px',
     marginBottom: '0px',
   },
   memberNameMobile: {
     fontSize: '1.2rem',
+    color: '#1E293B',
   },
   memberNameTablet: {
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
+    color: '#1E293B',
   },
   memberRole: {
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    color: '#3E3E59',
+    color: '#1E293B',
     marginBottom: '10px',
     flex: '1', 
   },
