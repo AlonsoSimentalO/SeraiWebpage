@@ -1,32 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { ReactComponent as SpeakerIcon } from "../images/icons/volume-high.svg";
-import { ReactComponent as SpeakerMuteIcon } from "../images/icons/volume-mute.svg";
-
-import videoJsResolutionSwitcher from "../utils/lib/videojs-resolution-switcher.js";
-import "../utils/lib/videojs-resolution-switcher.css"
-
-import videojs from "video.js";
-import "../utils/lib/video-js.min.css";
-
-
-import "../styles/home.css";
-
-import video360p from "../animations/Serai_2D_Animation_360p.mp4";
-import video480p from "../animations/Serai_2D_Animation_480p.mp4";
-import video720p from "../animations/Serai_2D_Animation_720p.mp4";
-import video1080p from "../animations/Serai_2D_Animation_1080p.mp4";
-import video1440p from "../animations/Serai_2D_Animation_1440p.mp4";
-import video2160p from "../animations/Serai_2D_Animation_2160p.mp4";
-
-
 
 function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
-  const videoRef = useRef(null);
-  const playbackTimeRef = useRef(0);
+  const [isPlayerReady, setIsPlayerReady] = useState(false);
+  const youtubePlayerRef = useRef(null);
   const elderlyCareRef = useRef(null);
   const whySectionRef = useRef(null);
 
@@ -34,129 +14,99 @@ function Home() {
   const isMobile = windowWidth <= 767;
   const isTablet = windowWidth > 767 && windowWidth <= 1024;
 
-  useEffect(()=> {
-    videojs('video', {
-      controls: true,
-      muted: true,
-      autoplay: true,
-      plugins: {
-        videoJsResolutionSwitcher: {
-          default: 720,
-          dynamicLabel: true // Display dynamic labels or gear symbol
-        }
-      }
-    }, function(){
-      var player = this;
-      window.player = player
-
-      player.updateSrc([
-        {
-          src:  video360p,
-          type: 'video/mp4',
-          label: 'Lowest',
-          res: 360
-        }, 
-        {
-          src: video480p,
-          type: 'video/mp4',
-          label: 'SD',
-          res: 480
-        },
-        {
-          src: video720p,
-          type: 'video/mp4',
-          label: 'HD',
-          res: 720
-        },
-        {
-          src: video1080p,
-          type: 'video/mp4',
-          label: 'Full-HD',
-          res: 1080
-        },
-        {
-          src: video1440p,
-          type: 'video/mp4',
-          label: '2K',
-          res: 1440
-        },
-        {
-          src: video2160p,
-          type: 'video/mp4',
-          label: '4k',
-          res: 2160
-        },
-      ])
-
-      player.on('resolutionchange', function(){
-        console.info('Source changed to %s', player.src())
-      })
-
-      player.on('pause', function () {console.log("played was paused"); setIsPlaying(false);})
-      player.on('play', function () {console.log("player was played"); setIsPlaying(true);})
-
-
-    }) 
-
-
-  }, [])
-
-
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    const loadYouTubeAPI = () => {
+      if (!window.YT) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      } else {
+        initializePlayer();
+      }
+    };
+
+    const initializePlayer = () => {
+      youtubePlayerRef.current = new window.YT.Player("youtube-player", {
+        videoId: "TgZzwAPJFe8",
+        playerVars: {
+          autoplay: 1,
+          controls: 1,
+          mute: isMuted ? 1 : 0,
+          rel: 0,
+          modestbranding: 1,
+          iv_load_policy: 3,
+        },
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
+        },
+      });
+    };
+
+    const onPlayerReady = (event) => {
+      event.target.playVideo();
+      const iframe = youtubePlayerRef.current.getIframe();
+      iframe.style.position = "absolute";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.borderRadius = "15px";
+      setIsPlayerReady(true);
+    };
+
+    const onPlayerStateChange = (event) => {
+      if (event.data === window.YT.PlayerState.PLAYING) {
+        setIsPlaying(true);
+      } else if (
+        event.data === window.YT.PlayerState.PAUSED ||
+        event.data === window.YT.PlayerState.ENDED
+      ) {
+        setIsPlaying(false);
+      }
+    };
+
+    window.onYouTubeIframeAPIReady = initializePlayer;
+    loadYouTubeAPI();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (youtubePlayerRef.current) {
+        youtubePlayerRef.current.destroy();
+      }
+      setIsPlayerReady(false);
+    };
   }, []);
 
   useEffect(() => {
-    const handleLoadedMetadata = () => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = playbackTimeRef.current;
-        videoRef.current.play();
+    if (isPlayerReady && youtubePlayerRef.current) {
+      if (isMuted) {
+        youtubePlayerRef.current.mute();
+      } else {
+        youtubePlayerRef.current.unMute();
       }
-    };
-
-    if (videoRef.current) {
-      videoRef.current.addEventListener("loadedmetadata", handleLoadedMetadata);
     }
-
-    return () => {
-      if (videoRef.current) {
-        videoRef.current.removeEventListener(
-          "loadedmetadata",
-          handleLoadedMetadata
-        );
-      }
-    };
-  }, []);
+  }, [isMuted, isPlayerReady]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.play();
+      if (isPlayerReady && youtubePlayerRef.current) {
+        youtubePlayerRef.current.playVideo();
+        youtubePlayerRef.current.unMute();
+        setIsPlaying(true);
+        setIsMuted(false);
       }
-      setIsPlaying(true);
-      setIsMuted(false);
     }, 3000);
 
     return () => clearTimeout(timer);
-  }, []);
-
-  const handlePlay = () => {
-    setIsPlaying(true);
-    setIsMuted(true);
-  };
-
-  const handlePause = () => {
-    setIsPlaying(false);
-  };
+  }, [isPlayerReady]);
 
   const toggleMute = () => {
-    setIsMuted(!isMuted);
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-    }
+    setIsMuted((prev) => !prev);
   };
 
   const scrollToSection = (ref) => {
@@ -172,18 +122,6 @@ function Home() {
     ...(isTablet && styles.videoContainerTablet),
   };
 
-  const videoConStyles = {
-    ...styles.videoCon,
-    ...(isMobile && styles.videoConMobile),
-    ...(isTablet && styles.videoConTablet),
-  };
-
-  const videoStyles = {
-    ...styles.video,
-    ...(isMobile && styles.videoMobile),
-    ...(isTablet && styles.videoTablet),
-  };
-
   const overlayTextStyles = {
     ...styles.overlayText,
     ...(isMobile && styles.overlayTextMobile),
@@ -196,31 +134,55 @@ function Home() {
     ...(isTablet && styles.careImageTablet),
   };
 
- 
-
   return (
     <div>
       <Header />
-      {/* <video id="video" className="video-js vjs-default-skin"></video> */}
-
       <div className="page-container">
-
         <div style={videoContainerStyles}>
-
-        {/* <iframe width="100%" height="675px" border="none" allowfullscreen
-        src="https://www.youtube.com/embed/u8XTpg5RJGA?controls=1&autoplay=1&mute=1">
-        </iframe>  */}
-
-        <video style={styles.videoConStyles} id="video" className="video-js vjs-default-skin"></video>
-
-          {!isPlaying && (
-            <>
-              <div style={styles.overlay}></div>
-              <div style={overlayTextStyles}>
-                Enhancing Safety and Quality of Life for Seniors
-              </div>
-            </>
-          )}
+          <div style={styles.videoWrapper}>
+            <div id="youtube-player"></div>
+            <button style={styles.muteButton} onClick={toggleMute}>
+              {isMuted ? (
+                <svg
+                  style={styles.muteIcon}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM4 9v6h4l5 5V4l-5 5H4zM19 12c0 2.76-2.24 5-5 5v-2c1.66 0 3-1.34 3-3s-1.34-3-3-3v-2c2.76 0 5 2.24 5 5z"
+                    fill="#000"
+                  ></path>
+                  <line
+                    x1="1"
+                    y1="1"
+                    x2="23"
+                    y2="23"
+                    stroke="#000"
+                    strokeWidth="2"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  style={styles.muteIcon}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM4 9v6h4l5 5V4l-5 5H4zM19 12c0 2.76-2.24 5-5 5v-2c1.66 0 3-1.34 3-3s-1.34-3-3-3v-2c2.76 0 5 2.24 5 5z"
+                    fill="#000"
+                  ></path>
+                </svg>
+              )}
+            </button>
+            {!isPlaying && (
+              <>
+                <div style={styles.overlay}></div>
+                <div style={overlayTextStyles}>
+                  Enhancing Safety and Quality of Life for Seniors
+                </div>
+              </>
+            )}
+          </div>
         </div>
 
         <section className="promoting-section">
@@ -326,7 +288,7 @@ function Home() {
             </div>
             <div className="card">
               <div className="card-image">
-                <img src={require("../images/secure.png")} alt="Intelligent" />
+                <img src={require("../images/secure.png")} alt="Secure" />
               </div>
               <div className="card-textblock">
                 <h4 className="card-title">Secure</h4>
@@ -340,7 +302,7 @@ function Home() {
               <div className="card-image">
                 <img
                   src={require("../images/evolving.png")}
-                  alt="Intelligent"
+                  alt="Evolving"
                 />
               </div>
               <div className="card-textblock">
@@ -382,25 +344,25 @@ const styles = {
     margin: "2rem auto",
     boxSizing: "border-box",
     maxWidth: "1280px",
-  },
-  videoCon : {
-    width: '100%',
-    height: '720px'
-  },
-  video: {
     width: "100%",
-    height: "auto",
+  },
+  videoWrapper: {
+    position: "relative",
+    paddingBottom: "56.25%",
+    height: 0,
     borderRadius: "15px",
+    overflow: "hidden",
   },
   overlay: {
     position: "absolute",
     top: 0,
     left: 0,
     width: "100%",
-    height: "95.8%",
+    height: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     zIndex: 1,
     pointerEvents: "none",
+    borderRadius: "15px",
   },
   overlayText: {
     position: "absolute",
@@ -436,7 +398,14 @@ const styles = {
   muteIcon: {
     width: "48px",
     height: "48px",
-    fill: "#000",
+  },
+  videoContainerMobile: {
+    maxWidth: "100%",
+    margin: "1rem auto",
+  },
+  videoContainerTablet: {
+    maxWidth: "90%",
+    margin: "1.5rem auto",
   },
   careImage: {
     maxWidth: "556px",
