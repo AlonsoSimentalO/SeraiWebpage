@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import emreImage from '../images/linkedin/emre.jpg';
-import alenImage from '../images/linkedin/alen.jpg';
-import frankImage from '../images/linkedin/frank.jpg';
-import pinarImage from '../images/linkedin/pinar.jpg';
-import evrimImage from '../images/linkedin/evrim.jpg';
-import eduardoImage from '../images/linkedin/eduardo.jpg';
-import robertImage from '../images/linkedin/robert.jpg';
-import kevinImage from '../images/linkedin/kevin.jpg';
-import burakImage from '../images/linkedin/burak.jpg';
-import arzuImage from '../images/linkedin/arzu.jpg';
-import antonImage from '../images/linkedin/anton.jpg';
-import linkedinIcon from '../images/linkedin/linkedin_icon.png';
+import emreImage from '../images/profil_images/img_emre_tuna.svg';
+import alenImage from '../images/profil_images/img_alen_selim.svg';
+import frankImage from      '../images/profil_images/img_frank_theelen.svg'
+import pinarImage from      '../images/profil_images/img_pinar_yaktiyol.svg'
+import evrimImage from      '../images/profil_images/img_evrim_firatli.svg'
+import eduardoImage from    '../images/profil_images/img_eduardo_ferrer.svg'
+import robertImage from     '../images/profil_images/img_roberthasson.svg'
+import kevinImage from      '../images/profil_images/img_kevin_schawinski.svg'
+import burakImage from      '../images/profil_images/img_burak_yetiskin.svg'
+import arzuImage from       '../images/profil_images/img_arzu_coltekin.jpg'
+import antonImage from      '../images/profil_images/img_anton_fedosov.svg'
+import linkedinIcon from    '../images/linkedin/linkedin_icon.png'
 
 function useMediaQuery(query) {
   const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
@@ -36,16 +36,10 @@ function AboutSerai() {
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
   
   const goalStylesArray = [
-    { width: '75%' },  
+    { width: '85%' },  
     { width: '90%' },  
     { width: '100%' }  
   ];
-
-  const dividerStyles = {
-    ...styles.divider,
-    ...(isMobile && styles.dividerMobile),
-    ...(isTablet && styles.dividerTablet),
-  };
 
   const teamMembers = [
     { name: 'Emre Tuna', role: 'Investor and Executive Board Member', image: emreImage, linkedin: 'https://www.linkedin.com/in/emre-tuna-09b7b280/' },
@@ -65,7 +59,7 @@ function AboutSerai() {
   ];
 
   const TeamMember = ({ name, role, image, linkedin }) => (
-    <div style={{ 
+    <div class="team-member" style={{ 
       ...styles.memberContainer, 
       ...(isMobile && styles.memberContainerMobile),
       ...(isTablet && styles.memberContainerTablet),
@@ -91,36 +85,6 @@ function AboutSerai() {
     </div>
   );
 
-  const sectionStyles = {
-    ...styles.section,
-    ...(isMobile && styles.sectionMobile),
-    ...(isTablet && styles.sectionTablet),
-  };
-
-  const titleContainerStyles = {
-    ...styles.titleContainer,
-    ...(isMobile && styles.titleContainerMobile),
-    ...(isTablet && styles.titleContainerTablet),
-  };
-
-  const sectionTitleStyles = {
-    ...styles.sectionTitle,
-    ...(isMobile && styles.sectionTitleMobile),
-    ...(isTablet && styles.sectionTitleTablet),
-  };
-
-  const textContainerStyles = {
-    ...styles.textContainer,
-    ...(isMobile && styles.textContainerMobile),
-    ...(isTablet && styles.textContainerTablet),
-  };
-
-  const sectionTextStyles = {
-    ...styles.sectionText,
-    ...(isMobile && styles.sectionTextMobile),
-    ...(isTablet && styles.sectionTextTablet),
-  };
-
   const researchTitleStyles = {
     ...styles.researchTitle,
     ...(isMobile && styles.researchTitleMobile),
@@ -133,142 +97,157 @@ function AboutSerai() {
       ...(isMobile && { overflowX: 'hidden' }), // Evita el desbordamiento horizontal en móviles
     }}>
       <Header />
-      <div style={{
-        ...styles.content,
-        ...(isMobile && styles.contentMobile),
-      }}>
-        <h1 style={{ 
-          ...styles.title, 
-          ...(isMobile && styles.titleMobile),
-          ...(isTablet && styles.titleTablet),
-        }}>
-          These goals drive Us:
-        </h1>
-        <div style={{ 
-          ...styles.goals, 
-          ...(isMobile && styles.goalsMobile),
-          ...(isTablet && styles.goalsTablet),
-        }}>
-          {["Improving the safety, independence, and well-being of older adults.",
-            "Developing advanced software and algorithms to detect irregularities in the lives of older adults.",
-            "Invest in ongoing research and development to continuously improve the evolving needs of the elderly population.",
-          ].map((goal, index) => (
-            <p style={{ 
-              ...styles.goal, 
-              ...goalStylesArray[index], 
-              transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)',
-              transition: 'transform 0.3s ease',
-              ...(isMobile && styles.goalMobile),
-              ...(isTablet && styles.goalTablet),
-            }} 
-            key={index}
-            onMouseEnter={() => setHoverIndex(index)}
-            onMouseLeave={() => setHoverIndex(-1)}>
-              {index + 1}. {goal}
-            </p>
-          ))}
-        </div>
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>About Serai</h2>
+        <div className="page-container">
+          
+          <div className="goals-section"> 
+              <h3 >
+              These goals drive Us:
+              </h3>
+              <div className="goals">
+                {["Enhancing safety and independence to empower the elderly",
+                  "Advancing intelligent monitoring solutions for proactive care",
+                  "Investing in ongoing R&D to continuously improve the evolving needs of the elderly population",
+                ].map((goal, index) => (
+                  <p style={{ 
+                    ...styles.goal, 
+                    ...goalStylesArray[index], 
+                    transform: hoverIndex === index ? 'scale(1.05)' : 'scale(1)', 
+                    transition: 'transform 0.3s ease',
+                    ...(isMobile && styles.goalMobile),
+                    ...(isTablet && styles.goalTablet),
+                  }} 
+                  key={index}
+                  onMouseEnter={() => setHoverIndex(index)}
+                  onMouseLeave={() => setHoverIndex(-1)}>
+                    {index + 1}. {goal}
+                  </p>
+                ))}
+              </div>
           </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
-              We build software and research algorithms to detect irregularities in everyday life of elderly. We detect fall in living spaces, monitor mood changes in daily behaviour and spot other behavioural anomalies commonly seen among seniors.
-            </p>
-          </div>
-        </div>
+          
+          <div className="divider"></div>
+          
+          <section className="grid grid-theme--light">
+            <div>
+              <h2>About Serai</h2>
+            </div>
+            <div>
+              <p>
+              Serai develops privacy-focused software and intelligent monitoring algorithms to enhance safety and independence for the elderly. Our technology detects unusual activity patterns, identifying risks and enabling timely intervention to create safer living environments.
+              </p>
+            </div>
+          </section>
+          
+          <div className="divider"></div>
+          <section className="grid grid-theme--light">
+            <div>
+              <h2>Research</h2>
+            </div>
+            <div>
+              <p>
+              Through a collaborative research project with FHNW, supported by Innosuisse’s Innocheque, Serai is advancing elderly care. With CHF <span className="highlight">1.1 million</span> in private seed funding and a 
+              patent application underway, we are committed to pioneering solutions that empower elderly individuals and support caregivers.           </p>
+            </div>
+          </section>
 
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>Research</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
-              We not only do engineering but also commit to 
-              <span style={styles.highlight}> CHF 1M+</span> research with FHNW in Aargau to develop our patented technology.
-              Headquartered in Zurich, Switzerland, we are committed to enhancing the safety, 
-              independence, and wellbeing of older adults. We believe in our product, and utilize it for our families.
-            </p>
-          </div>
-        </div>
+          <div className="divider"></div>
 
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>The Problem</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
-              Elder population is growing exponentially. Projected to reach <span style={styles.highlight}> 1.5 billion </span> by <span style={styles.highlight}> 2050. </span>
-              Falls cause <span style={styles.highlight}> 684’000 </span> fatalities annually among seniors. Care solutions lack privacy safeguards and are not used due to privacy concerns.
-            </p>
-          </div>
-        </div>
+          <section className="grid grid-theme--light" >
+            <div>
+              <h2>The Problem</h2>
+            </div>
+            <div>
+              <p>
+              Rising Elderly Population: Projected to reach <span className="highlight">1.5 billion</span> by <span className="highlight">2050</span>.
+              High Fall Incidence and Costs: In Switzerland, <span className="highlight">90,000</span> falls yearly lead to <span className="highlight">CHF 1.9 billion</span> in healthcare costs.
+              Limitations of Wearable Devices: Over <span className="highlight">80%</span> of seniors avoid wearables due to discomfort.            </p>
+            </div>
+          </section>
+          <div className="divider"></div>
 
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>Our Solution</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
-              Serai offers an AI-driven system using sensors and cameras to enhance older adults' quality of life. It detects and prevents falls, providing real-time alerts to caregivers.
-              The non-intrusive design ensures comfort without wearables, while privacy-preserving features protect user data and dignity.
-            </p>
-          </div>
-        </div>
+          <section className="grid grid-theme--light">
+            <div>
+              <h2>Our Solution</h2>
+            </div>
+            <div>
+            <div className="icon-list">
+                <ul>
+                  <li>
+                    <div>
+                      <h5>Non-Intrusive Monitoring</h5>
+                      <p>Serai’s system uses advanced sensors and cameras to monitor safety without the need for wearables.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Immediate Alerts</h5>
+                      <p>AI-powered fall detection sends real-time alerts to caregivers.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Privacy and Cost Savings</h5>
+                      <p>Enhances safety and reduces healthcare costs through proactive fall prevention.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <div className="divider"></div>
 
-        <div style={dividerStyles}></div>
-        <div style={sectionStyles}>
-          <div style={titleContainerStyles}>
-            <h2 style={sectionTitleStyles}>Our Business Impact</h2>
-          </div>
-          <div style={textContainerStyles}>
-            <p style={sectionTextStyles}>
-              Raised <span style={styles.highlight}> CHF 1.1M </span> in private investment. Secured Innosuisse funding through research partnership with FHNW
+          <section className="grid grid-theme--light">
+            <div>
+              <h2>Our business Impact</h2>
+            </div>
+            <div>
+            <div className="icon-list">
+                <ul>
+                  <li>
+                    <div>
+                      <h5>Economic Impact</h5>
+                      <p>Serai offers a cost-effective alternative to traditional elderly care, with a low monthly subscription fee compared to the average <span className="highlight">CHF 9,122</span> monthly care costs.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h5>Social Impact</h5>
+                      <p>Our solution promotes independence and safety for the elderly, easing caregiver burdens and enhancing family support.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          
+          <div className="divider"></div>
+          <section style={styles.teamSection}>
+            <h2>Meet Our Team</h2>
+            <p>
+              Serai Team Advisory and Executive Board Member Committee
             </p>
-          </div>
-        </div>
-        <div style={dividerStyles}></div>
+            <div style={{ 
+              ...styles.teamMembers, 
+              ...(isMobile && styles.teamMembersMobile),
+              ...(isTablet && styles.teamMembersTablet),
+            }}>
+              {teamMembers.map(member => (
+                <TeamMember key={member.name} {...member} />
+              ))}
+            </div>
+          </section>
 
-        <div style={styles.teamSection}>
-          <h2 style={{ 
-            ...styles.teamTitle, 
-            ...(isMobile && styles.teamTitleMobile),
-            ...(isTablet && styles.teamTitleTablet),
-          }}>Meet Our Team</h2>
-          <p style={{ 
-            ...styles.teamDescription, 
-            ...(isMobile && styles.teamDescriptionMobile),
-            ...(isTablet && styles.teamDescriptionTablet),
-          }}>
-            Serai Team Advisory and Executive Board Member Committee
-          </p>
+          <div style={researchTitleStyles}>Research Partners</div>
           <div style={{ 
-            ...styles.teamMembers, 
-            ...(isMobile && styles.teamMembersMobile),
-            ...(isTablet && styles.teamMembersTablet),
+            ...styles.researchPartners, 
+            ...(isMobile && styles.researchPartnersMobile),
+            ...(isTablet && styles.researchPartnersTablet),
           }}>
-            {teamMembers.map(member => (
-              <TeamMember key={member.name} {...member} />
+            {researchPartners.map(partner => (
+              <TeamMember key={partner.name} {...partner} />
             ))}
           </div>
         </div>
-
-        <div style={researchTitleStyles}>Research Partners</div>
-        <div style={{ 
-          ...styles.researchPartners, 
-          ...(isMobile && styles.researchPartnersMobile),
-          ...(isTablet && styles.researchPartnersTablet),
-        }}>
-          {researchPartners.map(partner => (
-            <TeamMember key={partner.name} {...partner} />
-          ))}
-        </div>
-      </div>
       <Footer />
     </div>
   );
@@ -283,7 +262,7 @@ const styles = {
   },
   content: {
     flex: 1,
-    padding: '2rem',
+    padding: '0',
     width: '100%',
   },
   contentMobile: {
@@ -291,7 +270,6 @@ const styles = {
   },
   title: {
     textAlign: 'left',
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     fontSize: '3rem',  
@@ -313,7 +291,7 @@ const styles = {
   },
   goals: {
     marginTop: '2rem',
-    padding: '0 20%',
+    padding: '0',
     fontSize: '1.4rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
@@ -337,15 +315,12 @@ const styles = {
     textAlign: 'left',
     backgroundColor: '#2176FF33',
     color: '#1A0046',
-    margin: '1rem 0',
-    padding: '1rem',
-    minHeight: '70px',
     borderRadius: '5px',
     fontWeight: '600',
-    display: 'block'
+    display: 'block',
   },
   goalMobile: {
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: '1.1rem',
   },
   goalTablet: {
@@ -368,7 +343,7 @@ const styles = {
   section: {
     display: 'flex',
     margin: '4rem auto',
-    padding: '0 20%',
+    padding: '0 0',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
@@ -406,7 +381,6 @@ const styles = {
     marginRight: '0px', 
   },
   sectionTitle: {
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     fontSize: '3rem',  
@@ -456,16 +430,10 @@ const styles = {
     color: '#2176FF', 
   },
   teamSection: {
-    marginTop: '5rem', 
-    textAlign: 'center', 
+    marginTop: '32px', 
   },
   teamTitle: {
     fontSize: '3.2rem',  
-    fontWeight: '700',
-    fontFamily: 'Atyp BL, sans-serif',
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
   },
   teamTitleMobile: {
     fontSize: '2.5rem',
@@ -473,35 +441,19 @@ const styles = {
   teamTitleTablet: {
     fontSize: '2.8rem',
   },
-  teamDescription: {
-    fontSize: '2rem',
-    fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '400',
-    color: '#1A0046',  
-    textAlign: 'center',
-    marginTop: '5rem',
-    marginBottom: '1rem',
-  },
-  teamDescriptionMobile: {
-    fontSize: '1.5rem',
-    marginTop: '2rem',
-  },
-  teamDescriptionTablet: {
-    fontSize: '1.8rem',
-    marginTop: '3rem',
-  },
   teamMembers: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '50px',
-    justifyItems: 'center'
+    justifyItems: 'center',
+    rowGap: '48px',
   },
   teamMembersMobile: {
     gridTemplateColumns: 'repeat(1, 1fr)',
+    marginTop: '16px',
+
   },
   teamMembersTablet: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
-    gap: '30px',
+    gridTemplateColumns: 'repeat(3, 1fr)',
   },
   researchTitle: {
     fontSize: '2rem',
@@ -515,16 +467,20 @@ const styles = {
   researchTitleMobile: {
     fontSize: '1.5rem',
     marginTop: '3rem',
+    marginBottom: '3rem',
   },
   researchTitleTablet: {
     fontSize: '1.8rem',
     marginTop: '4rem',
+
+    marginBottom: '3rem',
   },
   researchPartners: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)', 
     gap: '50px',
     justifyItems: 'center',
+    marginBottom: '5rem'
   },
   researchPartnersMobile: {
     gridTemplateColumns: 'repeat(1, 1fr)',
@@ -539,15 +495,13 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     textAlign: 'center',
-    width: '250px',
-    marginTop: '7rem',
+    width: '100%',
+    maxWidth: '450px'
   },
   memberContainerMobile: {
-    marginTop: '3rem',
     width: '80%',
   },
   memberContainerTablet: {
-    marginTop: '4rem',
     width: '220px',
   },
   memberImage: {
@@ -564,21 +518,22 @@ const styles = {
   memberName: {
     fontSize: '1.3rem',
     fontWeight: '700',
-    fontFamily: 'Atyp BL, sans-serif',
     marginTop: '10px',
     marginBottom: '0px',
   },
   memberNameMobile: {
     fontSize: '1.2rem',
+    color: '#1E293B',
   },
   memberNameTablet: {
-    fontSize: '1.3rem',
+    fontSize: '1.2rem',
+    color: '#1E293B',
   },
   memberRole: {
     fontSize: '1rem',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '400',
-    color: '#3E3E59',
+    color: '#1E293B',
     marginBottom: '10px',
     flex: '1', 
   },

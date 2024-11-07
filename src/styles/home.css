@@ -1,0 +1,29 @@
+*, 
+*::after, 
+*::before {
+   /* outline: 1px solid lime; */
+}
+
+.joinUs p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    padding: 2rem 2rem 2rem 0rem;
+}
+
+.joinUs h2 {
+    padding: 2rem 4rem 2rem 0rem;
+}
+
+.joinUs {
+    margin: 2rem 0
+}
+
+.svgIcon svg {
+    width: 45px; 
+    height: 45px;
+}
+
+.svgIcon {
+    min-height: 45px;
+    min-width: 45px;
+}

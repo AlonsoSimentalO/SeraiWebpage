@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';  
 import Footer from '../components/Footer';
-import { ReactComponent as SolutionIcon } from "../images/icons/solution_icon.svg";
 
 function useMediaQuery(query) {
   const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
@@ -22,84 +21,6 @@ function Partnerships() {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
-  const sectionCenteredStyles = {
-    ...styles.sectionCentered,
-    ...(isMobile && styles.sectionCenteredMobile),
-    ...(isTablet && styles.sectionCenteredTablet),
-  };
-
-  const sectionTitleCenteredStyles = {
-    ...styles.sectionTitleCentered,
-    ...(isMobile && styles.sectionTitleCenteredMobile),
-    ...(isTablet && styles.sectionTitleCenteredTablet),
-  };
-
-  const sectionTextCenteredStyles = {
-    ...styles.sectionTextCentered,
-    ...(isMobile && styles.sectionTextCenteredMobile),
-    ...(isTablet && styles.sectionTextCenteredTablet),
-  };
-
-  const becomePartnerButtonStyles = {
-    ...styles.becomePartnerButton,
-    ...(isMobile && styles.becomePartnerButtonMobile),
-    ...(isTablet && styles.becomePartnerButtonTablet),
-  };
-
-  const sectionStyles = {
-    ...styles.section,
-    ...(isMobile && styles.sectionMobile),
-    ...(isTablet && styles.sectionTablet),
-  };
-
-  const titleContainerStyles = {
-    ...styles.titleContainer,
-    ...(isMobile && styles.titleContainerMobile),
-    ...(isTablet && styles.titleContainerTablet),
-  };
-
-  const sectionTitleStyles = {
-    ...styles.sectionTitle,
-    ...(isMobile && styles.sectionTitleMobile),
-    ...(isTablet && styles.sectionTitleTablet),
-  };
-
-  const textContainerStyles = {
-    ...styles.textContainer,
-    ...(isMobile && styles.textContainerMobile),
-    ...(isTablet && styles.textContainerTablet),
-  };
-
-  const sectionTextStyles = {
-    ...styles.sectionText,
-    ...(isMobile && styles.sectionTextMobile),
-    ...(isTablet && styles.sectionTextTablet),
-  };
-
-  const listItemStyles = {
-    ...styles.listItem,
-    ...(isMobile && styles.listItemMobile),
-    ...(isTablet && styles.listItemTablet),
-  };
-
-  const listTextStyles = {
-    ...styles.listText,
-    ...(isMobile && styles.listTextMobile),
-    ...(isTablet && styles.listTextTablet),
-  };
-
-  const sectionTextIconStyles = {
-    ...styles.sectionTextIcon,
-    ...(isMobile && styles.sectionTextIconMobile),
-    ...(isTablet && styles.sectionTextIconTablet),
-  };
-
-  const imageContainerStyles = {
-    ...styles.imageContainer,
-    ...(isMobile && styles.imageContainerMobile),
-    ...(isTablet && styles.imageContainerTablet),
-  };
-
   const partnerImageLargeStyles = {
     ...styles.partnerImageLarge,
     ...(isMobile && styles.partnerImageLargeMobile),
@@ -112,131 +33,109 @@ function Partnerships() {
     ...(isTablet && styles.partnerImageSmallTablet),
   };
 
-  const extraSpacingStyles = {
-    ...styles.extraSpacing,
-    ...(isMobile && styles.extraSpacingMobile),
-    ...(isTablet && styles.extraSpacingTablet),
-  };
 
-  const dividerStyles = {
-    ...styles.divider,
-    ...(isMobile && styles.dividerMobile),
-    ...(isTablet && styles.dividerTablet),
-  };
 
   return (
-    <div style={styles.container}>
+    <div>
       <Header />
-      <div style={sectionCenteredStyles}>
-        <h2 style={sectionTitleCenteredStyles}>Join as a B2B partner</h2>
-        <p style={sectionTextCenteredStyles}>
-          At Serai AG, we are dedicated to enhancing the safety, independence, and quality of life for older adults through innovative AI-driven solutions. 
-          Our commitment to privacy and non-intrusive technology ensures that seniors can live comfortably and securely in their own homes.
-        </p>
-        <a href={mailToLink} target="_blank" rel="noopener noreferrer">
-          <button style={becomePartnerButtonStyles}>Become a Partner</button>
-        </a>
-      </div>
 
-      <div style={dividerStyles}></div>
-      <div style={sectionStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Why choose partnership</h2>
-        </div>
-        <div style={textContainerStyles}>
-          <p style={sectionTextStyles}>
-            Serai AG leverages innovative, privacy-focused AI technology that ensures user dignity, backed by proven success 
-            and scalable solutions for significant growth.
+      <div className="page-container">
+        <section>
+          <h1>Join as a B2B partner</h1>
+          <p>
+          Serai offers trusted, AI-driven elderly care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.
           </p>
-        </div>
-      </div>
+          <a className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
+          Become a Partner
+          </a>
+        </section>
 
-      <div style={dividerStyles}></div>
-      <div style={sectionStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Who we Partner with</h2>
-        </div>
-        <div style={textContainerStyles}> 
-          <ul style={styles.list}>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Healthcare Providers</p>
-            </li>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Insurance Companies</p>
-            </li>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Senior Care Facilities</p>
-            </li>
-            <li style={listItemStyles}>
-              <div style={sectionTextIconStyles}>
-                <SolutionIcon />
-              </div>
-              <p style={listTextStyles}>Government Institutions</p>
-            </li>
-          </ul>
-        </div>
-      </div>
+        <div className="divider"></div>
 
-      <div style={dividerStyles}></div>
-      <div style={sectionStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Our Partners so far</h2>
-        </div>
-        <div style={imageContainerStyles}>
-          <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={partnerImageLargeStyles} />
-          <img src={require('../images/iNNO LOGO.png')} alt="Innosuisse Partner" style={partnerImageSmallStyles} />
-        </div>
-      </div>
+        <section className="grid grid-theme--light">
+            <div>
+              <h2>Why Partner with Serai</h2>
+            </div>
+            <div>
+              <p>
+              Our proven technology delivers continuous, non-intrusive monitoring without wearables, setting us apart with 
+              privacy-focused solutions and demonstrated success in real-world implementations.
+              </p>
+            </div>
+          </section>
 
-      <div style={dividerStyles}></div>
-      <div style={sectionCenteredStyles}>
-        <h2 style={sectionTitleCenteredStyles}>Join our Journey</h2>
-        <p style={sectionTextCenteredStyles}>
-          We’re always looking for great people to join our Serai team. 
-          Check out our current job listings below and get in touch if you think you could be a good match.
-        </p>
-        <a href={mailToLink} target="_blank" rel="noopener noreferrer">
-          <button style={becomePartnerButtonStyles}>General Application</button>
-        </a>
-        <div style={extraSpacingStyles}></div>
-      </div>
 
+   
+          <div className="divider"></div>
+
+
+          <section className="grid grid-theme--light">
+          <div>
+            <h2>Who we Partner with</h2>
+          </div>
+          <div>
+          <div className="icon-list">
+              <ul>
+                <li>
+                  <div>
+                    <p>Healthcare Providers</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <p>Insurance Companies</p>
+                  </div>
+                </li>
+            
+                <li >
+                  <div >
+                    <p>Senior Care Facilities</p>
+                  </div>
+                </li>
+                <li >
+                  <div >
+                    <p>Government Institutions</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div className="divider"></div>
+        <section className="grid grid-theme--light">
+            <div>
+              <h2>Our Partners so far</h2>
+            </div>
+            <div>
+              <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={partnerImageLargeStyles} />
+              <img src={require('../images/iNNO LOGO.png')} alt="Innosuisse Partner" style={partnerImageSmallStyles} />
+            </div>
+          </section>
+
+
+
+          <div className="divider"></div>
+
+          <section className="journey-section">
+            <h1>Join our Journey</h1>
+            <p>
+            We’re always looking for great people to join our Serai team. 
+            Check out our current job listings below and get in touch if you think you could be a good match.
+            </p>
+            <a className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
+            General Application
+            </a>
+        </section>
+
+      </div>
       <Footer />
     </div>
   );
 }
 
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  divider: {
-    height: '2px',
-    backgroundColor: '#D3E4FF',
-    width: '70%',
-    display: 'block',
-    margin: '8rem auto 1rem auto',  
-  },
-  dividerMobile: {
-    width: '90%',
-    margin: '4rem auto 1rem auto',
-  },
-  dividerTablet: {
-    width: '80%',
-    margin: '6rem auto 1rem auto',
-  },
+
   sectionCentered: {
     textAlign: 'center',
     padding: '0 20%',
@@ -315,107 +214,117 @@ const styles = {
     height: '75px',
   },
   section: {
-    display: 'flex',
-    padding: '0 20%',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    margin: '4rem auto',
-    width: '60%',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    margin: "4rem auto",
+    maxWidth: '1440px',
+    gap: '20px',
+    width: '80%',
+    paddingLeft: '6rem',
+
   },
   sectionMobile: {
-    flexDirection: 'column',
-    padding: '0 5%',
-    width: '90%',
-    margin: '2rem auto',
-    alignItems: 'flex-start',
+    flexDirection: "column",
+    padding: "0 5%",
+    width: "90%",
+    margin: "2rem auto",
+    alignItems: "flex-start",
+    paddingLeft: '0rem',
   },
   sectionTablet: {
-    flexDirection: 'row',
-    padding: '0 10%',
-    width: '80%',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    margin: '3rem auto',
+    flexDirection: "row",
+    width: "80%",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    margin: "3rem auto",
+    paddingLeft: '0rem',
   },
   titleContainer: {
-    flex: '0 0 350px',
-    marginRight: '100px',
+    maxWidth: '350px'
   },
   titleContainerMobile: {
-    flex: '0 0 auto',
-    marginRight: '0',
-    marginBottom: '1rem',
-    textAlign: 'left',
-    alignSelf: 'stretch',
+    flex: "0 0 auto",
+    marginRight: "0",
+    marginBottom: "1rem",
+    textAlign: "left",
+    alignSelf: "stretch",
   },
   titleContainerTablet: {
     flex: '0 0 300px', 
-    marginRight: '15px',
+    marginRight: '30px', 
   },
-  sectionTitle: {
-    background: 'linear-gradient(to right, #1A0046, #3A3CE6)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    fontSize: '3rem',  
-    fontWeight: '500',
-    fontFamily: 'Atyp BL, sans-serif',
-    marginTop: '0',
+
+ sectionTitle: {
+    background: "linear-gradient(to right, #1A0046, #3A3CE6)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontSize: "2.5rem",
+    fontWeight: "500",
+    fontFamily: "Atyp BL, sans-serif",
+    marginTop: "0",
+    paddingLeft: '1rem',
+    minWidth: '350px'
   },
   sectionTitleMobile: {
-    fontSize: '1.8rem',
-    marginBottom: '1rem',
-    textAlign: 'left',
+    fontSize: "2.2rem",
+    marginBottom: "1rem",
+    textAlign: "left",
   },
   sectionTitleTablet: {
-    fontSize: '2.5rem',
-    marginBottom: '1.5rem',
-    textAlign: 'left',
+    fontSize: "2.5rem",
+    marginBottom: "1.5rem",
+    textAlign: "left",
   },
-  textContainer: {
-    flex: '1',
-    padding: '0 20px',
+
+   textContainer: {
+    flex: "1",
+    padding: "0 20px",
+    position: "relative",
   },
   textContainerMobile: {
-    padding: '0',
+    padding: "0",
   },
   textContainerTablet: {
-    padding: '0 10px',
+    padding: "0 10px",
   },
+
+
   sectionText: {
-    fontSize: '1.3rem',
-    fontFamily: 'Helvetica Neue, sans-serif',
-    fontWeight: '400',
+    fontSize: "1.3rem",
+    fontFamily: "Helvetica Neue, sans-serif",
+    fontWeight: "400",
     lineHeight: "1.6",
-    marginTop: "0",
+    maxWidth: '790px'
   },
   sectionTextMobile: {
-    fontSize: '1.1rem',
-    textAlign: 'left',
+    fontSize: "1.1rem",
+    textAlign: "left",
     lineHeight: "1.8",
   },
   sectionTextTablet: {
-    fontSize: '1.2rem',
+    fontSize: "1.2rem",
     lineHeight: "1.7",
   },
+  
   list: {
     listStyleType: 'none',
-    padding: 0,
-    marginBottom: '0rem',
+    maxWidth: '790px'
   },
   listItem: {
     display: 'flex',
     alignItems: 'center',
-    margin: '1rem 0',
+    marginBottom: '1.5rem'
   },
   listItemMobile: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    margin: '1rem 0',
+    marginBottom: '1rem',
   },
   listItemTablet: {
     flexDirection: 'row',
-    alignItems: 'center',
-    margin: '1rem 0',
+    alignItems: 'flex-start',
+    marginBottom: '1rem',
   },
   listText: {
     fontSize: '1.3rem',

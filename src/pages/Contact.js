@@ -2,107 +2,44 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-function useMediaQuery(query) {
-  const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
-
-  React.useEffect(() => {
-    const mediaQueryList = window.matchMedia(query);
-    const listener = (event) => setMatches(event.matches);
-
-    mediaQueryList.addEventListener('change', listener);
-    return () => mediaQueryList.removeEventListener('change', listener); 
-  }, [query]);
-
-  return matches;
-}
-
 function Contact() {
-  const isMobile = useMediaQuery('(max-width: 767px)');
-  const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
-
-  const sectionGetTouchStyles = {
-    ...styles.sectionGetTouch,
-    ...(isMobile && styles.sectionGetTouchMobile),
-    ...(isTablet && styles.sectionGetTouchTablet),
-  };
-
-  const sectionStyles = {
-    ...styles.section,
-    ...(isMobile && styles.sectionMobile),
-    ...(isTablet && styles.sectionTablet),
-  };
-
-  const titleContainerStyles = {
-    ...styles.titleContainer,
-    ...(isMobile && styles.titleContainerMobile),
-    ...(isTablet && styles.titleContainerTablet),
-  };
-
-  const sectionTitleStyles = {
-    ...styles.sectionTitle,
-    ...(isMobile && styles.sectionTitleMobile),
-    ...(isTablet && styles.sectionTitleTablet),
-  };
-
-  const textContainerStyles = {
-    ...styles.textContainer,
-    ...(isMobile && styles.textContainerMobile),
-    ...(isTablet && styles.textContainerTablet),
-  };
-
-  const sectionTextStyles = {
-    ...styles.sectionText,
-    ...(isMobile && styles.sectionTextMobile),
-    ...(isTablet && styles.sectionTextTablet),
-  };
-
-  const addressPStyles = {
-    ...styles.addressP,
-    ...(isMobile && styles.addressPMobile),
-    ...(isTablet && styles.addressPTablet),
-  };
-
-  const dividerStyles = {
-    ...styles.divider,
-    ...(isMobile && styles.dividerMobile),
-    ...(isTablet && styles.dividerTablet),
-  };
-
   return (
-    <div style={styles.container}>
+    <div>
       <Header />
-      <div style={sectionGetTouchStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Get in Touch</h2>
-        </div>
-        <div style={textContainerStyles}>
-          <p style={sectionTextStyles}>
+      <div className="page-container">
+      <div className="divider"></div>
+      
+      <section className="grid grid-theme--light">
+          <div>
+            <h2>Get in Touch</h2>
+          </div>
+          <div>
+            <p>
             We'd love to hear from you! Whether you have questions about our
             products, need support, or want to learn more about how Serai can
             enhance the quality of life for seniors, our team is here to help.
-          </p>
-        </div>
-      </div>
+            </p>
+          </div>
+        </section>
+        <div className="divider"></div>
 
-      <div style={dividerStyles}></div>
-
-      <div style={sectionStyles}>
-        <div style={titleContainerStyles}>
-          <h2 style={sectionTitleStyles}>Contact US</h2>
-        </div>
-        <div style={textContainerStyles}>
-          <div style={sectionTextStyles}>
-            <p style={addressPStyles}> Serai AG </p>
+        <section className="grid grid-theme--light">
+          <div>
+            <h2>Contact US</h2>
+          </div>
+          <div>
+           <p className="bold"> Serai AG </p>
             <p> Horneggstrasse 9 </p>
             <p> 8008 Zurich, Switzerland</p>
             <p>
-              <b>Phone:</b> +41-44-6880168
+              <span className="bold">Phone:</span> +41-44-6880168
             </p>
             <p>
-              <b>Email:</b> info@seraispaces.com
+              <span className="bold">Email:</span> info@seraispaces.com
             </p>
           </div>
-        </div>
+        </section>
+     
       </div>
       <Footer />
     </div>
@@ -110,12 +47,7 @@ function Contact() {
 }
 
 const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    minHeight: "calc(100vh - 5rem)",
-  },
+
   divider: {
     height: "2px",
     backgroundColor: "#D3E4FF",
@@ -132,35 +64,41 @@ const styles = {
   },
   section: {
     display: "flex",
-    padding: "0 20%",
     flexDirection: "row",
-    alignItems: "flex-start",
+    alignItems: "center",
     margin: "4rem auto",
-    width: "60%",
+    maxWidth: '1440px',
+    gap: '20px',
+    width: '80%',
+    paddingLeft: '6rem',
+
   },
   sectionMobile: {
     flexDirection: "column",
     padding: "0 5%",
     width: "90%",
     margin: "2rem auto",
-    alignItems: "center",
+    alignItems: "flex-start",
+    paddingLeft: '0rem',
   },
   sectionTablet: {
     flexDirection: "row",
-    padding: "0 10%",
     width: "80%",
     justifyContent: "space-between",
     alignItems: "flex-start",
     margin: "3rem auto",
+    paddingLeft: '0rem',
   },
   sectionGetTouch: {
     display: "flex",
-    padding: "0 20%",
     flexDirection: "row",
     alignItems: "center",
-    margin: "4rem 0 0 0",
-    width: "60%",
-    height: "350px",
+    marginTop: "6rem",
+    marginInline: 'auto',
+    maxWidth: '1440px',
+    gap: '20px',
+    width: '80%',
+    paddingLeft: '6rem',
   },
   sectionGetTouchMobile: {
     flexDirection: "column",

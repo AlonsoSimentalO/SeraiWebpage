@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
@@ -19,9 +19,41 @@ function useMediaQuery(query) {
 function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      setMenuOpen(false);
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      window.addEventListener('scroll', handleScroll);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [menuOpen]);
 
   const headerStyles = {
     ...styles.header,
@@ -69,14 +101,29 @@ function Header() {
 
       {isMobile ? (
         <div style={styles.menuContainer}>
-          <button style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
-            <div style={styles.bar}></div>
-            <div style={styles.bar}></div>
-            <div style={styles.bar}></div>
+          <button
+            ref={buttonRef}
+            style={styles.hamburger}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          >
+
+            {menuOpen ? (
+              <div style={styles.closeIcon}>
+                <div style={{ ...styles.bar, ...styles.barX1 }}></div>
+                <div style={{ ...styles.bar, ...styles.barX2 }}></div>
+              </div>
+            ) : (
+              <div style={styles.hamburgerIcon}>
+                <div style={styles.bar}></div>
+                <div style={styles.bar}></div>
+                <div style={styles.bar}></div>
+              </div>
+            )}
           </button>
 
           {menuOpen && (
-            <nav style={styles.navContainerMobile}>
+            <nav ref={menuRef} style={styles.navContainerMobile}>
               <ul style={navListStyles}>
                 {navLinks.map(({ path, label }) => (
                   <li style={styles.listItem} key={path}>
@@ -85,11 +132,7 @@ function Header() {
                       style={navLinkStyles}
                       onClick={() => setMenuOpen(false)}
                     >
-                      {label}
-                    </Link>
-                    {location.pathname === `/${path}` && (
-                      <div style={styles.currentVisit}></div>
-                    )}
+                    <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }> {label}</span>                    </Link>            
                   </li>
                 ))}
               </ul>
@@ -108,12 +151,11 @@ function Header() {
                 }
                 key={path}
               >
-                <Link to={`/${path}`} style={navLinkStyles}>
-                  {label}
+                <Link to={`/${path}`} 
+                style={navLinkStyles}>
+                  <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }> {label}</span>
                 </Link>
-                {location.pathname === `/${path}` && (
-                  <div style={styles.currentVisit}></div>
-                )}
+          
               </li>
             ))}
           </ul>
@@ -124,6 +166,10 @@ function Header() {
 }
 
 const styles = {
+  inactiveLink: {
+    color: '#000'
+  },
+  activeLInk: {color: '#00FF00'},
   header: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -131,13 +177,11 @@ const styles = {
     flexWrap: 'nowrap',
     padding: '1rem 3.2rem', 
     backgroundColor: '#fff',
-    width: '100%',
-    maxWidth: '100%',
     boxSizing: 'border-box',
-    position: 'fixed',
     top: 0,
     left: 0,
-    zIndex: 1000,
+    zIndex:'10',
+    width: '100%'
   },
   headerMobile: {
     padding: '1rem 1rem',
@@ -184,13 +228,14 @@ const styles = {
   },
   navContainerMobile: {
     position: 'absolute',
-    top: '100%',
+    top: '99%',
     left: 0,
     backgroundColor: '#fff',
     width: '100%',
     padding: '1rem 0',
     boxSizing: 'border-box',
     zIndex: 999,
+    boxShadow: '0 6px 6px rgba(0, 0, 0, 0.1)',
   },
   navList: {
     display: 'flex',
@@ -202,7 +247,7 @@ const styles = {
   navListMobile: {
     flexDirection: 'column',
     alignItems: 'flex-start',
-    gap: '1rem',
+    gap: '2rem',
     padding: '0 1rem',
   },
   navListTablet: {
@@ -215,15 +260,15 @@ const styles = {
   navLink: {
     textDecoration: 'none',
     color: '#1E293B',
-    fontSize: '1rem',
+    fontSize: '18px',
     fontFamily: 'Helvetica Neue, sans-serif',
     fontWeight: '500',
   },
   navLinkMobile: {
-    fontSize: '0.9rem',
+    fontSize: '16px',
   },
   navLinkTablet: {
-    fontSize: '0.95rem',
+    fontSize: '16px',
     fontWeight: '500', 
   },
   listItem: {
@@ -234,18 +279,46 @@ const styles = {
   },
   hamburger: {
     display: 'flex',
+    alignItems: 'center',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    width: '30px',
+    height: '25px',
+  },
+
+  hamburgerIcon: {
+    display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
     width: '30px',
     height: '25px',
-    background: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
   },
+
+  closeIcon: {
+    position: 'relative',
+    width: '30px',
+    height: '25px',
+  },
+
   bar: {
     width: '100%',
     height: '3px',
     backgroundColor: '#1E293B',
+    transition: 'all 0.3s ease',
+  },
+
+  barX1: {
+    position: 'absolute',
+    top: '11px',
+    transform: 'rotate(45deg)',
+  },
+
+  barX2: {
+    position: 'absolute',
+    top: '11px',
+    transform: 'rotate(-45deg)',
   },
 };
 
