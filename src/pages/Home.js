@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Player from "@vimeo/player";
 
 function Home() {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlayerReady, setIsPlayerReady] = useState(false);
-  const youtubePlayerRef = useRef(null);
+  const vimeoPlayerRef = useRef(null);
   const elderlyCareRef = useRef(null);
   const whySectionRef = useRef(null);
 
@@ -18,96 +17,33 @@ function Home() {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
-    const loadYouTubeAPI = () => {
-      if (!window.YT) {
-        const tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName("script")[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-      } else {
-        initializePlayer();
-      }
-    };
+    const iframe = document.getElementById("vimeo-player");
+    vimeoPlayerRef.current = new Player(iframe, {
+      id: 1028733738,
+      autoplay: true,
+      muted: true,
+      controls: true,
+    });
 
-    const initializePlayer = () => {
-      youtubePlayerRef.current = new window.YT.Player("youtube-player", {
-        videoId: "TgZzwAPJFe8",
-        playerVars: {
-          autoplay: 1,
-          controls: 1,
-          mute: isMuted ? 1 : 0,
-          rel: 0,
-          modestbranding: 1,
-          iv_load_policy: 3,
-        },
-        events: {
-          onReady: onPlayerReady,
-          onStateChange: onPlayerStateChange,
-        },
-      });
-    };
+    vimeoPlayerRef.current.on("play", () => {
+      setIsPlaying(true);
+    });
 
-    const onPlayerReady = (event) => {
-      event.target.playVideo();
-      const iframe = youtubePlayerRef.current.getIframe();
-      iframe.style.position = "absolute";
-      iframe.style.top = "0";
-      iframe.style.left = "0";
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.borderRadius = "15px";
-      setIsPlayerReady(true);
-    };
+    vimeoPlayerRef.current.on("pause", () => {
+      setIsPlaying(false);
+    });
 
-    const onPlayerStateChange = (event) => {
-      if (event.data === window.YT.PlayerState.PLAYING) {
-        setIsPlaying(true);
-      } else if (
-        event.data === window.YT.PlayerState.PAUSED ||
-        event.data === window.YT.PlayerState.ENDED
-      ) {
-        setIsPlaying(false);
-      }
-    };
-
-    window.onYouTubeIframeAPIReady = initializePlayer;
-    loadYouTubeAPI();
+    vimeoPlayerRef.current.on("ended", () => {
+      setIsPlaying(false);
+    });
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      if (youtubePlayerRef.current) {
-        youtubePlayerRef.current.destroy();
+      if (vimeoPlayerRef.current) {
+        vimeoPlayerRef.current.unload();
       }
-      setIsPlayerReady(false);
     };
   }, []);
-
-  useEffect(() => {
-    if (isPlayerReady && youtubePlayerRef.current) {
-      if (isMuted) {
-        youtubePlayerRef.current.mute();
-      } else {
-        youtubePlayerRef.current.unMute();
-      }
-    }
-  }, [isMuted, isPlayerReady]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (isPlayerReady && youtubePlayerRef.current) {
-        youtubePlayerRef.current.playVideo();
-        youtubePlayerRef.current.unMute();
-        setIsPlaying(true);
-        setIsMuted(false);
-      }
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [isPlayerReady]);
-
-  const toggleMute = () => {
-    setIsMuted((prev) => !prev);
-  };
 
   const scrollToSection = (ref) => {
     const yOffset = -85;
@@ -140,40 +76,21 @@ function Home() {
       <div className="page-container">
         <div style={videoContainerStyles}>
           <div style={styles.videoWrapper}>
-            <div id="youtube-player"></div>
-            <button style={styles.muteButton} onClick={toggleMute}>
-              {isMuted ? (
-                <svg
-                  style={styles.muteIcon}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM4 9v6h4l5 5V4l-5 5H4zM19 12c0 2.76-2.24 5-5 5v-2c1.66 0 3-1.34 3-3s-1.34-3-3-3v-2c2.76 0 5 2.24 5 5z"
-                    fill="#000"
-                  ></path>
-                  <line
-                    x1="1"
-                    y1="1"
-                    x2="23"
-                    y2="23"
-                    stroke="#000"
-                    strokeWidth="2"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  style={styles.muteIcon}
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zM4 9v6h4l5 5V4l-5 5H4zM19 12c0 2.76-2.24 5-5 5v-2c1.66 0 3-1.34 3-3s-1.34-3-3-3v-2c2.76 0 5 2.24 5 5z"
-                    fill="#000"
-                  ></path>
-                </svg>
-              )}
-            </button>
+            <iframe
+              id="vimeo-player"
+              src="https://player.vimeo.com/video/1028733738?autoplay=1&muted=1&controls=1&loop=1"
+              frameBorder="0"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                borderRadius: "15px",
+              }}
+            ></iframe>
             {!isPlaying && (
               <>
                 <div style={styles.overlay}></div>
@@ -348,7 +265,7 @@ const styles = {
   },
   videoWrapper: {
     position: "relative",
-    paddingBottom: "56.25%",
+    paddingBottom: "56.25%", 
     height: 0,
     borderRadius: "15px",
     overflow: "hidden",
@@ -384,20 +301,6 @@ const styles = {
   },
   overlayTextTablet: {
     fontSize: "3rem",
-  },
-  muteButton: {
-    position: "absolute",
-    top: "5%",
-    right: "5%",
-    backgroundColor: "transparent",
-    border: "none",
-    cursor: "pointer",
-    zIndex: 3,
-    padding: "10px",
-  },
-  muteIcon: {
-    width: "48px",
-    height: "48px",
   },
   videoContainerMobile: {
     maxWidth: "100%",
