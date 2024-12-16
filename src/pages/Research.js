@@ -45,7 +45,7 @@ const translations = {
     superiorInfoP: "Kamerabasierte Lösungen sind im Erfassen detaillierter Informationen typischen Smart-Home-Sensoren überlegen. Sie können sowohl Notfälle als auch Alltagsaktivitäten wie Ausruhen, Sport und Kochen genau erkennen. Diese umfassende Überwachungsfähigkeit verbessert die Qualität der Pflege und Sicherheit für die Nutzer.",
     addressingIssues: "Behebung häufiger Probleme mit Wearables",
     addressingIssuesP: "Einer der herausragenden Vorteile kamerabasierter Lösungen ist ihre nicht-intrusive Natur. Tragbare Sensoren können aufdringlich sein, Unbehagen verursachen und im Alltag stören. (Vernon, 2020.) Kameras hingegen erfordern keinen physischen Kontakt und bieten so eine komfortablere und benutzerfreundlichere Option für die kontinuierliche Überwachung.",
-    versatility: "Vielseitigkeit und Anpassungsfähigkeit",
+    versatility: "Vielseitig und Flexibel",
     versatilityP: "Kamerabasierte Systeme in Kombination mit modernen Aktivitätserkennungsalgorithmen sind äußerst vielseitig. Sie können ein breites Spektrum an Aktivitäten präzise erkennen und analysieren, von Alltagsaufgaben wie Kochen und Sport bis hin zu Notsituationen. Diese Anpassungsfähigkeit macht sie ideal, um Pflege und Sicherheit im häuslichen Umfeld zu gewährleisten."
   },
   fr: {

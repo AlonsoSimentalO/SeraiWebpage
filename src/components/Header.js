@@ -2,6 +2,43 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
+function getUserLanguage() {
+  const userLang = navigator.language || "en";
+  if (userLang.startsWith("de")) return "de";
+  if (userLang.startsWith("fr")) return "fr";
+  if (userLang.startsWith("it")) return "it";
+  return "en";
+}
+
+const language = getUserLanguage();
+
+const translations = {
+  en: {
+    about: "About",
+    research: "Research",
+    partnerships: "Partnerships",
+    contact: "Contact"
+  },
+  de: {
+    about: "Über Uns",
+    research: "Forschung",
+    partnerships: "Partner",
+    contact: "Kontakt"
+  },
+  fr: {
+    about: "À Propos",
+    research: "Recherche",
+    partnerships: "Partenariats",
+    contact: "Contact"
+  },
+  it: {
+    about: "Chi Siamo",
+    research: "Ricerca",
+    partnerships: "Partnerships",
+    contact: "Contatti"
+  }
+};
+
 function useMediaQuery(query) {
   const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
 
@@ -80,10 +117,10 @@ function Header() {
   };
 
   const navLinks = [
-    { path: 'AboutSerai', label: 'About' },
-    { path: 'research', label: 'Research' },
-    { path: 'Partnerships', label: 'Partnerships' },
-    { path: 'contact', label: 'Contact' },
+    { path: 'AboutSerai', label: translations[language].about },
+    { path: 'research', label: translations[language].research },
+    { path: 'Partnerships', label: translations[language].partnerships },
+    { path: 'contact', label: translations[language].contact },
   ];
 
   return (
@@ -106,7 +143,6 @@ function Header() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           >
-
             {menuOpen ? (
               <div style={styles.closeIcon}>
                 <div style={{ ...styles.bar, ...styles.barX1 }}></div>
@@ -131,7 +167,8 @@ function Header() {
                       style={navLinkStyles}
                       onClick={() => setMenuOpen(false)}
                     >
-                    <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }> {label}</span>                    </Link>            
+                    <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }>{label}</span>
+                    </Link>            
                   </li>
                 ))}
               </ul>
@@ -144,7 +181,7 @@ function Header() {
             {navLinks.map(({ path, label }) => (
               <li
                 style={
-                  isTablet && label === 'Contact'
+                  isTablet && label === translations[language].contact
                     ? { ...styles.listItem, ...styles.contactListItemTablet }
                     : styles.listItem
                 }
@@ -152,9 +189,8 @@ function Header() {
               >
                 <Link to={`/${path}`} 
                 style={navLinkStyles}>
-                  <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }> {label}</span>
+                  <span className={location.pathname === `/${path}` ? 'menu-active-link' : 'menu-inactive-link' }>{label}</span>
                 </Link>
-          
               </li>
             ))}
           </ul>
