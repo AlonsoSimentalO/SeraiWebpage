@@ -32,9 +32,6 @@ function Contact() {
             <p> Horneggstrasse 9 </p>
             <p> 8008 Zurich, Switzerland</p>
             <p>
-              <span className="bold">Phone:</span> +41-44-6880168
-            </p>
-            <p>
               <span className="bold">Email:</span> info@seraispaces.com
             </p>
           </div>

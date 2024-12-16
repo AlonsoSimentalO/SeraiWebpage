@@ -13,12 +13,12 @@ function Research() {
       <div className="page-container">
         <section>
             <h1>Our Research</h1>
-            <p> We are leaders in Research through our partnerships with top research
-            institutions like FHNW in Aargau to develop our
-            patented technology. We are committed to research that enhances the
-            safety, independence, and well-being of older adults.
-            We believe in our product and believe it is the future of home
-            monitoring with camera-based solutions</p>
+            <p> We are leaders in research through our partnerships with top research 
+            institutions, including FHNW in Aargau, to develop our innovative technology 
+            (pending patent application). We are committed to research that enhances the 
+            safety, independence, and well-being of older adults. 
+            We believe in our product and are confident it represents the future of home 
+            monitoring with camera-based solutions.</p>
             <button
             className="cta"
             onClick={() => navigate("/Partnerships")}

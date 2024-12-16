@@ -43,7 +43,7 @@ function Partnerships() {
         <section>
           <h1>Join as a B2B partner</h1>
           <p>
-          Serai offers trusted, AI-driven elderly care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.
+          Serai offers trusted, AI-driven seniors care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.
           </p>
           <a className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
           Become a Partner
@@ -110,6 +110,7 @@ function Partnerships() {
             <div>
               <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={partnerImageLargeStyles} />
               <img src={require('../images/iNNO LOGO.png')} alt="Innosuisse Partner" style={partnerImageSmallStyles} />
+              <img src={require('../images/spitexLogo.png')} alt="Spitex Partner" style={partnerImageSmallStyles} />
             </div>
           </section>
 
@@ -382,15 +383,15 @@ const styles = {
   },
   partnerImageSmall: {
     width: '500px', 
-    marginBottom: '0rem',
+    marginBottom: '4rem',
   },
   partnerImageSmallMobile: {
     width: '80%',
-    marginBottom: '0rem',
+    marginBottom: '2rem',
   },
   partnerImageSmallTablet: {
     width: '90%',
-    marginBottom: '0rem',
+    marginBottom: '3rem',
   },
 };
 

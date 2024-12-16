@@ -108,7 +108,7 @@ function Home() {
           </h1>
           <p>
             Serai provides privacy-preserving, intelligent solutions to support
-            the independence and safety of the elderly. Our advanced technology
+            the independence and safety of the seniors. Our advanced technology
             detects unusual activity patterns, enabling quick intervention and
             ensuring peace of mind for caregivers.
           </p>
@@ -121,10 +121,10 @@ function Home() {
         </section>
 
         <section ref={elderlyCareRef}>
-          <h2>Transformative Solutions for Elderly Care</h2>
+          <h2>Transformative Solutions for Seniors Care</h2>
           <p>
             Serai’s advanced technology supports the safety, dignity, and
-            independence of elderly individuals. Our solutions provide
+            independence of seniors individuals. Our solutions provide
             continuous monitoring and immediate notifications to caregivers,
             ensuring a secure and supportive living environment.
           </p>
@@ -152,7 +152,7 @@ function Home() {
                     <p>
                       Our system sends real-time notifications to designated
                       caregivers enhancing the safety and security of the
-                      elderly.
+                      seniors.
                     </p>
                   </div>
                 </li>
@@ -170,7 +170,7 @@ function Home() {
                     <h5>24/7 Monitoring</h5>
                     <p>
                       Our system detects any irregularities in daily activities,
-                      providing a comprehensive safety net for the elderly.
+                      providing a comprehensive safety net for the seniors.
                     </p>
                   </div>
                 </li>
@@ -227,7 +227,7 @@ function Home() {
                 <p className="card-text">
                   Our AI continuously adapts, ensuring our solutions grow
                   smarter, more responsive, and more attuned to the needs of the
-                  elderly.
+                  seniors.
                 </p>
               </div>
             </div>
@@ -239,7 +239,7 @@ function Home() {
             <div className="row-container--left">
               <h2>Join Us</h2>
               <p>
-                Partner with Serai to elevate elderly care. Together, we’ll
+                Partner with Serai to elevate seniors care. Together, we’ll
                 deliver innovative, privacy first solutions that enhance safety,
                 independence, and quality of life.
               </p>

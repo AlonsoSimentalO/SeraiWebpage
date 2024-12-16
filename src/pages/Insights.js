@@ -20,10 +20,10 @@ function Insights() {
               We leverage advanced machine learning and IoT technology to provide real-time monitoring, fall detection, and emergency notifications.
               </p>
               <p>
-              <br />We offer an accessible, affordable, and home-integrated no-touch solution designed to improve the quality of life for the elderly.
+              <br />We offer an accessible, affordable, and home-integrated no-touch solution designed to improve the quality of life for the seniors.
               </p>
               <p>
-              <br />By automating routine tasks and enhancing caregiver efficiency, Serai's approach reduces healthcare costs and improves the quality of life for the elderly.
+              <br />By automating routine tasks and enhancing caregiver efficiency, Serai's approach reduces healthcare costs and improves the quality of life for the seniors.
               </p>
             </div>
           </section>
@@ -43,7 +43,7 @@ function Insights() {
             <div className="divider"></div>
             <section className="grid grid-theme--light">
             <div>
-              <h2>Privacy among Elderly Care</h2>
+              <h2>Privacy among Seniors Care</h2>
             </div>
             <div>
               <p>

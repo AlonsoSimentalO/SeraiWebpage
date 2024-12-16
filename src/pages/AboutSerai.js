@@ -9,7 +9,6 @@ import pinarImage from      '../images/profil_images/img_pinar_yaktiyol.svg'
 import evrimImage from      '../images/profil_images/img_evrim_firatli.svg'
 import eduardoImage from    '../images/profil_images/img_eduardo_ferrer.svg'
 import robertImage from     '../images/profil_images/img_roberthasson.svg'
-import kevinImage from      '../images/profil_images/img_kevin_schawinski.svg'
 import burakImage from      '../images/profil_images/img_burak_yetiskin.svg'
 import arzuImage from       '../images/profil_images/img_arzu_coltekin.jpg'
 import antonImage from      '../images/profil_images/img_anton_fedosov.svg'
@@ -49,7 +48,6 @@ function AboutSerai() {
     { name: 'Evrim Firatli', role: 'ML Intern', image: evrimImage, linkedin: 'https://www.linkedin.com/in/firatlievrim/' },
     { name: 'Eduardo Castello Ferrer', role: 'Advisory Board Member', image: eduardoImage, linkedin: 'https://www.linkedin.com/in/eduardocastelloferrer/' },
     { name: 'Robert Hasson', role: 'Advisory Board Member', image: robertImage, linkedin: 'https://www.linkedin.com/in/robert-hasson/' },
-    { name: 'Kevin Schawinsk', role: 'Advisory Board Member', image: kevinImage, linkedin: 'https://www.linkedin.com/in/kevin-schawinski-517b2a74/' },
     { name: 'Burak Yetiskin', role: 'Founder, Ex-CEO, Advisory Board Member', image: burakImage, linkedin: 'https://www.linkedin.com/in/burakyetiskin/' },
   ];
 
@@ -101,12 +99,12 @@ function AboutSerai() {
           
           <div className="goals-section"> 
               <h3 >
-              These goals drive Us:
+              These goals drive us:
               </h3>
               <div className="goals">
-                {["Enhancing safety and independence to empower the elderly",
+                {["Enhancing safety and independence to empower the seniors",
                   "Advancing intelligent monitoring solutions for proactive care",
-                  "Investing in ongoing R&D to continuously improve the evolving needs of the elderly population",
+                  "Investing in ongoing R&D to continuously improve the evolving needs of the seniors population",
                 ].map((goal, index) => (
                   <p style={{ 
                     ...styles.goal, 
@@ -133,7 +131,7 @@ function AboutSerai() {
             </div>
             <div>
               <p>
-              Serai develops privacy-focused software and intelligent monitoring algorithms to enhance safety and independence for the elderly. Our technology detects unusual activity patterns, identifying risks and enabling timely intervention to create safer living environments.
+              Serai develops privacy-focused software and intelligent monitoring algorithms to enhance safety and independence for the seniors. Our technology detects unusual activity patterns, identifying risks and enabling timely intervention to create safer living environments.
               </p>
             </div>
           </section>
@@ -145,8 +143,8 @@ function AboutSerai() {
             </div>
             <div>
               <p>
-              Through a collaborative research project with FHNW, supported by Innosuisse’s Innocheque, Serai is advancing elderly care. With CHF <span className="highlight">1.1 million</span> in private seed funding and a 
-              patent application underway, we are committed to pioneering solutions that empower elderly individuals and support caregivers.           </p>
+              Through a collaborative research project with FHNW, supported by Innosuisse’s Innocheque, Serai is advancing seniors care. With CHF <span className="highlight">1.1 million</span> in private seed funding and a 
+              patent application underway, we are committed to pioneering solutions that empower seniors individuals and support caregivers.           </p>
             </div>
           </section>
 
@@ -158,7 +156,7 @@ function AboutSerai() {
             </div>
             <div>
               <p>
-              Rising Elderly Population: Projected to reach <span className="highlight">1.5 billion</span> by <span className="highlight">2050</span>.
+              Rising Seniors Population: Projected to reach <span className="highlight">1.5 billion</span> by <span className="highlight">2050</span>.
               High Fall Incidence and Costs: In Switzerland, <span className="highlight">90,000</span> falls yearly lead to <span className="highlight">CHF 1.9 billion</span> in healthcare costs.
               Limitations of Wearable Devices: Over <span className="highlight">80%</span> of seniors avoid wearables due to discomfort.            </p>
             </div>
@@ -206,13 +204,13 @@ function AboutSerai() {
                   <li>
                     <div>
                       <h5>Economic Impact</h5>
-                      <p>Serai offers a cost-effective alternative to traditional elderly care, with a low monthly subscription fee compared to the average <span className="highlight">CHF 9,122</span> monthly care costs.</p>
+                      <p>Serai offers a cost-effective alternative to traditional seniors care, with a low monthly subscription fee compared to the average <span className="highlight">CHF 9,122</span> monthly care costs.</p>
                     </div>
                   </li>
                   <li>
                     <div>
                       <h5>Social Impact</h5>
-                      <p>Our solution promotes independence and safety for the elderly, easing caregiver burdens and enhancing family support.</p>
+                      <p>Our solution promotes independence and safety for the seniors, easing caregiver burdens and enhancing family support.</p>
                     </div>
                   </li>
                 </ul>

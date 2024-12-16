@@ -80,9 +80,8 @@ function Header() {
   };
 
   const navLinks = [
-    { path: 'AboutSerai', label: 'About Serai' },
+    { path: 'AboutSerai', label: 'About' },
     { path: 'research', label: 'Research' },
-    { path: 'Insights', label: 'Insights' },
     { path: 'Partnerships', label: 'Partnerships' },
     { path: 'contact', label: 'Contact' },
   ];

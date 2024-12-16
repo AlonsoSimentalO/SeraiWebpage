@@ -19,7 +19,6 @@ function Footer() {
         <div className="links-section">
           <Link to="/AboutSerai" className="link">About Serai</Link>
           <Link to="/research" className="link">Research</Link>
-          <Link to="/Insights" className="link">Insights</Link>
           <Link to="/Partnerships" className="link">Partnerships</Link>
           <Link to="/contact" className="link">Contact</Link>
         </div>
