@@ -2,6 +2,83 @@ import React from 'react';
 import Header from '../components/Header';  
 import Footer from '../components/Footer';
 
+function getUserLanguage() {
+  const userLang = navigator.language || "en";
+  if (userLang.startsWith("de")) return "de";
+  if (userLang.startsWith("fr")) return "fr";
+  if (userLang.startsWith("it")) return "it";
+  return "en";
+}
+
+const language = getUserLanguage();
+
+const translations = {
+  en: {
+    joinB2B: "Join as a B2B partner",
+    joinB2BP: "Serai offers trusted, AI-driven seniors care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.",
+    becomePartner: "Become a Partner",
+    whyPartner: "Why Partner with Serai",
+    whyPartnerP: "Our proven technology delivers continuous, non-intrusive monitoring without wearables, setting us apart with privacy-focused solutions and demonstrated success in real-world implementations.",
+    whoPartner: "Who we Partner with",
+    healthcareProviders: "Healthcare Providers",
+    insuranceCompanies: "Insurance Companies",
+    seniorCare: "Senior Care Facilities",
+    governmentInstitutions: "Government Institutions",
+    partnersSoFar: "Our Partners so far",
+    joinOurJourney: "Join our Journey",
+    joinOurJourneyP: "We’re always looking for great people to join our Serai team. Check out our current job listings below and get in touch if you think you could be a good match.",
+    generalApplication: "General Application"
+  },
+  de: {
+    joinB2B: "Werden Sie B2B-Partner",
+    joinB2BP: "Serai bietet vertrauenswürdige, KI-gestützte Lösungen für die Seniorenbetreuung, die die Lebensqualität verbessern und gleichzeitig die Privatsphäre wahren. Unsere Partnerschaften befähigen Gesundheitsdienstleister, Versicherer und Pflegeeinrichtungen, die Patientensicherheit zu erhöhen, Kosten zu senken und Ruhe und Sicherheit zu gewährleisten.",
+    becomePartner: "Partner werden",
+    whyPartner: "Warum eine Partnerschaft mit Serai",
+    whyPartnerP: "Unsere erprobte Technologie bietet kontinuierliche, nicht-intrusive Überwachung ohne Wearables, was uns mit datenschutzorientierten Lösungen und nachgewiesenem Erfolg in realen Umsetzungen auszeichnet.",
+    whoPartner: "Mit wem wir zusammenarbeiten",
+    healthcareProviders: "Gesundheitsdienstleister",
+    insuranceCompanies: "Versicherungsunternehmen",
+    seniorCare: "Seniorenpflegeeinrichtungen",
+    governmentInstitutions: "Staatliche Institutionen",
+    partnersSoFar: "Unsere bisherigen Partner",
+    joinOurJourney: "Begleiten Sie uns auf unserer Reise",
+    joinOurJourneyP: "Wir sind immer auf der Suche nach großartigen Menschen, die unserem Serai-Team beitreten möchten. Schauen Sie sich unsere aktuellen Stellenangebote an und nehmen Sie Kontakt auf, wenn Sie glauben, dass Sie gut zu uns passen.",
+    generalApplication: "Allgemeine Bewerbung"
+  },
+  fr: {
+    joinB2B: "Devenez un partenaire B2B",
+    joinB2BP: "Serai propose des solutions de soins pour les aînés, fiables et pilotées par l’IA, qui améliorent la qualité de vie tout en préservant la vie privée. Nos partenariats permettent aux prestataires de soins de santé, aux assureurs et aux établissements de soins pour seniors d’améliorer la sécurité des patients, de réduire les coûts et d’offrir la tranquillité d’esprit.",
+    becomePartner: "Devenir Partenaire",
+    whyPartner: "Pourquoi s’associer avec Serai",
+    whyPartnerP: "Notre technologie éprouvée offre une surveillance continue, non intrusive et sans wearables, ce qui nous distingue grâce à des solutions centrées sur la confidentialité et des succès démontrés dans des conditions réelles.",
+    whoPartner: "Avec qui nous nous associons",
+    healthcareProviders: "Prestataires de soins de santé",
+    insuranceCompanies: "Compagnies d’assurance",
+    seniorCare: "Établissements de soins pour seniors",
+    governmentInstitutions: "Institutions gouvernementales",
+    partnersSoFar: "Nos partenaires à ce jour",
+    joinOurJourney: "Rejoignez notre aventure",
+    joinOurJourneyP: "Nous recherchons toujours des personnes formidables pour rejoindre l’équipe Serai. Consultez nos offres d’emploi actuelles et contactez-nous si vous pensez que vous seriez un bon candidat.",
+    generalApplication: "Candidature Générale"
+  },
+  it: {
+    joinB2B: "Unisciti come Partner B2B",
+    joinB2BP: "Serai offre soluzioni di assistenza per anziani affidabili e basate sull’IA, che migliorano la qualità della vita mantenendo la privacy. Le nostre partnership consentono a fornitori di assistenza sanitaria, assicuratori e strutture per anziani di migliorare la sicurezza dei pazienti, ridurre i costi e garantire tranquillità.",
+    becomePartner: "Diventa un Partner",
+    whyPartner: "Perché Collaborare con Serai",
+    whyPartnerP: "La nostra tecnologia collaudata fornisce un monitoraggio continuo e non intrusivo senza dispositivi indossabili, distinguendoci con soluzioni incentrate sulla privacy e un successo dimostrato in implementazioni reali.",
+    whoPartner: "Con chi Collaboriamo",
+    healthcareProviders: "Fornitori di Assistenza Sanitaria",
+    insuranceCompanies: "Compagnie Assicurative",
+    seniorCare: "Strutture di Assistenza per Anziani",
+    governmentInstitutions: "Istituzioni Governative",
+    partnersSoFar: "I nostri Partner finora",
+    joinOurJourney: "Unisciti al nostro Viaggio",
+    joinOurJourneyP: "Siamo sempre alla ricerca di persone straordinarie che si uniscano al team Serai. Dai un’occhiata alle nostre offerte di lavoro attuali e contattaci se pensi di poter essere un buon candidato.",
+    generalApplication: "Candidatura Generale"
+  }
+};
+
 function useMediaQuery(query) {
   const [matches, setMatches] = React.useState(() => window.matchMedia(query).matches);
 
@@ -33,20 +110,18 @@ function Partnerships() {
     ...(isTablet && styles.partnerImageSmallTablet),
   };
 
-
-
   return (
     <div>
       <Header />
 
       <div className="page-container">
         <section>
-          <h1>Join as a B2B partner</h1>
+          <h1>{translations[language].joinB2B}</h1>
           <p>
-          Serai offers trusted, AI-driven seniors care solutions that enhance quality of life while maintaining privacy. Our partnerships empower healthcare providers, insurers, and senior care facilities to improve patient safety, reduce costs, and provide peace of mind.
+          {translations[language].joinB2BP}
           </p>
           <a className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
-          Become a Partner
+          {translations[language].becomePartner}
           </a>
         </section>
 
@@ -54,47 +129,43 @@ function Partnerships() {
 
         <section className="grid grid-theme--light">
             <div>
-              <h2>Why Partner with Serai</h2>
+              <h2>{translations[language].whyPartner}</h2>
             </div>
             <div>
               <p>
-              Our proven technology delivers continuous, non-intrusive monitoring without wearables, setting us apart with 
-              privacy-focused solutions and demonstrated success in real-world implementations.
+              {translations[language].whyPartnerP}
               </p>
             </div>
           </section>
 
-
-   
           <div className="divider"></div>
-
 
           <section className="grid grid-theme--light">
           <div>
-            <h2>Who we Partner with</h2>
+            <h2>{translations[language].whoPartner}</h2>
           </div>
           <div>
           <div className="icon-list">
               <ul>
                 <li>
                   <div>
-                    <p>Healthcare Providers</p>
+                    <p>{translations[language].healthcareProviders}</p>
                   </div>
                 </li>
                 <li>
                   <div>
-                    <p>Insurance Companies</p>
+                    <p>{translations[language].insuranceCompanies}</p>
                   </div>
                 </li>
             
                 <li >
                   <div >
-                    <p>Senior Care Facilities</p>
+                    <p>{translations[language].seniorCare}</p>
                   </div>
                 </li>
                 <li >
                   <div >
-                    <p>Government Institutions</p>
+                    <p>{translations[language].governmentInstitutions}</p>
                   </div>
                 </li>
               </ul>
@@ -105,7 +176,7 @@ function Partnerships() {
         <div className="divider"></div>
         <section className="grid grid-theme--light">
             <div>
-              <h2>Our Partners so far</h2>
+              <h2>{translations[language].partnersSoFar}</h2>
             </div>
             <div>
               <img src={require('../images/FHNW_EN-removebg-preview.png')} alt="FHNW Partner" style={partnerImageLargeStyles} />
@@ -114,18 +185,15 @@ function Partnerships() {
             </div>
           </section>
 
-
-
           <div className="divider"></div>
 
           <section className="journey-section">
-            <h1>Join our Journey</h1>
+            <h1>{translations[language].joinOurJourney}</h1>
             <p>
-            We’re always looking for great people to join our Serai team. 
-            Check out our current job listings below and get in touch if you think you could be a good match.
+            {translations[language].joinOurJourneyP}
             </p>
             <a className="cta" href={mailToLink} target="_blank" rel="noopener noreferrer">
-            General Application
+            {translations[language].generalApplication}
             </a>
         </section>
 

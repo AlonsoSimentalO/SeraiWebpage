@@ -2,6 +2,55 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+function getUserLanguage() {
+  const userLang = navigator.language || "en";
+  if (userLang.startsWith("de")) return "de";
+  if (userLang.startsWith("fr")) return "fr";
+  if (userLang.startsWith("it")) return "it";
+  return "en";
+}
+
+const language = getUserLanguage();
+
+const translations = {
+  en: {
+    getInTouch: "Get in Touch",
+    getInTouchP: "We'd love to hear from you! Whether you have questions about our products, need support, or want to learn more about how Serai can enhance the quality of life for seniors, our team is here to help.",
+    contactUS: "Contact US",
+    seraiAG: "Serai AG",
+    addressLine1: "Horneggstrasse 9",
+    addressLine2: "8008 Zurich, Switzerland",
+    emailLabel: "Email:"
+  },
+  de: {
+    getInTouch: "Kontakt aufnehmen",
+    getInTouchP: "Wir würden gerne von Ihnen hören! Ob Sie Fragen zu unseren Produkten haben, Unterstützung benötigen oder mehr darüber erfahren möchten, wie Serai die Lebensqualität älterer Menschen verbessern kann – unser Team ist gerne für Sie da.",
+    contactUS: "Kontaktieren Sie uns",
+    seraiAG: "Serai AG",
+    addressLine1: "Horneggstrasse 9",
+    addressLine2: "8008 Zürich, Schweiz",
+    emailLabel: "E-Mail:"
+  },
+  fr: {
+    getInTouch: "Entrer en Contact",
+    getInTouchP: "Nous serions ravis de vous entendre ! Que vous ayez des questions sur nos produits, besoin d’assistance ou que vous souhaitiez en savoir plus sur la façon dont Serai peut améliorer la qualité de vie des aînés, notre équipe est là pour vous aider.",
+    contactUS: "Contactez-nous",
+    seraiAG: "Serai AG",
+    addressLine1: "Horneggstrasse 9",
+    addressLine2: "8008 Zurich, Suisse",
+    emailLabel: "E-mail :"
+  },
+  it: {
+    getInTouch: "Mettiti in Contatto",
+    getInTouchP: "Saremmo felici di sentirti! Che tu abbia domande sui nostri prodotti, bisogno di supporto o desideri saperne di più su come Serai può migliorare la qualità della vita degli anziani, il nostro team è qui per aiutarti.",
+    contactUS: "Contattaci",
+    seraiAG: "Serai AG",
+    addressLine1: "Horneggstrasse 9",
+    addressLine2: "8008 Zurigo, Svizzera",
+    emailLabel: "Email:"
+  }
+};
+
 function Contact() {
   return (
     <div>
@@ -11,13 +60,11 @@ function Contact() {
       
       <section className="grid grid-theme--light">
           <div>
-            <h2>Get in Touch</h2>
+            <h2>{translations[language].getInTouch}</h2>
           </div>
           <div>
             <p>
-            We'd love to hear from you! Whether you have questions about our
-            products, need support, or want to learn more about how Serai can
-            enhance the quality of life for seniors, our team is here to help.
+            {translations[language].getInTouchP}
             </p>
           </div>
         </section>
@@ -25,14 +72,14 @@ function Contact() {
 
         <section className="grid grid-theme--light">
           <div>
-            <h2>Contact US</h2>
+            <h2>{translations[language].contactUS}</h2>
           </div>
           <div>
-           <p className="bold"> Serai AG </p>
-            <p> Horneggstrasse 9 </p>
-            <p> 8008 Zurich, Switzerland</p>
+           <p className="bold"> {translations[language].seraiAG} </p>
+            <p> {translations[language].addressLine1} </p>
+            <p> {translations[language].addressLine2}</p>
             <p>
-              <span className="bold">Email:</span> info@serai.ch
+              <span className="bold">{translations[language].emailLabel}</span> info@serai.ch
             </p>
           </div>
         </section>
@@ -160,7 +207,7 @@ const styles = {
   },
   titleContainerTablet: {
     flex: "0 0 300px", 
-    marginRight: "50px", // Reducir margen para tablets
+    marginRight: "50px",
   },
   textContainer: {
     flex: "1",
