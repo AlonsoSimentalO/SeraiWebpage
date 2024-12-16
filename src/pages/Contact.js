@@ -32,7 +32,7 @@ function Contact() {
             <p> Horneggstrasse 9 </p>
             <p> 8008 Zurich, Switzerland</p>
             <p>
-              <span className="bold">Email:</span> info@seraispaces.com
+              <span className="bold">Email:</span> info@serai.ch
             </p>
           </div>
         </section>

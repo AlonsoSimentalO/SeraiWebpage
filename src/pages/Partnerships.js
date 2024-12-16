@@ -17,7 +17,7 @@ function useMediaQuery(query) {
 }
 
 function Partnerships() {
-  const mailToLink = "mailto:info@seraispaces.com";
+  const mailToLink = "mailto:info@serai.ch";
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isTablet = useMediaQuery('(min-width: 767px) and (max-width: 1024px)');
 
