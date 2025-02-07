@@ -177,8 +177,8 @@ function AboutSerai() {
   ];
 
   const researchPartners = [
-    { name: 'Prof. Dr. Arzu Coltekin', role: 'Advisory Board Member', image: arzuImage, linkedin: 'https://www.linkedin.com/in/arzucoltekin/' },
-    { name: 'Prof. Dr. Anton Fedosov', role: 'Advisory Board Member', image: antonImage, linkedin: 'https://www.linkedin.com/in/antonfedosov/' }
+    { name: 'Prof. Dr. Arzu Coltekin', role: '', image: arzuImage, linkedin: 'https://www.linkedin.com/in/arzucoltekin/' },
+    { name: 'Prof. Dr. Anton Fedosov', role: '', image: antonImage, linkedin: 'https://www.linkedin.com/in/antonfedosov/' }
   ];
 
   const TeamMember = ({ name, role, image, linkedin }) => (
